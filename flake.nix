@@ -12,12 +12,26 @@
 	outputs = { self, nixpkgs, home-manager, ... }@inputs: {
 		nixosConfigurations.nixos-server = nixpkgs.lib.nixosSystem {
 			modules = [
-				./configuration.nix
+				./ssh.nix
+				./nix-store-mirror.nix
+				./hardware-configuration.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
-                    home-manager.users.allenyou = import ./home.nix;
+                    home-manager.users.allenyou = import ./home/allenyou.nix;
                     home-manager.extraSpecialArgs = inputs;
+				}
+				{
+					environment.systemPackages = with nixpkgs; [
+						vim
+						wget
+						git
+					];
+					environment.variables.EDITOR = "vim";
+
+					system.stateVersion = "25.05";
+					networking.hostName = "nixos-server";
+					users.users.allenyou = import ./user/allenyou.nix;
 				}
 			];
 		};
