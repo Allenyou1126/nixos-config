@@ -15,6 +15,7 @@
 			modules = [
 				./ssh.nix
 				./nix-store-mirror.nix
+				./boot/efi-systemd.nix
 				./hardware-configuration.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
