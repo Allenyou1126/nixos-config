@@ -26,7 +26,7 @@
                     home-manager.extraSpecialArgs = inputs;
 				}
 				({pkgs, ...}: {
-					environment.systemPackages = with pkg; [
+					environment.systemPackages = with pkgs; [
 						vim
 						wget
 						git
