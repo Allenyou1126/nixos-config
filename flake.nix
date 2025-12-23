@@ -17,6 +17,8 @@
 				./nix-store-mirror.nix
 				./boot/efi-systemd.nix
 				./hardware-configuration.nix
+				./common.nix
+				./nix-store-mirror.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
