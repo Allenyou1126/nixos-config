@@ -23,8 +23,8 @@
                     home-manager.users.allenyou = import ./home/allenyou.nix;
                     home-manager.extraSpecialArgs = inputs;
 				}
-				{
-					environment.systemPackages = with nixpkgs; [
+				({pkgs, ...}: {
+					environment.systemPackages = with pkg; [
 						vim
 						wget
 						git
@@ -34,7 +34,7 @@
 					system.stateVersion = "25.05";
 					networking.hostName = "nixos-server";
 					users.users.allenyou = import ./user/allenyou.nix;
-				}
+				})
 			];
 		};
 	};
