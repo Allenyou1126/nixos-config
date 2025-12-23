@@ -11,6 +11,7 @@
 
 	outputs = { self, nixpkgs, home-manager, ... }@inputs: {
 		nixosConfigurations.nixos-server = nixpkgs.lib.nixosSystem {
+			specialArgs = {inherit inputs;};
 			modules = [
 				./ssh.nix
 				./nix-store-mirror.nix

@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{ 
+    inputs,
+    lib,
+    config,
+    pkgs,
+    ...
+}:
 
 {
     isNormalUser = true;
