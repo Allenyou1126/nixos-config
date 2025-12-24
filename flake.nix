@@ -36,6 +36,7 @@
 
 						system.stateVersion = "25.05";
 						networking.hostName = "sha-ali-gaal";
+						users.mutableUsers = false;
 						users.users.allenyou = import ./user/allenyou.nix;
 					})
 				];
