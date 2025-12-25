@@ -3,7 +3,7 @@
     ...
 }:
 let
-    inherit (inputs) nixpkgs home-manager haumea;
+    inherit (inputs) nixpkgs haumea;
     rawUsers = haumea.lib.load {
         src = ./src;
         inputs = { inherit inputs; };
@@ -11,18 +11,13 @@ let
     userMapFunc = name: value: { userName = name; userSettings = value; };
     loadedUsers = builtins.attrValues (builtins.mapAttrs userMapFunc rawUsers);
     users = {
-        userHomes = home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = inputs;
-            home-manager.users = builtins.listToAttrs (map ({userName, userSettings}@user: {
-                name = userName;
-                value = {
-                    home.username = userName;
-                    home.homeDirectory = "/home/${userName}";
-                } // userSettings.home;
-            }) loadedUsers);
-        };
+        userHomes = builtins.listToAttrs (map ({userName, userSettings}@user: {
+            name = userName;
+            value = {
+                home.username = userName;
+                home.homeDirectory = "/home/${userName}";
+            } // userSettings.home;
+        }) loadedUsers);
         userCommons = {
             mutableUsers = false;
             users = builtins.listToAttrs (map ({userName, userSettings}@user: {
