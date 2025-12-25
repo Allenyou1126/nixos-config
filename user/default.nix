@@ -4,7 +4,7 @@
 }:
 let
     inherit (inputs) nixpkgs haumea;
-    homeStateVersion = "25.05";
+    homeStateVersion = "25.11";
     loadToAllUsers = haumea.lib.load {
         src = ./load-to-all;
         inputs = { inherit inputs; };
