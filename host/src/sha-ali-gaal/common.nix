@@ -5,6 +5,7 @@
         ../../../boot/efi-systemd.nix
         ../../../nix-store-mirror.nix
         ../../../ssh.nix
+        ./hardware-configuration.nix
     ];
     environment.systemPackages = with pkgs; [
         vim

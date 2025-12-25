@@ -38,7 +38,6 @@ let
                         system.stateVersion = "25.05";
                     })
                     hostSettings.common
-                    hostSettings.hardware-configuration
                 ];
             };
         }) loadedHosts);
