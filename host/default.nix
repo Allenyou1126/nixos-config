@@ -22,7 +22,6 @@ let
                 specialArgs = { inherit inputs; };
                 system = system;
                 modules = [
-                    ../common.nix
                     inputs.home-manager.nixosModules.home-manager
                     {
                         home-manager = {
