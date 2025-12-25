@@ -19,6 +19,8 @@ let
     hosts = builtins.listToAttrs (map ({hostName, hostSettings}@host: {
             name = hostName;
             value = nixpkgs.lib.nixosSystem {
+                specialArgs = { inherit inputs; };
+                system = system;
                 modules = [
                     ../common.nix
                     inputs.home-manager.nixosModules.home-manager
