@@ -20,7 +20,6 @@ let
     hosts = builtins.listToAttrs (map ({hostName, hostSettings}@host: {
             name = hostName;
             value = nixpkgs.lib.nixosSystem {
-                specialArgs = {inherit inputs;};
                 modules = [
                     ../common.nix
                     home-manager.lib.homeManagerConfiguration {
