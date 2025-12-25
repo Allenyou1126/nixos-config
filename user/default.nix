@@ -12,7 +12,7 @@ let
     userMapFunc = name: value: { userName = name; userSettings = value; };
     loadedUsers = builtins.attrValues (builtins.mapAttrs userMapFunc rawUsers);
     users = {
-        userHomes = home-manager.nixosModules.home-manager {
+        userHomes = home-manager.lib.homeManagerConfiguration {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = inputs;
