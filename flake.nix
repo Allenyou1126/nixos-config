@@ -28,7 +28,7 @@
 						./common.nix
 						./nix-store-mirror.nix
 						# users.userHomes
-						home-manager.nixosModules.home-manager {
+						({pkgs, ...}: home-manager.nixosModules.home-manager {
 							home-manager.useGlobalPkgs = true;
 							home-manager.useUserPackages = true;
 							home-manager.extraSpecialArgs = inputs;
@@ -84,7 +84,7 @@
 									home.stateVersion = "25.05";
 								};
 							};
-						}
+						})
 						({pkgs, ...}: {
 							environment.systemPackages = with pkgs; [
 								vim
