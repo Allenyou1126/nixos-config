@@ -46,4 +46,6 @@
             export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
         '';
     };
+
+    home.stateVersion = "25.11";
 }
