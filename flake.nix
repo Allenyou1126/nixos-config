@@ -36,10 +36,7 @@
 								allenyou = {
 									home.username = "allenyou";
 									home.homeDirectory = "/home/allenyou";
-									imports = [
-										./user/src/allenyou.nix
-									];
-								}
+								} // (import ./user/src/allenyou.nix).home;
 							}
 						}
 						({pkgs, ...}: {
