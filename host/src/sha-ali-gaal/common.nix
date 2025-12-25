@@ -5,7 +5,7 @@
         ../../../boot/efi-systemd.nix
         ../../../nix-store-mirror.nix
         ../../../ssh.nix
-    ]
+    ];
     environment.systemPackages = with pkgs; [
         vim
         wget
