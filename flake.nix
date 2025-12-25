@@ -27,7 +27,21 @@
 						./hardware-configuration.nix
 						./common.nix
 						./nix-store-mirror.nix
-						users.userHomes
+						# users.userHomes
+						home-manager.nixosModules.home-manager {
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.extraSpecialArgs = inputs;
+							home-manager.users = {
+								allenyou = {
+									home.username = "allenyou";
+									home.homeDirectory = "/home/allenyou";
+									imports = [
+										./user/src/allenyou.nix
+									];
+								}
+							}
+						}
 						({pkgs, ...}: {
 							environment.systemPackages = with pkgs; [
 								vim
