@@ -3,8 +3,7 @@
     ...
 }:
 let
-    haumea = inputs.haumea;
-    home-manager = import inputs.home-manager.nixosModules.home-manager;
+    inherit (inputs) nixpkgs home-manager haumea;
     rawUsers = haumea.lib.load {
         src = ./src;
         inputs = { inherit inputs; };
