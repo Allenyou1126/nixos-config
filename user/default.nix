@@ -4,18 +4,20 @@
 }:
 let
     inherit (inputs) nixpkgs haumea;
-    rawUsers = haumea.lib.load {
-        src = ./src;
+    homeStateVersion = "25.05";
+    loadToAllUsers = haumea.lib.load {
+        src = ./load-to-all;
         inputs = { inherit inputs; };
     };
     userMapFunc = name: value: { userName = name; userSettings = value; };
-    loadedUsers = builtins.attrValues (builtins.mapAttrs userMapFunc rawUsers);
+    loadedUsers = builtins.attrValues (builtins.mapAttrs userMapFunc loadToAllUsers );
     users = {
         userHomes = builtins.listToAttrs (map ({userName, userSettings}@user: {
             name = userName;
             value = {
                 home.username = userName;
                 home.homeDirectory = "/home/${userName}";
+                home.stateVersion = homeStateVersion;
             } // userSettings.home;
         }) loadedUsers);
         userCommons = {
