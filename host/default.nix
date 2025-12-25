@@ -1,4 +1,6 @@
 {
+    config,
+    libs,
     inputs,
     ...
 }:
@@ -6,6 +8,7 @@ let
     inherit (inputs) haumea nixpkgs;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    home-manager = inputs.home-manager;
 
     rawHosts = haumea.lib.load {
         src = ./src;
@@ -22,7 +25,7 @@ let
                 specialArgs = {inherit inputs;};
                 modules = [
                     ../common.nix
-                    home-manager.nixosModules.home-manager {
+                    home-manager.lib.homeManagerConfiguration {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
                         home-manager.extraSpecialArgs = inputs;
