@@ -27,7 +27,7 @@ let
                         inherit pkgs;
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
-                        home-manager.extraSpecialArgs = { inherit inputs };
+                        home-manager.extraSpecialArgs = { inherit inputs; };
                         home-manager.users = users.userHomes;
                     }
                     ({ ... }: {
