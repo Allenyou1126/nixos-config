@@ -13,7 +13,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, home-manager, ... }@inputs: let
+	outputs = { self, ... }@inputs: let
 			hosts = import ./host { inherit inputs; };
 		in {
 			debug = import ./test.nix { inherit inputs; };

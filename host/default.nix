@@ -1,6 +1,4 @@
 {
-    config,
-    libs,
     inputs,
     ...
 }:
@@ -17,7 +15,7 @@ let
     hostMapFunc = name: value: { hostName = name; hostSettings = value; };
     loadedHosts = builtins.attrValues (builtins.mapAttrs hostMapFunc rawHosts );
 
-    users = import ../user { inherit inputs; };
+    users = import ../user { inherit inputs pkgs; };
 
     hosts = builtins.listToAttrs (map ({hostName, hostSettings}@host: {
             name = hostName;
@@ -26,6 +24,7 @@ let
                 modules = [
                     ../common.nix
                     home-manager.lib.homeManagerConfiguration {
+                        inherit pkgs;
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
                         home-manager.extraSpecialArgs = inputs;
