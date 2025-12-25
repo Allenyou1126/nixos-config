@@ -37,7 +37,7 @@
 									home.username = "allenyou";
 									home.homeDirectory = "/home/allenyou";
 								} // (import ./user/src/allenyou.nix).home;
-							}
+							};
 						}
 						({pkgs, ...}: {
 							environment.systemPackages = with pkgs; [
