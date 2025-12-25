@@ -46,3 +46,13 @@ desk-[代号]
 | home-ebeling   | 家里云-虚拟机 | -        | 家里 on home-demerzel | Debian 12    | 内网服务器                          |
 | home-hardin    | 家里云-实体机 | -        | 家里                  | OpenWRT      | 软路由                              |
 | lap-fallom     | 个人设备      | -        | -                     | Windows 11   | 拯救者 R9000P 2023 锐龙版，主力设备 |
+
+## 部署方式
+
+首先，正常安装 NixOS，生成好 `hardwware-configuration.nix`，并启用 Flakes。
+
+随后，生成私钥并添加到 GitHub，然后 clone 该仓库到 `~/nixos-config`，将原本的配置文件夹备份后删除，将该目录链接过去。
+
+在 `host/src/` 目录下新建名为主机名的目录，将 `hardwware-configuration.nix` 移动到其中，`configuration.nix` 精简后命名为 `common.nix` 移动到其中。
+
+随后，运行 `nixos-rebuild switch --flake .#【主机名】` 即可。
