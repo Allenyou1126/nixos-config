@@ -14,7 +14,7 @@
 	};
 
 	outputs = { self, nixpkgs, home-manager, ... }@inputs: let
-			users = import ./user { inherit inputs; };
+			users = import ./user { inputs = inputs; };
 		in {
 			nixosConfigurations = {
 				sha-ali-gaal = nixpkgs.lib.nixosSystem {
