@@ -23,12 +23,13 @@ let
                 specialArgs = {inherit inputs;};
                 modules = [
                     ../common.nix
-                    home-manager.lib.homeManagerConfiguration {
-                        inherit pkgs;
-                        home-manager.useGlobalPkgs = true;
-                        home-manager.useUserPackages = true;
-                        home-manager.extraSpecialArgs = { inherit inputs; };
-                        home-manager.users = users.userHomes;
+                    {
+                        home-manager = {
+                            useGlobalPkgs = true;
+                            useUserPackages = true;
+                            extraSpecialArgs = { inherit inputs; };
+                            users = users.userHomes;
+                        };
                     }
                     ({ ... }: {
                         users = users.userCommons;
