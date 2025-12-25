@@ -21,14 +21,14 @@ let
                 value = {
                     home.username = userName;
                     home.homeDirectory = "/home/${userName}";
-                } // { inherit userSettings.home; };
+                } // userSettings.home;
             }) loadedUsers);
         };
         userCommons = {
             mutableUsers = false;
             users = builtins.listToAttrs (map ({userName, userSettings}@user: {
                 name = userName;
-                value = { inherit userSettings.common; };
+                value = userSettings.common;
             }) loadedUsers);
         };
     };
