@@ -1,12 +1,13 @@
 {
     inputs,
+    pkgs,
     ...
 }:
 let
     inherit (inputs) nixpkgs haumea;
     loadToAllUsers = haumea.lib.load {
         src = ./load-to-all;
-        inputs = { inherit inputs; };
+        inputs = { inherit inputs pkgs; };
     };
     userMapFunc = name: value: { userName = name; userSettings = value; };
     loadedUsers = builtins.attrValues (builtins.mapAttrs userMapFunc loadToAllUsers );

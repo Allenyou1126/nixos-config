@@ -14,7 +14,7 @@
 	};
 
 	outputs = { self, nixpkgs, home-manager, ... }@inputs: let
-			users = import ./user { inherit inputs; };
+			users = import ./user { inherit inputs; pkgs = nixpkgs.legacyPackages.x86_64-linux; };
 		in {
 			debug = import ./test.nix { inherit inputs; };
 			nixosConfigurations = {
