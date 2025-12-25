@@ -4,7 +4,7 @@
 	inputs = {
 		nixpkgs.url = "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.05&shallow=1";
 		home-manager = {
-			url = "git+https://gitee.com/Allenyou1126/home-manager";
+			url = "git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.05&shallow=1";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		haumea = {
