@@ -46,14 +46,14 @@ in {
                         ttl = 600;
                         class = "IN";
                         type = "CNAME";
-                        value = "225.224/27.89.21.172.in-addr.arpa."
+                        value = "225.224/27.89.21.172.in-addr.arpa.";
                     }
                     {
                         name = "226.89.21.172.in-addr.arpa.";
                         ttl = 600;
                         class = "IN";
                         type = "CNAME";
-                        value = "226.224/27.89.21.172.in-addr.arpa."
+                        value = "226.224/27.89.21.172.in-addr.arpa.";
                     }
                 ];
             }
@@ -187,28 +187,28 @@ in {
                 plugins = [
                     "log"
                     ["file" "/etc/coredns/zones/allenyou.dn42.zone"]
-                ]
+                ];
             }
             {
                 zone = "172.21.89.224/27";
                 plugins = [
                     "log"
                     ["file" "/etc/coredns/zones/ALLENYOU-DN42-V4.zone"]
-                ]
+                ];
             }
             {
                 zone = "224/27.89.21.172.in-addr.arpa";
                 plugins = [
                     "log"
                     ["file" "/etc/coredns/zones/ALLENYOU-DN42-V4.zone"]
-                ]
+                ];
             }
             {
                 zone = "fdbf:b830:8a32::/48";
                 plugins = [
                     "log"
                     ["file" "/etc/coredns/zones/ALLENYOU-DN42-V6.zone"]
-                ]
+                ];
             }
         ];
     };
