@@ -20,18 +20,6 @@ let
                     description = "List of CoreDNS plugins to enable for this server block.";
                 };
             };
-            config = {
-                assertions = [
-                    {
-                        assertion = cfg: (cfg.port >= 0 && cfg.port < 65536);
-                        message = "The port must be between 0 and 65535.";
-                    }
-                    {
-                        assertion = cfg: (lib.strings.hasSuffix "." cfg.zone);
-                        message = "The DNS zone must end with a dot.";
-                    }
-                ];
-            };
         };
         zoneFile = lib.types.submodule {
             options = {
@@ -120,29 +108,14 @@ let
                     description = "SOA record configuration for the zone.";
                 };
             };
-            config = {
-                assertions = [
-                    {
-                        assertion = cfg: (builtins.length cfg.records == 0 ||
-                                        lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) cfg.records);
-                        message = "All record types must be one of A, AAAA, CNAME, TXT, MX, NS, PTR, or SRV.";
-                    }
-                    {
-                        assertion = cfg: (builtins.length cfg.records == 0 || 
-                                    (cfg.soa != null && 
-                                     lib.all (record: record.ttl > cfg.soa.minimum) cfg.records));
-                        message = "All record TTL should be never below the minimum in SOA record.";
-                    }
-                ];
-            };
         };
     };
-    mkRecord = record: "${record.name} ${toString record.ttl} ${record.class} ${record.type} ${record.value}\n";
+    mkRecord = record: "${record.name} ${toString record.ttl} ${record.class} ${record.type} ${record.value}";
     mkSoaRecord = soa: "@ IN SOA ${soa.mname} ${soa.rname} ${toString soa.serial} ${toString soa.refresh} ${toString soa.retry} ${toString soa.expire} ${toString soa.minimum}\n";
     mkZoneFile = zone: let
         originText = "$ORIGIN ${zone.zone}\n";
         ttlText = "$TTL ${toString zone.defaultTtl}\n";
-        recordsText = lib.concatMap mkRecord zone.records;
+        recordsText = lib.concatStringsSep "\n" (map mkRecord zone.records);
         soaText = if zone.soa != null then mkSoaRecord zone.soa else "";
     in {
         "coredns/zones/${zone.fileName}" = {
@@ -154,10 +127,10 @@ let
             "${server.zone}:${toString server.port} {\n" +
             (if lib.length server.plugins > 0
             then
-                (lib.concatMap (plugin: ("    " + (if lib.isList plugin then lib.concatStringsSep " " plugin else plugin))) server.plugins) + "\n"
+                (lib.concatStringsSep "\n" (map (plugin: ("    " + (if lib.isList plugin then lib.concatStringsSep " " plugin else plugin))) server.plugins)) + "\n"
             else "") +
-            "}\n";
-    in lib.concatMap renderServerBlock serverBlocks;
+            "}";
+    in lib.concatStringsSep "\n\n" (map renderServerBlock serverBlocks);
 in {
     options.services.dn42.coredns = {
         enable = lib.mkEnableOption "CoreDNS for DN42 networking";
