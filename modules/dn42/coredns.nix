@@ -130,7 +130,7 @@ let
                     {
                         assertion = cfg: (lib.length cfg.records == 0 || 
                                     (cfg.soa != null && 
-                                     lib.all (record: record.ttl > soa.minimum) cfg.records));
+                                     lib.all (record: record.ttl > cfg.soa.minimum) cfg.records));
                         message = "All record TTL should be never below the minimum in SOA record.";
                     }
                 ];
