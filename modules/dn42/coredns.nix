@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let
-    
     cfg = config.services.dn42.coredns;
     types = rec {
         server = lib.types.submodule {
@@ -169,13 +168,13 @@ in {
         enable = lib.mkEnableOption "CoreDNS for DN42 networking";
 
         serverBlocks = lib.mkOption {
-            type = lib.types.listOf lib.types.uniq types.server;
+            type = lib.types.listOf types.server;
             default = [ ];
             description = "List of DNS zones to serve for DN42.";
         };
 
         zoneFiles = lib.mkOption {
-            type = lib.types.listOf lib.types.uniq types.zoneFile;
+            type = lib.types.listOf types.zoneFile;
             default = [ ];
             description = "List of zone files to create for CoreDNS.";
         };
