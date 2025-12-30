@@ -23,11 +23,11 @@ let
             config = rec {
                 assertions = [
                     {
-                        assertion = cfg.port > 0 && cfg.port < 65536;
+                        assertion = config.port > 0 && config.port < 65536;
                         message = "The port must be between 1 and 65535.";
                     }
                     {
-                        assertion = lib.strings.hasSuffix "." cfg.zone;
+                        assertion = lib.strings.hasSuffix "." config.zone;
                         message = "The DNS zone must end with a dot.";
                     }
                 ];
@@ -123,19 +123,19 @@ let
             config = rec {
                 assertions = [
                     {
-                        assertion = lib.length cfg.records == 0 || lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) cfg.records;
+                        assertion = lib.length config.records == 0 || lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) config.records;
                         message = "All record types must be one of A, AAAA, CNAME, TXT, MX, NS, PTR, or SRV.";
                     }
                     {
-                        assertion = lib.length cfg.records == 0 || 
-                                    (cfg.soa != null && 
-                                     lib.all (record: record.type != "SOA") cfg.records);
+                        assertion = lib.length config.records == 0 || 
+                                    (config.soa != null && 
+                                     lib.all (record: record.type != "SOA") config.records);
                         message = "If static records are defined, an SOA record configuration must be provided, and no SOA records should be in the records list.";
                     }
                     {
-                        assertion = lib.length cfg.records == 0 || 
-                                    (cfg.soa != null && 
-                                     lib.all (record: record.ttl > cfg.soa.minimum) cfg.records);
+                        assertion = lib.length config.records == 0 || 
+                                    (config.soa != null && 
+                                     lib.all (record: record.ttl > config.soa.minimum) config.records);
                         message = "If static records are defined, an SOA record configuration must be provided, and no SOA records should be in the records list.";
                     }
                 ];
