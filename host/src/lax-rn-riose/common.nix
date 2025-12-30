@@ -6,7 +6,7 @@
         ../../../modules/common.nix
         ../../../modules/ssh.nix
         ../../../modules/dn42/coredns.nix
-        ./dn42/dns.nix
+        ./dn42/dns-test.nix
         ./hardware-configuration.nix
     ];
     environment.systemPackages = with pkgs; [
