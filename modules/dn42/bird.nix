@@ -32,50 +32,54 @@ let
             };
         };
         peeringSession = lib.types.submodule {
-            neighborAS = lib.mkOption {
-                type = lib.types.int;
-                description = "The ASN of the peer network.";
-            };
-            networkInterface = lib.mkOption {
-                type = lib.types.str;
-                description = "The network interface to create BGP Session over.";
-            };
-            neighborV4 = lib.mkOption {
-                type = lib.types.nullOr lib.types.str;
-                default = null;
-                description = "The IPv4 address of your neighbor to create BGP Session via. Leave it as null will disable IPv4 BGP Session.";
-            };
-            neighborV6 = lib.mkOption {
-                type = lib.types.nullOr lib.types.str;
-                default = null;
-                description = "The IPv6 address of your neighbor to create BGP Session via. Leave it as null will disable IPv6 BGP Session.";
-            };
-            multiProtocolV4 = lib.mkOption {
-                type = lib.types.bool;
-                default = false;
-                description = "Whether to enable MP-BGP and allow route transfer over IPv4 BGP Session.";
-            };
-            multiProtocolV6 = lib.mkOption {
-                type = lib.types.bool;
-                default = false;
-                description = "Whether to enable MP-BGP and allow route transfer over IPv6 BGP Session.";
-            };
+            options = {
+                neighborAS = lib.mkOption {
+                    type = lib.types.int;
+                    description = "The ASN of the peer network.";
+                };
+                networkInterface = lib.mkOption {
+                    type = lib.types.str;
+                    description = "The network interface to create BGP Session over.";
+                };
+                neighborV4 = lib.mkOption {
+                    type = lib.types.nullOr lib.types.str;
+                    default = null;
+                    description = "The IPv4 address of your neighbor to create BGP Session via. Leave it as null will disable IPv4 BGP Session.";
+                };
+                neighborV6 = lib.mkOption {
+                    type = lib.types.nullOr lib.types.str;
+                    default = null;
+                    description = "The IPv6 address of your neighbor to create BGP Session via. Leave it as null will disable IPv6 BGP Session.";
+                };
+                multiProtocolV4 = lib.mkOption {
+                    type = lib.types.bool;
+                    default = false;
+                    description = "Whether to enable MP-BGP and allow route transfer over IPv4 BGP Session.";
+                };
+                multiProtocolV6 = lib.mkOption {
+                    type = lib.types.bool;
+                    default = false;
+                    description = "Whether to enable MP-BGP and allow route transfer over IPv6 BGP Session.";
+                };
+            }
         };
         staticSession = lib.types.submodule {
-            networkInterface = lib.mkOption {
-                type = lib.types.str;
-                description = "The network interface to create BGP Session over.";
-            };
-            neighborV4 = lib.mkOption {
-                type = lib.types.str;
-                default = null;
-                description = "The IPv4 address of your neighbor to create static Session via.";
-            };
-            neighborV6 = lib.mkOption {
-                type = lib.types.str;
-                default = null;
-                description = "The IPv6 address of your neighbor to create static Session via.";
-            };
+            options = {
+                networkInterface = lib.mkOption {
+                    type = lib.types.str;
+                    description = "The network interface to create BGP Session over.";
+                };
+                neighborV4 = lib.mkOption {
+                    type = lib.types.str;
+                    default = null;
+                    description = "The IPv4 address of your neighbor to create static Session via.";
+                };
+                neighborV6 = lib.mkOption {
+                    type = lib.types.str;
+                    default = null;
+                    description = "The IPv6 address of your neighbor to create static Session via.";
+                };
+            }
         };
         rpkiServer = lib.types.submodule {
             options = {
