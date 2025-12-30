@@ -89,14 +89,17 @@ let
                 };
                 retry = lib.mkOption {
                     type = lib.types.int;
+                    default = 114514; # TODO: 设置新的默认值
                     description = "The retry interval of RPKI server.";
                 };
                 refresh = lib.mkOption {
                     type = lib.types.int;
+                    default = 114514; # TODO: 设置新的默认值
                     description = "The refresh interval of RPKI server.";
                 };
                 expire = lib.mkOption {
                     type = lib.types.int;
+                    default = 114514; # TODO: 设置新的默认值
                     description = "The expire interval of RPKI server.";
                 };
             };
@@ -165,9 +168,9 @@ protocol rpki rpki_${name} {
     roa4 { table dn42_roa; };
     roa6 { table dn42_roa_v6; };
     remote ${rpkiServer.address} port ${builtins.toString rpkiServer.port};
-    retry keep ${rpkiServer.retry};
-    refresh keep ${rpkiServer.refresh};
-    expire keep ${rpkiServer.expire};
+    retry keep ${builtins.toString rpkiServer.retry};
+    refresh keep ${builtins.toString rpkiServer.refresh};
+    expire keep ${builtins.toString rpkiServer.expire};
 };
     '';
     
