@@ -6,7 +6,9 @@
         ../../../modules/common.nix
         ../../../modules/ssh.nix
         ../../../modules/dn42/coredns.nix
+        ../../../modules/dn42/bird.nix
         ./dn42/dns.nix
+        ./dn42/bird.nix
         ./hardware-configuration.nix
     ];
     environment.systemPackages = with pkgs; [
