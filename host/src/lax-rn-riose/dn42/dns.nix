@@ -5,7 +5,7 @@ let
 in {
     services.dn42.coredns = {
         enable = true;
-        zones = [
+        zoneFiles = [
             {
                 fileName = "ALLENYOU-DN42-V4.zone";
                 zone = "224/27.89.21.172.in-addr.arpa.";
