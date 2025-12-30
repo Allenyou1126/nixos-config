@@ -123,12 +123,12 @@ let
             config = {
                 assertions = [
                     {
-                        assertion = cfg: (lib.length cfg.records == 0 ||
+                        assertion = cfg: (builtins.length cfg.records == 0 ||
                                         lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) cfg.records);
                         message = "All record types must be one of A, AAAA, CNAME, TXT, MX, NS, PTR, or SRV.";
                     }
                     {
-                        assertion = cfg: (lib.length cfg.records == 0 || 
+                        assertion = cfg: (builtins.length cfg.records == 0 || 
                                     (cfg.soa != null && 
                                      lib.all (record: record.ttl > cfg.soa.minimum) cfg.records));
                         message = "All record TTL should be never below the minimum in SOA record.";
