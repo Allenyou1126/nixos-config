@@ -27,7 +27,7 @@ let
                         message = "The port must be between 0 and 65535.";
                     }
                     {
-                        assertion = lib.strings.hasSuffix "." zone;
+                        assertion = cfg: (lib.strings.hasSuffix "." cfg.zone);
                         message = "The DNS zone must end with a dot.";
                     }
                 ];
