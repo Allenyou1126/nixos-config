@@ -186,28 +186,28 @@ in {
                 zone = "allenyou.dn42";
                 plugins = [
                     "log"
-                    ["file" "/etc/coredns/zones/allenyou.dn42.zone"]
+                    [ "file" "/etc/coredns/zones/allenyou.dn42.zone" ]
                 ];
             }
             {
                 zone = "172.21.89.224/27";
                 plugins = [
                     "log"
-                    ["file" "/etc/coredns/zones/ALLENYOU-DN42-V4.zone"]
+                    [ "file" "/etc/coredns/zones/ALLENYOU-DN42-V4.zone" ]
                 ];
             }
             {
                 zone = "224/27.89.21.172.in-addr.arpa";
                 plugins = [
                     "log"
-                    ["file" "/etc/coredns/zones/ALLENYOU-DN42-V4.zone"]
+                    [ "file" "/etc/coredns/zones/ALLENYOU-DN42-V4.zone" ]
                 ];
             }
             {
                 zone = "fdbf:b830:8a32::/48";
                 plugins = [
                     "log"
-                    ["file" "/etc/coredns/zones/ALLENYOU-DN42-V6.zone"]
+                    [ "file" "/etc/coredns/zones/ALLENYOU-DN42-V6.zone" ]
                 ];
             }
         ];
