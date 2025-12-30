@@ -20,7 +20,7 @@ let
                     description = "List of CoreDNS plugins to enable for this server block.";
                 };
             };
-            config = cfg: {
+            config = rec {
                 assertions = [
                     {
                         assertion = cfg.port > 0 && cfg.port < 65536;
@@ -120,7 +120,7 @@ let
                     description = "SOA record configuration for the zone.";
                 };
             };
-            config = cfg: {
+            config = rec {
                 assertions = [
                     {
                         assertion = lib.length cfg.records == 0 || lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) cfg.records;
