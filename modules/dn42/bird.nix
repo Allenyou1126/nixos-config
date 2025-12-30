@@ -61,7 +61,7 @@ let
                     default = false;
                     description = "Whether to enable MP-BGP and allow route transfer over IPv6 BGP Session.";
                 };
-            }
+            };
         };
         staticSession = lib.types.submodule {
             options = {
@@ -79,7 +79,7 @@ let
                     default = null;
                     description = "The IPv6 address of your neighbor to create static Session via.";
                 };
-            }
+            };
         };
         rpkiServer = lib.types.submodule {
             options = {
