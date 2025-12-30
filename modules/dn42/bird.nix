@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-    cfg = config.services.dn42.bird;
+    cfg = config.services.dn42.bird2;
     types = rec {
         ownNetwork = lib.types.submodule {
             options = {
