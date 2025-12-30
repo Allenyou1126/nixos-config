@@ -194,7 +194,7 @@ in {
         services.coredns = {
             enable = true;
             package = pkgs.coredns;
-            extraOptions = cfg.extraCommandLineOptions;
+            extraArgs = cfg.extraCommandLineOptions;
         };
 
         environment.etc = zoneFiles;
