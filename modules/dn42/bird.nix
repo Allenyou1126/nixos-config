@@ -179,7 +179,7 @@ in {
             description = "Information of your own network.";
         };
         enableRoa = lib.mkOption {
-            type = lib.types.;
+            type = lib.types.bool;
             default = true;
             description = "Information of your own network.";
         };
