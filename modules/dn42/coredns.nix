@@ -1,6 +1,7 @@
 {config, lib}:
 
 let
+    
     cfg = config.services.dn42.coredns;
     types = rec {
         server = lib.types.submodule {
@@ -165,7 +166,7 @@ let
     in lib.concatMap renderServerBlock serverBlocks;
 in {
     options.services.dn42.coredns = {
-        enable = mkEnableOption "CoreDNS for DN42 networking";
+        enable = lib.mkEnableOption "CoreDNS for DN42 networking";
 
         serverBlocks = lib.mkOption {
             type = lib.types.listOf lib.types.uniq types.server;
@@ -186,7 +187,7 @@ in {
         };
     };
 
-    config = mkIf cfg.enable (let
+    config = lib.mkIf cfg.enable (let
         zoneFiles = builtins.foldl' (x: y: x // y) {} (map mkZoneFile cfg.zoneFiles);
         config = mkCoreDnsConfig cfg.serverBlocks;
     in {
