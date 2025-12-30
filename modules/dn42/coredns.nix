@@ -20,14 +20,14 @@ let
                     description = "List of CoreDNS plugins to enable for this server block.";
                 };
             };
-            config = rec {
+            config = {
                 assertions = [
                     {
-                        assertion = config.port > 0 && config.port < 65536;
+                        assertion = port > 0 && port < 65536;
                         message = "The port must be between 1 and 65535.";
                     }
                     {
-                        assertion = lib.strings.hasSuffix "." config.zone;
+                        assertion = lib.strings.hasSuffix "." zone;
                         message = "The DNS zone must end with a dot.";
                     }
                 ];
@@ -120,22 +120,22 @@ let
                     description = "SOA record configuration for the zone.";
                 };
             };
-            config = rec {
+            config = {
                 assertions = [
                     {
-                        assertion = lib.length config.records == 0 || lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) config.records;
+                        assertion = lib.length records == 0 || lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) records;
                         message = "All record types must be one of A, AAAA, CNAME, TXT, MX, NS, PTR, or SRV.";
                     }
                     {
-                        assertion = lib.length config.records == 0 || 
-                                    (config.soa != null && 
-                                     lib.all (record: record.type != "SOA") config.records);
+                        assertion = lib.length records == 0 || 
+                                    (soa != null && 
+                                     lib.all (record: record.type != "SOA") records);
                         message = "If static records are defined, an SOA record configuration must be provided, and no SOA records should be in the records list.";
                     }
                     {
-                        assertion = lib.length config.records == 0 || 
-                                    (config.soa != null && 
-                                     lib.all (record: record.ttl > config.soa.minimum) config.records);
+                        assertion = lib.length records == 0 || 
+                                    (soa != null && 
+                                     lib.all (record: record.ttl > soa.minimum) records);
                         message = "If static records are defined, an SOA record configuration must be provided, and no SOA records should be in the records list.";
                     }
                 ];
