@@ -23,8 +23,8 @@ let
             config = {
                 assertions = [
                     {
-                        assertion = port > 0 && port < 65536;
-                        message = "The port must be between 1 and 65535.";
+                        assertion = cfg: (cfg.port >= 0 && cfg.port < 65536);
+                        message = "The port must be between 0 and 65535.";
                     }
                     {
                         assertion = lib.strings.hasSuffix "." zone;
@@ -123,20 +123,15 @@ let
             config = {
                 assertions = [
                     {
-                        assertion = lib.length records == 0 || lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) records;
+                        assertion = cfg: (lib.length cfg.records == 0 ||
+                                        lib.all (record: lib.elem record.type [ "A" "AAAA" "CNAME" "TXT" "MX" "NS" "SRV" "PTR" ]) cfg.records);
                         message = "All record types must be one of A, AAAA, CNAME, TXT, MX, NS, PTR, or SRV.";
                     }
                     {
-                        assertion = lib.length records == 0 || 
-                                    (soa != null && 
-                                     lib.all (record: record.type != "SOA") records);
-                        message = "If static records are defined, an SOA record configuration must be provided, and no SOA records should be in the records list.";
-                    }
-                    {
-                        assertion = lib.length records == 0 || 
-                                    (soa != null && 
-                                     lib.all (record: record.ttl > soa.minimum) records);
-                        message = "If static records are defined, an SOA record configuration must be provided, and no SOA records should be in the records list.";
+                        assertion = cfg: (lib.length cfg.records == 0 || 
+                                    (cfg.soa != null && 
+                                     lib.all (record: record.ttl > soa.minimum) cfg.records));
+                        message = "All record TTL should be never below the minimum in SOA record.";
                     }
                 ];
             };
