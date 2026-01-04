@@ -22,6 +22,7 @@ let
                 specialArgs = { inherit inputs; };
                 system = system;
                 modules = [
+                    inputs.agenix.nixosModules.default
                     inputs.home-manager.nixosModules.home-manager
                     {
                         home-manager = {
