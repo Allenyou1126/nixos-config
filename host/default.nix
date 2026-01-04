@@ -16,7 +16,9 @@ let
 
     users = import ../user { inherit inputs pkgs; };
 
-    hosts = builtins.listToAttrs (map ({hostName, hostSettings}@host: {
+    hosts = builtins.listToAttrs (map ({hostName, hostSettings}@host: let
+        secrets = hostSettings.secrets or {};
+    in {
         name = hostName;
         value = nixpkgs.lib.nixosSystem {
             specialArgs = { inherit inputs; };
@@ -37,6 +39,9 @@ let
                     networking.hostName = hostName;
                     environment.systemPackages = [ agenix.packages.${system}.default ];
                     system.stateVersion = "25.05";
+                })
+                ({ ... }: {
+                    age.secrets = secrets;
                 })
                 hostSettings.common
             ];
