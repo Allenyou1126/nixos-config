@@ -18,8 +18,8 @@
 	};
 
 	outputs = { self, ... }@inputs: let
-			hosts = import ./host { inherit inputs; };
-		in {
-			nixosConfigurations = hosts;
-		};
+		hosts = import ./host { inherit inputs; };
+	in {
+		nixosConfigurations = hosts;
+	};
 }

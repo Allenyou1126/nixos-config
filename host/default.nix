@@ -3,7 +3,7 @@
     ...
 }:
 let
-    inherit (inputs) haumea nixpkgs;
+    inherit (inputs) haumea nixpkgs agenix;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
@@ -35,6 +35,7 @@ let
                 ({ ... }: {
                     users = users.userCommons;
                     networking.hostName = hostName;
+                    environment.systemPackages = [ agenix.packages.${system}.default ];
                     system.stateVersion = "25.05";
                 })
                 hostSettings.common
