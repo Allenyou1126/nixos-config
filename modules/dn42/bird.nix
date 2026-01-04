@@ -93,17 +93,17 @@ let
                 };
                 retry = lib.mkOption {
                     type = lib.types.int;
-                    default = 114514; # TODO: 设置新的默认值
+                    default = 90;
                     description = "The retry interval of RPKI server.";
                 };
                 refresh = lib.mkOption {
                     type = lib.types.int;
-                    default = 114514; # TODO: 设置新的默认值
+                    default = 900;
                     description = "The refresh interval of RPKI server.";
                 };
                 expire = lib.mkOption {
                     type = lib.types.int;
-                    default = 114514; # TODO: 设置新的默认值
+                    default = 172800;
                     description = "The expire interval of RPKI server.";
                 };
             };
@@ -337,6 +337,7 @@ ${templateRoaV4Config}
             reject;
         };
         import limit 1000 action block;
+        extended next hop yes;
     };
     ipv6 {
         import filter {
@@ -351,12 +352,35 @@ ${templateRoaV6Config}
             reject;
         };
         import limit 1000 action block;
+        extended next hop yes;
     };
 }
                 '';
                 peeringConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkPeeringSession cfg.peeringSessions))) + "\n";
                 staticConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkStaticSession cfg.staticSessions))) + "\n";
             in commonConfig + roaConfig + rpkiConfig + templateConfig + peeringConfig + staticConfig;
+        };
+        systemd.services.roaUpdate = lib.mkIf cfg.enableRoa {
+            name = "roa-update";
+            description = "Update ROA for dn42 Bird (IPv4)";
+            wantedBy = [ "multi-user.target" ];
+            before = [ "bird.service" ];
+            serviceConfig = {
+                Type = "oneshot";
+                ExecStart = "wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf";
+                ExecStartPost = "ln -f /tmp/dn42_roa.conf /etc/bird/dn42_roa.conf";
+            };
+        };
+        systemd.services.roaUpdateV6 = lib.mkIf cfg.enableRoa {
+            name = "roa-update-v6";
+            description = "Update ROA for dn42 Bird (IPv6)";
+            wantedBy = [ "multi-user.target" ];
+            before = [ "bird.service" ];
+            serviceConfig = {
+                Type = "oneshot";
+                ExecStart = "wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf";
+                ExecStartPost = "ln -f /tmp/dn42_roa_v6.conf /etc/bird/dn42_roa_v6.conf";
+            };
         };
         environment.systemPackages = with pkgs; [
             wget
