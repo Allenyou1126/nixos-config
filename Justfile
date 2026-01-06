@@ -1,6 +1,6 @@
-host := "";
+host := ""
 
-hostArg := if host == "" then "" else "#" ++ host;
+hostArg := if host == "" { "" } else { "#" + host }
 
 # Display command list
 default:
