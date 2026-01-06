@@ -31,6 +31,8 @@
 
         sysstat
         ethtool
+        
+        just
     ];
 
     programs.git = {

@@ -2,9 +2,9 @@
 	description = "Allenyou's NixOS Server Flake";
 
 	inputs = {
-		nixpkgs.url = "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 		home-manager = {
-			url = "git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.11&shallow=1";
+			url = "github:nix-community/home-manager/release-25.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		haumea = {
