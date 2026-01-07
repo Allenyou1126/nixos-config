@@ -18,7 +18,7 @@ in {
         };
     };
 
-    config = lib.mkIf cfg.enable lib.mkIf config.services.dn42.bird.enable {
+    config = lib.mkIf (cfg.enable && config.services.dn42.bird.enable) {
         systemd.services.bird-lg-proxy = {
             enable = true;
             description = "Bird-lg-proxy";
