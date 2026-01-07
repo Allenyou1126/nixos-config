@@ -29,18 +29,18 @@ in {
             };
         };
         peeringSessions = {
-            akix = {
-                neighborAS = 210440;
-                networkInterface = "dn42-akix";
-                neighborV6 = "fe80::616b:6978";
-                multiProtocolV6 = true;
-            };
-            morecake = {
-                neighborAS = 4242421118;
-                networkInterface = "dn42-morecake";
-                neighborV6 = "fe80::1118";
-                multiProtocolV6 = true;
-            };
+            # akix = {
+            #     neighborAS = 210440;
+            #     networkInterface = "dn42-akix";
+            #     neighborV6 = "fe80::616b:6978";
+            #     multiProtocolV6 = true;
+            # };
+            # morecake = {
+            #     neighborAS = 4242421118;
+            #     networkInterface = "dn42-morecake";
+            #     neighborV6 = "fe80::1118";
+            #     multiProtocolV6 = true;
+            # };
             darkpoint = {
                 neighborAS = 4242420150;
                 networkInterface = "dn42-darkpoint";
@@ -109,7 +109,7 @@ in {
             };
             wolfyangfan = {
                 neighborAS = 4242422034;
-                networkInterface = "dn42-wolfyangfan";
+                networkInterface = "dn42-wolfyf";
                 neighborV6 = "fe80::2034";
                 multiProtocolV6 = true;
             };

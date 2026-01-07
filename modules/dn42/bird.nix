@@ -222,6 +222,12 @@ in {
         services.bird = {
             enable = true;
             package = pkgs.bird2;
+            preCheckConfig = ''
+                wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf
+                ln -f /tmp/dn42_roa_v4.conf /etc/bird/dn42_roa_v4.conf
+                wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf
+                ln -f /tmp/dn42_roa_v6.conf /etc/bird/dn42_roa_v6.conf
+            '';
             config = let
                 commonConfig = ''
 define OWNIPv4     = ${cfg.ownNetwork.ipv4.ip};
@@ -233,11 +239,11 @@ define OWNNETSETv6 = [ ${cfg.ownNetwork.ipv6.cidr}+ ];
 
 router id OWNIPv4;
 
-function is_self_net_v4() {
+function is_self_net_v4() -> bool {
     return net ~ OWNNETSETv4;
 }
 
-function is_self_net_v6() {
+function is_self_net_v6() -> bool {
     return net ~ OWNNETSETv6;
 }
 
@@ -245,7 +251,7 @@ protocol device {
     scan time 10;
 }
 
-function is_valid_network() {
+function is_valid_network() -> bool {
     return net ~ [
         172.20.0.0/14{21,29}, # dn42
         172.20.0.0/24{28,32}, # dn42 Anycast
@@ -259,10 +265,10 @@ function is_valid_network() {
     ];
 }
 
-function is_valid_network_v6() {
-return net ~ [
-    fd00::/8{44,64} # ULA address space as per RFC 4193
-];
+function is_valid_network_v6() -> bool {
+    return net ~ [
+        fd00::/8{44,64} # ULA address space as per RFC 4193
+    ];
 }
 
 protocol kernel {
@@ -295,12 +301,12 @@ protocol kernel {
                 roaConfig = if !cfg.enableRoa then "" else  ''
 roa4 table dn42_roa;
 roa6 table dn42_roa_v6;
-protocol static {
+protocol static dn42_roa_v4 {
     roa4 { table dn42_roa; };
     include "/etc/bird/dn42_roa.conf";
 };
 
-protocol static {
+protocol static dn42_roa_v6 {
     roa6 { table dn42_roa_v6; };
     include "/etc/bird/dn42_roa_v6.conf";
 };
