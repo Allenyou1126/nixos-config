@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ../../../modules/boot/efi-systemd.nix
+        ../../../modules/boot/bios-grub.nix
         ../../../modules/common.nix
         ../../../modules/ssh.nix
         ../../../modules/dn42/coredns.nix
@@ -21,4 +21,5 @@
         git
     ];
     environment.variables.EDITOR = "vim";
+    system.stateVersion = "25.11";
 }

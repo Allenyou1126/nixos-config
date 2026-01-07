@@ -14,4 +14,5 @@
         git
     ];
     environment.variables.EDITOR = "vim";
+    system.stateVersion = "25.05";
 }

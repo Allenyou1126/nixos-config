@@ -38,7 +38,6 @@ let
                     users = users.userCommons;
                     networking.hostName = hostName;
                     environment.systemPackages = [ agenix.packages.${system}.default ];
-                    system.stateVersion = "25.05";
                 })
                 ({ ... }: {
                     age.secrets = secrets;
