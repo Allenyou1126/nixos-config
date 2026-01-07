@@ -297,28 +297,28 @@ protocol kernel {
     '';
 
                 roaConfig = if !cfg.enableRoa then "" else  ''
-roa4 table dn42_roa;
-roa6 table dn42_roa_v6;
+roa4 table dn42_roa_v4_table;
+roa6 table dn42_roa_v6_table;
 protocol static dn42_roa_v4 {
-    roa4 { table dn42_roa; };
+    roa4 { table dn42_roa_v4_table; };
     include "/tmp/dn42_roa_v4.conf";
 };
 
 protocol static dn42_roa_v6 {
-    roa6 { table dn42_roa_v6; };
+    roa6 { table dn42_roa_v6_table; };
     include "/tmp/dn42_roa_v6.conf";
 };
     '';
 
                 rpkiConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkRpkiSession cfg.rpkiServers))) + "\n";
                 templateRoaV4Config = if !cfg.enableRoa then "" else  ''
-                if (roa_check(dn42_roa, net, bgp_path.last) != ROA_VALID) then {
+                if (roa_check(dn42_roa_v4_table, net, bgp_path.last) != ROA_VALID) then {
                     print "[dn42] ROA check failed for ", net, " ASN ", bgp_path.last;
                     reject;
                 }
                 '';
                 templateRoaV6Config = if !cfg.enableRoa then "" else  ''
-                if (roa_check(dn42_roa_v6, net, bgp_path.last) != ROA_VALID) then {
+                if (roa_check(dn42_roa_v6_table, net, bgp_path.last) != ROA_VALID) then {
                     print "[dn42] ROA check failed for ", net, " ASN ", bgp_path.last;
                     reject;
                 }
@@ -370,7 +370,7 @@ ${templateRoaV6Config}
             before = [ "bird.service" ];
             serviceConfig = {
                 Type = "oneshot";
-                ExecStart = "wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf";
+                ExecStart = "wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf";
             };
         };
         systemd.services.roa-update-v6 = lib.mkIf cfg.enableRoa {
@@ -387,7 +387,7 @@ ${templateRoaV6Config}
         ];
         services.cron.enable = true;
         services.cron.systemCronJobs = lib.mkIf cfg.enableRoa [
-            "0 * * * * root wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf"
+            "0 * * * * root wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf"
             "0 * * * * root wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf"
             "0 * * * * root birdc configure"
         ];
