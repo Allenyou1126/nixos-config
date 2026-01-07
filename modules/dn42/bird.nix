@@ -113,30 +113,30 @@ let
     mkV4Session = name: peer: let
         sessionHead = "protocol bgp dn42_${name}_v4 from dn42peers {\n";
         sessionBody = ''
-    neighbor ${peer.neighborV4} % ${peer.networkInterface} as ${builtins.toString peer.neighborAS};
-    direct;
-        '';
-        sessionEnd = "};\n";
-        mpBgpPart = if peer.multiProtocolV4 then "" else ''
-    ipv6 {
-        import none;
-        export none;
-    };
+            neighbor ${peer.neighborV4} % ${peer.networkInterface} as ${builtins.toString peer.neighborAS};
+            direct;
+                '';
+                sessionEnd = "};\n";
+                mpBgpPart = if peer.multiProtocolV4 then "" else ''
+            ipv6 {
+                import none;
+                export none;
+            };
         '';
     in sessionHead + sessionBody + mpBgpPart + sessionEnd;
 
     mkV6Session = name: peer: let
         sessionHead = "protocol bgp dn42_${name}_v6 from dn42peers {\n";
         sessionBody = ''
-    neighbor ${peer.neighborV6} % ${peer.networkInterface} as ${builtins.toString peer.neighborAS};
-    direct;
-        '';
-        sessionEnd = "};\n";
-        mpBgpPart = if peer.multiProtocolV6 then "" else ''
-    ipv4 {
-        import none;
-        export none;
-    };
+            neighbor ${peer.neighborV6} % ${peer.networkInterface} as ${builtins.toString peer.neighborAS};
+            direct;
+                '';
+                sessionEnd = "};\n";
+                mpBgpPart = if peer.multiProtocolV6 then "" else ''
+            ipv4 {
+                import none;
+                export none;
+            };
         '';
     in sessionHead + sessionBody + mpBgpPart + sessionEnd;
 
@@ -146,36 +146,36 @@ let
     in v4Session + v6Session;
 
     mkStaticSession = name: session: ''
-protocol static static_${name}_v4 {
-    route ${session.neighborV4} via ${session.networkInterface};
-    route OWNNETv4 reject;
+        protocol static static_${name}_v4 {
+            route ${session.neighborV4} via ${session.networkInterface};
+            route OWNNETv4 reject;
 
-    ipv4 {
-        import all;
-        export none;
-    };
-}
+            ipv4 {
+                import all;
+                export none;
+            };
+        }
 
-protocol static static_${name}_v6 {
-    route ${session.neighborV6} via ${session.networkInterface};
-    route OWNNETv6 reject;
+        protocol static static_${name}_v6 {
+            route ${session.neighborV6} via ${session.networkInterface};
+            route OWNNETv6 reject;
 
-    ipv6 {
-        import all;
-        export none;
-    };
-}
+            ipv6 {
+                import all;
+                export none;
+            };
+        }
     '';
 
     mkRpkiSession = name: rpkiServer: if !cfg.enableRoa then "" else ''
-protocol rpki rpki_${name} {
-    roa4 { table dn42_roa_v4_table; };
-    roa6 { table dn42_roa_v6_table; };
-    remote "${rpkiServer.address}" port ${builtins.toString rpkiServer.port};
-    retry keep ${builtins.toString rpkiServer.retry};
-    refresh keep ${builtins.toString rpkiServer.refresh};
-    expire keep ${builtins.toString rpkiServer.expire};
-};
+        protocol rpki rpki_${name} {
+            roa4 { table dn42_roa_v4_table; };
+            roa6 { table dn42_roa_v6_table; };
+            remote "${rpkiServer.address}" port ${builtins.toString rpkiServer.port};
+            retry keep ${builtins.toString rpkiServer.retry};
+            refresh keep ${builtins.toString rpkiServer.refresh};
+            expire keep ${builtins.toString rpkiServer.expire};
+        };
     '';
     
 in {
@@ -228,138 +228,138 @@ in {
             '';
             config = let
                 commonConfig = ''
-define OWNAS       = ${builtins.toString cfg.ownNetwork.asn};
-define OWNIPv4     = ${cfg.ownNetwork.ipv4.ip};
-define OWNNETv4    = ${cfg.ownNetwork.ipv4.cidr};
-define OWNNETSETv4 = [ ${cfg.ownNetwork.ipv4.cidr}+ ];
-define OWNIPv6     = ${cfg.ownNetwork.ipv6.ip};
-define OWNNETv6    = ${cfg.ownNetwork.ipv6.cidr};
-define OWNNETSETv6 = [ ${cfg.ownNetwork.ipv6.cidr}+ ];
+                    define OWNAS       = ${builtins.toString cfg.ownNetwork.asn};
+                    define OWNIPv4     = ${cfg.ownNetwork.ipv4.ip};
+                    define OWNNETv4    = ${cfg.ownNetwork.ipv4.cidr};
+                    define OWNNETSETv4 = [ ${cfg.ownNetwork.ipv4.cidr}+ ];
+                    define OWNIPv6     = ${cfg.ownNetwork.ipv6.ip};
+                    define OWNNETv6    = ${cfg.ownNetwork.ipv6.cidr};
+                    define OWNNETSETv6 = [ ${cfg.ownNetwork.ipv6.cidr}+ ];
 
-router id OWNIPv4;
+                    router id OWNIPv4;
 
-function is_self_net_v4() -> bool {
-    return net ~ OWNNETSETv4;
-}
+                    function is_self_net_v4() -> bool {
+                        return net ~ OWNNETSETv4;
+                    }
 
-function is_self_net_v6() -> bool {
-    return net ~ OWNNETSETv6;
-}
+                    function is_self_net_v6() -> bool {
+                        return net ~ OWNNETSETv6;
+                    }
 
-protocol device {
-    scan time 10;
-}
+                    protocol device {
+                        scan time 10;
+                    }
 
-function is_valid_network_v4() -> bool {
-    return net ~ [
-        172.20.0.0/14{21,29}, # dn42
-        172.20.0.0/24{28,32}, # dn42 Anycast
-        172.21.0.0/24{28,32}, # dn42 Anycast
-        172.22.0.0/24{28,32}, # dn42 Anycast
-        172.23.0.0/24{28,32}, # dn42 Anycast
-        172.31.0.0/16+,       # ChaosVPN
-        10.100.0.0/14+,       # ChaosVPN
-        10.127.0.0/16{16,32}, # neonetwork
-        10.0.0.0/8{15,24}     # Freifunk.net
-    ];
-}
+                    function is_valid_network_v4() -> bool {
+                        return net ~ [
+                            172.20.0.0/14{21,29}, # dn42
+                            172.20.0.0/24{28,32}, # dn42 Anycast
+                            172.21.0.0/24{28,32}, # dn42 Anycast
+                            172.22.0.0/24{28,32}, # dn42 Anycast
+                            172.23.0.0/24{28,32}, # dn42 Anycast
+                            172.31.0.0/16+,       # ChaosVPN
+                            10.100.0.0/14+,       # ChaosVPN
+                            10.127.0.0/16{16,32}, # neonetwork
+                            10.0.0.0/8{15,24}     # Freifunk.net
+                        ];
+                    }
 
-function is_valid_network_v6() -> bool {
-    return net ~ [
-        fd00::/8{44,64} # ULA address space as per RFC 4193
-    ];
-}
+                    function is_valid_network_v6() -> bool {
+                        return net ~ [
+                            fd00::/8{44,64} # ULA address space as per RFC 4193
+                        ];
+                    }
 
-protocol kernel {
-    scan time 20;
+                    protocol kernel {
+                        scan time 20;
 
-    ipv4 {
-        import none;
-        export filter {
-            if source = RTS_STATIC then reject;
-            krt_prefsrc = OWNIPv4;
-            accept;
-        };
-    };
-}
+                        ipv4 {
+                            import none;
+                            export filter {
+                                if source = RTS_STATIC then reject;
+                                krt_prefsrc = OWNIPv4;
+                                accept;
+                            };
+                        };
+                    }
 
-protocol kernel {
-    scan time 20;
+                    protocol kernel {
+                        scan time 20;
 
-    ipv6 {
-        import none;
-        export filter {
-            if source = RTS_STATIC then reject;
-            krt_prefsrc = OWNIPv6;
-            accept;
-        };
-    };
-};
-    '';
+                        ipv6 {
+                            import none;
+                            export filter {
+                                if source = RTS_STATIC then reject;
+                                krt_prefsrc = OWNIPv6;
+                                accept;
+                            };
+                        };
+                    };
+                '';
 
                 roaConfig = if !cfg.enableRoa then "" else  ''
-roa4 table dn42_roa_v4_table;
-roa6 table dn42_roa_v6_table;
-protocol static dn42_roa_v4 {
-    roa4 { table dn42_roa_v4_table; };
-    include "/tmp/dn42_roa_v4.conf";
-};
+                    roa4 table dn42_roa_v4_table;
+                    roa6 table dn42_roa_v6_table;
+                    protocol static dn42_roa_v4 {
+                        roa4 { table dn42_roa_v4_table; };
+                        include "/tmp/dn42_roa_v4.conf";
+                    };
 
-protocol static dn42_roa_v6 {
-    roa6 { table dn42_roa_v6_table; };
-    include "/tmp/dn42_roa_v6.conf";
-};
-    '';
+                    protocol static dn42_roa_v6 {
+                        roa6 { table dn42_roa_v6_table; };
+                        include "/tmp/dn42_roa_v6.conf";
+                    };
+                '';
 
                 rpkiConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkRpkiSession cfg.rpkiServers))) + "\n";
                 templateRoaV4Config = if !cfg.enableRoa then "" else  ''
-                if (roa_check(dn42_roa_v4_table, net, bgp_path.last) != ROA_VALID) then {
-                    print "[dn42] ROA check failed for ", net, " ASN ", bgp_path.last;
-                    reject;
-                }
+                    if (roa_check(dn42_roa_v4_table, net, bgp_path.last) != ROA_VALID) then {
+                        print "[dn42] ROA check failed for ", net, " ASN ", bgp_path.last;
+                        reject;
+                    }
                 '';
                 templateRoaV6Config = if !cfg.enableRoa then "" else  ''
-                if (roa_check(dn42_roa_v6_table, net, bgp_path.last) != ROA_VALID) then {
-                    print "[dn42] ROA check failed for ", net, " ASN ", bgp_path.last;
-                    reject;
-                }
+                    if (roa_check(dn42_roa_v6_table, net, bgp_path.last) != ROA_VALID) then {
+                        print "[dn42] ROA check failed for ", net, " ASN ", bgp_path.last;
+                        reject;
+                    }
                 '';
                 templateConfig = ''
-template bgp dn42peers {
-    local as OWNAS;
-    path metric 1;
-    ipv4 {
-        import filter {
-            if is_valid_network_v4() && !is_self_net_v4() then {
-${templateRoaV4Config}
-                accept;
-            }
-            reject;
-        };
+                    template bgp dn42peers {
+                        local as OWNAS;
+                        path metric 1;
+                        ipv4 {
+                            import filter {
+                                if is_valid_network_v4() && !is_self_net_v4() then {
+                                    ${templateRoaV4Config}
+                                    accept;
+                                }
+                                reject;
+                            };
 
-        export filter {
-            if is_valid_network_v4() && source ~ [RTS_STATIC, RTS_BGP] then accept;
-            reject;
-        };
-        import limit 1000 action block;
-        extended next hop yes;
-    };
-    ipv6 {
-        import filter {
-            if is_valid_network_v6() && !is_self_net_v6() then {
-${templateRoaV6Config}
-                accept;
-            }
-            reject;
-        };
-        export filter {
-            if is_valid_network_v6() && source ~ [RTS_STATIC, RTS_BGP] then accept;
-            reject;
-        };
-        import limit 1000 action block;
-        extended next hop yes;
-    };
-}
+                            export filter {
+                                if is_valid_network_v4() && source ~ [RTS_STATIC, RTS_BGP] then accept;
+                                reject;
+                            };
+                            import limit 1000 action block;
+                            extended next hop yes;
+                        };
+                        ipv6 {
+                            import filter {
+                                if is_valid_network_v6() && !is_self_net_v6() then {
+                                    ${templateRoaV6Config}
+                                    accept;
+                                }
+                                reject;
+                            };
+                            export filter {
+                                if is_valid_network_v6() && source ~ [RTS_STATIC, RTS_BGP] then accept;
+                                reject;
+                            };
+                            import limit 1000 action block;
+                            extended next hop yes;
+                        };
+                    }
                 '';
                 peeringConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkPeeringSession cfg.peeringSessions))) + "\n";
                 staticConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkStaticSession cfg.staticSessions))) + "\n";
