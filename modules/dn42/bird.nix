@@ -150,7 +150,7 @@ let
         protocolName = builtins.replaceStrings [ "-" ] [ "_" ] name;
     in ''
         protocol static static_${protocolName}_v4 {
-            route ${session.neighborV4} via '${session.networkInterface}';
+            route ${session.neighborV4} via "${session.networkInterface}";
             route OWNNETv4 reject;
 
             ipv4 {
@@ -160,7 +160,7 @@ let
         }
 
         protocol static static_${protocolName}_v6 {
-            route ${session.neighborV6} via '${session.networkInterface}';
+            route ${session.neighborV6} via "${session.networkInterface}";
             route OWNNETv6 reject;
 
             ipv6 {
