@@ -223,10 +223,8 @@ in {
             enable = true;
             package = pkgs.bird2;
             preCheckConfig = ''
-                wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf
-                ln -f /tmp/dn42_roa_v4.conf /etc/bird/dn42_roa_v4.conf
-                wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf
-                ln -f /tmp/dn42_roa_v6.conf /etc/bird/dn42_roa_v6.conf
+                touch /etc/bird/dn42_roa_v4.conf
+                touch /etc/bird/dn42_roa_v6.conf
             '';
             config = let
                 commonConfig = ''
