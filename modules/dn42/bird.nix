@@ -301,7 +301,7 @@ roa4 table dn42_roa;
 roa6 table dn42_roa_v6;
 protocol static dn42_roa_v4 {
     roa4 { table dn42_roa; };
-    include "/tmp/dn42_roa.conf";
+    include "/tmp/dn42_roa_v4.conf";
 };
 
 protocol static dn42_roa_v6 {
