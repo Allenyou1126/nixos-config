@@ -360,8 +360,7 @@ ${templateRoaV6Config}
                 staticConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkStaticSession cfg.staticSessions))) + "\n";
             in commonConfig + roaConfig + rpkiConfig + templateConfig + peeringConfig + staticConfig;
         };
-        systemd.services.roaUpdate = lib.mkIf cfg.enableRoa {
-            name = "roa-update";
+        systemd.services.roa-update-v4 = lib.mkIf cfg.enableRoa {
             description = "Update ROA for dn42 Bird (IPv4)";
             wantedBy = [ "multi-user.target" ];
             before = [ "bird.service" ];
@@ -371,8 +370,7 @@ ${templateRoaV6Config}
                 ExecStartPost = "ln -f /tmp/dn42_roa.conf /etc/bird/dn42_roa.conf";
             };
         };
-        systemd.services.roaUpdateV6 = lib.mkIf cfg.enableRoa {
-            name = "roa-update-v6";
+        systemd.services.roa-update-v6 = lib.mkIf cfg.enableRoa {
             description = "Update ROA for dn42 Bird (IPv6)";
             wantedBy = [ "multi-user.target" ];
             before = [ "bird.service" ];
