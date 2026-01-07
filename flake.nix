@@ -16,7 +16,7 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		allenyou-secrets = {
-			url = "github:Allenyou1126/nixos-secret";
+			url = "git+ssh://git@github.com/Allenyou1126/nixos-secret?shallow=1";
 			flake = false;
 		};
 	};
