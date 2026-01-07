@@ -228,6 +228,7 @@ in {
             '';
             config = let
                 commonConfig = ''
+define OWNAS       = ${builtins.toString cfg.ownNetwork.asn};
 define OWNIPv4     = ${cfg.ownNetwork.ipv4.ip};
 define OWNNETv4    = ${cfg.ownNetwork.ipv4.cidr};
 define OWNNETSETv4 = [ ${cfg.ownNetwork.ipv4.cidr}+ ];
