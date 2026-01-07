@@ -171,7 +171,7 @@ protocol static static_${name}_v6 {
 protocol rpki rpki_${name} {
     roa4 { table dn42_roa_v4_table; };
     roa6 { table dn42_roa_v6_table; };
-    remote ${rpkiServer.address} port ${builtins.toString rpkiServer.port};
+    remote "${rpkiServer.address}" port ${builtins.toString rpkiServer.port};
     retry keep ${builtins.toString rpkiServer.retry};
     refresh keep ${builtins.toString rpkiServer.refresh};
     expire keep ${builtins.toString rpkiServer.expire};
