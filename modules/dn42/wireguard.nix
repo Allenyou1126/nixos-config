@@ -126,7 +126,7 @@ let
         };
     };
     
-    mkGatewaySession = name: config: {
+    mkNonGatewaySession = name: config: {
         postUp = ''
             sysctl -w net.ipv6.conf.${name}.autoconf=0
             ip addr add ${cfg.local.addressV4} dev ${name}
@@ -134,7 +134,7 @@ let
         '';
     };
 
-    mkNonGatewaySession = name: config: {
+    mkGatewaySession = name: config: {
         postUp = ''
             sysctl -w net.ipv6.conf.${name}.autoconf=0
             ip addr add ${cfg.local.addressV4} dev ${name}
