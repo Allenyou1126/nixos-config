@@ -169,8 +169,8 @@ protocol static static_${name}_v6 {
 
     mkRpkiSession = name: rpkiServer: if !cfg.enableRoa then "" else ''
 protocol rpki rpki_${name} {
-    roa4 { table dn42_roa; };
-    roa6 { table dn42_roa_v6; };
+    roa4 { table dn42_roa_v4_table; };
+    roa6 { table dn42_roa_v6_table; };
     remote ${rpkiServer.address} port ${builtins.toString rpkiServer.port};
     retry keep ${builtins.toString rpkiServer.retry};
     refresh keep ${builtins.toString rpkiServer.refresh};
