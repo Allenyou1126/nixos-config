@@ -141,12 +141,15 @@ let
     in sessionHead + sessionBody + mpBgpPart + sessionEnd;
 
     mkPeeringSession = name: peer: let
-        v4Session = if peer.neighborV4 == null then "" else (mkV4Session name peer);
-        v6Session = if peer.neighborV6 == null then "" else (mkV6Session name peer);
+        protocolName = builtins.replaceStrings [ "-" ] [ "_" ] name;
+        v4Session = if peer.neighborV4 == null then "" else (mkV4Session protocolName peer);
+        v6Session = if peer.neighborV6 == null then "" else (mkV6Session protocolName peer);
     in v4Session + v6Session;
 
-    mkStaticSession = name: session: ''
-        protocol static static_${name}_v4 {
+    mkStaticSession = name: session: let
+        protocolName = builtins.replaceStrings [ "-" ] [ "_" ] name;
+    in ''
+        protocol static static_${protocolName}_v4 {
             route ${session.neighborV4} via '${session.networkInterface}';
             route OWNNETv4 reject;
 
@@ -156,7 +159,7 @@ let
             };
         }
 
-        protocol static static_${name}_v6 {
+        protocol static static_${protocolName}_v6 {
             route ${session.neighborV6} via '${session.networkInterface}';
             route OWNNETv6 reject;
 
