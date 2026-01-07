@@ -7,12 +7,12 @@ in {
     options.services.dn42.bird-lg-proxy = {
         enable = lib.mkEnableOption "Bird-lg-proxy for DN42 networking (requires bird to be enabled)";
         port = lib.mkOption {
-            type = types.port;
+            type = lib.types.port;
             default = 8000;
             description = "Port to listen on";
         };
         address = lib.mkOption {
-            type = types.str;
+            type = lib.types.str;
             default = "0.0.0.0";
             description = "Address to listen on";
         };
