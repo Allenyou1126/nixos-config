@@ -396,10 +396,6 @@ in {
             RestrictSUIDSGID = true;
             SystemCallArchitectures = "native";
             SystemCallErrorNumber = "EPERM";
-            SystemCallFilter = [
-                "@system-service"
-                "~@clock @cpu-emulation @debug @module @mount @obsolete @privileged @raw-io @reboot @swap"
-            ];
             PrivateDevices = false;
             ProtectClock = false;
             ProtectControlGroups = false;
