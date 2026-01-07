@@ -41,7 +41,7 @@ let
                     environment.systemPackages = [ agenix.packages.${system}.default ];
                 })
                 ({ ... }: {
-                    age.secrets = secrets;
+                    age.secrets = secrets allenyou-secrets;
                 })
                 hostSettings.common
             ];

@@ -4,11 +4,11 @@ default:
 
 # Build and switch to a new generation. Usage: just switch hostname(leave empty for default)
 switch host="":
-  nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --use-remote-sudo
+  nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --sudo
 
 # Build and switch to a new generation using cn mirrors. Usage: just switch-cn hostname(leave empty for default)
 switch-cn host="":
-  nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --use-remote-sudo --override-input nixpkgs "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1" --override-input home-manager "git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.11&shallow=1"
+  nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --sudo --override-input nixpkgs "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1" --override-input home-manager "git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.11&shallow=1"
 
 # Update all flake inputs. Usage: just update
 update-all: (update "")
