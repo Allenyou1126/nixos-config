@@ -17,7 +17,7 @@ in {
                 networkInterface = "hkg-dog-darell";
             };
         };
-        peeringSessions = {
+        dn42PeeringSessions = {
             akix = {
                 addressV4 = "172.20.183.3";
                 addressV6 = "fd15:9c81:b912::1/128";
