@@ -416,7 +416,7 @@ in {
                 "AF_NETLINK"
             ];
             SystemCallFilter = [ ];
-            ExecPostStart = "${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf && ${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf";
+            ExecPreStart = "${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf && ${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf";
             ExecStart = "${lib.getExe' pkgs.bird2 "bird"} -f -c /etc/bird/bird.conf";
             ExecReload = "${lib.getExe' pkgs.bird2 "birdc"} configure";
 
