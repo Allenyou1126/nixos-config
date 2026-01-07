@@ -55,7 +55,7 @@ desk-[代号]
 
 在另一台服务器上，向 `Allenyou1126/nixos-secrets/secrets.nix` 中添加新的密钥，并使用 `agenix -r` 进行重新加密后，将其 push 到 GitHub。
 
-然后，clone `Allenyou1126/nixos-secrets` 到 `~/nixos-secrets`，并将其链接到 `/etc/secrets`。
+然后，clone `Allenyou1126/nixos-secrets` 到 `~/nixos-config/secrets`
 
 在 `host/src/` 目录下新建名为主机名的目录，将 `hardwware-configuration.nix` 移动到其中，`configuration.nix` 精简后命名为 `common.nix` 移动到其中，使用 `secrets.nix` 标识需要解密的 Secret 文件。
 
