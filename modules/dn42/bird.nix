@@ -381,7 +381,7 @@ in {
             MemoryDenyWriteExecute = true;
             NoNewPrivileges = true;
             PrivateMounts = true;
-            PrivateTmp = true;
+            PrivateTmp = false;
             ProcSubset = "pid";
             ProtectHome = true;
             ProtectHostname = true;
