@@ -20,20 +20,20 @@ in {
             };
         };
         dn42PeeringSessions = {
-            akix = {
-                addressV4 = "172.20.183.3";
-                addressV6 = "fd15:9c81:b912::1/128";
-                localLinkAddressV6 = "fe80::616b:6978/64";
-                endpoint = "ixp.akae.re:21056";
-                publicKey = "vFfgy5SyzrEeqouotHv3IpAh+aL3OBqGf/jrziz5WyA=";
-                listenPort = 10440;
-            };
-            morecake = {
-                localLinkAddressV6 = "fe80::1118";
-                endpoint = "jp.dn42.ainic.ee:21056";
-                publicKey = "2UHctxbyqTaY/cTiXDfSz8h+uJEluqYeeHQzzY9+aU4=";
-                listenPort = 21118;
-            };
+            # akix = {
+            #     addressV4 = "172.20.183.3";
+            #     addressV6 = "fd15:9c81:b912::1/128";
+            #     localLinkAddressV6 = "fe80::616b:6978/64";
+            #     endpoint = "ixp.akae.re:21056";
+            #     publicKey = "vFfgy5SyzrEeqouotHv3IpAh+aL3OBqGf/jrziz5WyA=";
+            #     listenPort = 10440;
+            # };
+            # morecake = {
+            #     localLinkAddressV6 = "fe80::1118";
+            #     endpoint = "jp.dn42.ainic.ee:21056";
+            #     publicKey = "2UHctxbyqTaY/cTiXDfSz8h+uJEluqYeeHQzzY9+aU4=";
+            #     listenPort = 21118;
+            # };
             darkpoint = {
                 localLinkAddressV6 = "fe80::150";
                 endpoint = "iad.darkpoint.xyz:21056";
@@ -112,7 +112,7 @@ in {
                 publicKey = "7HzHyeA2M7yo/zVmc+e0zG+I7j2SnIx+7ZpXOca93mg=";
                 listenPort = 20358;
             };
-            wolfyangfan = {
+            wolfyf = {
                 addressV4 = "172.21.104.33";
                 addressV6 = "fd3b:ed51:c993::1";
                 localLinkAddressV6 = "fe80::2034";
