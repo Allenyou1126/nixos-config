@@ -223,8 +223,8 @@ in {
             enable = true;
             package = pkgs.bird2;
             preCheckConfig = ''
-                touch /etc/bird/dn42_roa_v4.conf
-                touch /etc/bird/dn42_roa_v6.conf
+                touch /tmp/dn42_roa_v4.conf
+                touch /tmp/dn42_roa_v6.conf
             '';
             config = let
                 commonConfig = ''
@@ -301,12 +301,12 @@ roa4 table dn42_roa;
 roa6 table dn42_roa_v6;
 protocol static dn42_roa_v4 {
     roa4 { table dn42_roa; };
-    include "/etc/bird/dn42_roa.conf";
+    include "/tmp/dn42_roa.conf";
 };
 
 protocol static dn42_roa_v6 {
     roa6 { table dn42_roa_v6; };
-    include "/etc/bird/dn42_roa_v6.conf";
+    include "/tmp/dn42_roa_v6.conf";
 };
     '';
 
@@ -371,7 +371,6 @@ ${templateRoaV6Config}
             serviceConfig = {
                 Type = "oneshot";
                 ExecStart = "wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf";
-                ExecStartPost = "ln -f /tmp/dn42_roa.conf /etc/bird/dn42_roa.conf";
             };
         };
         systemd.services.roa-update-v6 = lib.mkIf cfg.enableRoa {
@@ -381,7 +380,6 @@ ${templateRoaV6Config}
             serviceConfig = {
                 Type = "oneshot";
                 ExecStart = "wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf";
-                ExecStartPost = "ln -f /tmp/dn42_roa_v6.conf /etc/bird/dn42_roa_v6.conf";
             };
         };
         environment.systemPackages = with pkgs; [
@@ -389,8 +387,8 @@ ${templateRoaV6Config}
         ];
         services.cron.enable = true;
         services.cron.systemCronJobs = lib.mkIf cfg.enableRoa [
-            "0 * * * * root wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf && ln -f /tmp/dn42_roa.conf /etc/bird/dn42_roa.conf"
-            "0 * * * * root wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf && ln -f /tmp/dn42_roa_v6.conf /etc/bird/dn42_roa_v6.conf"
+            "0 * * * * root wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf"
+            "0 * * * * root wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf"
             "0 * * * * root birdc configure"
         ];
     });
