@@ -12,8 +12,8 @@ in {
         };
         staticSessions = {
             hkg-dog-darell = {
-                neighborV4 = "172.21.89.226/32";
-                neighborV6 = "fdbf:b830:8a32::2/128";
+                addressV4 = "172.21.89.226/32";
+                addressV6 = "fdbf:b830:8a32::2/128";
                 networkInterface = "hkg-dog-darell";
             };
         };
