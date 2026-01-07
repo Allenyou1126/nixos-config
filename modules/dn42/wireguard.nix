@@ -95,11 +95,12 @@ let
     };
 
     mkDn42PeeringSession = name: config: let
-        initV4 = if config.addressV4 == null then "" else "ip addr add ${cfg.local.addressV4} peer ${config.addressV4} dev %i";
-        initV6 = if config.addressV6 == null then "" else "ip addr add ${cfg.local.addressV6} peer ${config.addressV6} dev %i";
-        initLocalLinkV6 = if config.localLinkAddressV6 == null then "" else "ip addr add ${cfg.local.localLinkAddressV6} peer ${config.localLinkAddressV6} dev %i";
+        interfaceName = "dn42-${name}";
+        initV4 = if config.addressV4 == null then "" else "ip addr add ${cfg.local.addressV4} peer ${config.addressV4} dev ${interfaceName}";
+        initV6 = if config.addressV6 == null then "" else "ip addr add ${cfg.local.addressV6} peer ${config.addressV6} dev ${interfaceName}";
+        initLocalLinkV6 = if config.localLinkAddressV6 == null then "" else "ip addr add ${cfg.local.localLinkAddressV6} peer ${config.localLinkAddressV6} dev ${interfaceName}";
     in {
-        name = "dn42-${name}";
+        name = interfaceName;
         value = commonConfig // {
             listenPort = config.listenPort;
             privateKeyFile = cfg.local.privateKeyFile;
@@ -107,7 +108,7 @@ let
                 ${initV4}
                 ${initV6}
                 ${initLocalLinkV6}
-                sysctl -w net.ipv6.conf.%i.autoconf=0
+                sysctl -w net.ipv6.conf.${interfaceName}.autoconf=0
             '';
             peers = [
                 {
@@ -127,20 +128,20 @@ let
     
     mkGatewaySession = name: config: {
         postUp = ''
-            sysctl -w net.ipv6.conf.%i.autoconf=0
-            ip addr add ${cfg.local.addressV4} dev %i
-            ip addr add ${cfg.local.addressV6} dev %i
+            sysctl -w net.ipv6.conf.${name}.autoconf=0
+            ip addr add ${cfg.local.addressV4} dev ${name}
+            ip addr add ${cfg.local.addressV6} dev ${name}
         '';
     };
 
     mkNonGatewaySession = name: config: {
         postUp = ''
-            sysctl -w net.ipv6.conf.%i.autoconf=0
-            ip addr add ${cfg.local.addressV4} dev %i
-            ip addr add ${cfg.local.addressV6} dev %i
-            ip route add 172.20.0.0/14 via ${config.addressV4} dev %i
-            ip route add 172.31.0.0/16 via ${config.addressV4} dev %i
-            ip route add fd00::/8 via ${config.addressV6} dev %i
+            sysctl -w net.ipv6.conf.${name}.autoconf=0
+            ip addr add ${cfg.local.addressV4} dev ${name}
+            ip addr add ${cfg.local.addressV6} dev ${name}
+            ip route add 172.20.0.0/14 via ${config.addressV4} dev ${name}
+            ip route add 172.31.0.0/16 via ${config.addressV4} dev ${name}
+            ip route add fd00::/8 via ${config.addressV6} dev ${name}
         '';
         
     };
