@@ -113,7 +113,7 @@ let
     mkV4Session = name: peer: let
         sessionHead = "protocol bgp dn42_${name}_v4 from dn42peers {\n";
         sessionBody = ''
-            neighbor ${peer.neighborV4} % "${peer.networkInterface}" as ${builtins.toString peer.neighborAS};
+            neighbor ${peer.neighborV4} % '${peer.networkInterface}' as ${builtins.toString peer.neighborAS};
             direct;
                 '';
                 sessionEnd = "};\n";
@@ -128,7 +128,7 @@ let
     mkV6Session = name: peer: let
         sessionHead = "protocol bgp dn42_${name}_v6 from dn42peers {\n";
         sessionBody = ''
-            neighbor ${peer.neighborV6} % "${peer.networkInterface}" as ${builtins.toString peer.neighborAS};
+            neighbor ${peer.neighborV6} % '${peer.networkInterface}' as ${builtins.toString peer.neighborAS};
             direct;
                 '';
                 sessionEnd = "};\n";
@@ -147,7 +147,7 @@ let
 
     mkStaticSession = name: session: ''
         protocol static static_${name}_v4 {
-            route ${session.neighborV4} via "${session.networkInterface}";
+            route ${session.neighborV4} via '${session.networkInterface}';
             route OWNNETv4 reject;
 
             ipv4 {
@@ -157,7 +157,7 @@ let
         }
 
         protocol static static_${name}_v6 {
-            route ${session.neighborV6} via "${session.networkInterface}";
+            route ${session.neighborV6} via '${session.networkInterface}';
             route OWNNETv6 reject;
 
             ipv6 {
