@@ -46,6 +46,7 @@
   swapDevices = [ {device = "/swap/swapfile"; size = 4 * 1024;} ];
 
   networking.useDHCP = lib.mkDefault true;
+  boot.loader.grub.device = "/dev/vda";
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
