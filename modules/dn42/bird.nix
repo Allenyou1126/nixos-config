@@ -250,7 +250,7 @@ protocol device {
     scan time 10;
 }
 
-function is_valid_network() -> bool {
+function is_valid_network_v4() -> bool {
     return net ~ [
         172.20.0.0/14{21,29}, # dn42
         172.20.0.0/24{28,32}, # dn42 Anycast
@@ -330,7 +330,7 @@ template bgp dn42peers {
     path metric 1;
     ipv4 {
         import filter {
-            if is_valid_network() && !is_self_net() then {
+            if is_valid_network_v4() && !is_self_net_v4() then {
 ${templateRoaV4Config}
                 accept;
             }
@@ -338,7 +338,7 @@ ${templateRoaV4Config}
         };
 
         export filter {
-            if is_valid_network() && source ~ [RTS_STATIC, RTS_BGP] then accept;
+            if is_valid_network_v4() && source ~ [RTS_STATIC, RTS_BGP] then accept;
             reject;
         };
         import limit 1000 action block;
