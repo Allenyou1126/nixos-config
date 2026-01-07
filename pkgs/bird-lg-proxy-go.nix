@@ -1,12 +1,12 @@
 {
   buildGoModule,
   lib,
-  sources,
+  pkgs,
 }:
-buildGoModule (finalAttrs: {
+pkgs.buildGoModule (finalAttrs: {
     pname = "bird-lgproxy-go";
     version = "v1.4.0";
-    src = fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
         owner = "xddxdd";
         repo = "bird-lg-go";
         tag = "v1.4.0";
