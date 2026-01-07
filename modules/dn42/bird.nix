@@ -368,23 +368,17 @@ in {
                 staticConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkStaticSession cfg.staticSessions))) + "\n";
             in commonConfig + roaConfig + rpkiConfig + templateConfig + peeringConfig + staticConfig;
         };
-        systemd.services.roa-update-v4 = lib.mkIf cfg.enableRoa {
-            description = "Update ROA for dn42 Bird (IPv4)";
-            wantedBy = [ "multi-user.target" ];
-            before = [ "bird.service" ];
-            serviceConfig = {
-                Type = "oneshot";
-                ExecStart = "${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf";
-            };
-        };
-        systemd.services.roa-update-v6 = lib.mkIf cfg.enableRoa {
-            description = "Update ROA for dn42 Bird (IPv6)";
-            wantedBy = [ "multi-user.target" ];
-            before = [ "bird.service" ];
-            serviceConfig = {
-                Type = "oneshot";
-                ExecStart = "${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf";
-            };
+        systemd.services.bird.serviceConfig = lib.mkForce {
+            ExecPostStart = "${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf && ${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf";
+            ExecStart = "${lib.getExe' pkgs.bird2 "bird"} -f -c /etc/bird/bird.conf";
+            ExecReload = "${lib.getExe' pkgs.bird2 "birdc"} configure";
+
+            CPUQuota = "10%";
+            Restart = lib.mkForce "always";
+
+            User = "bird";
+            Group = "bird";
+            RuntimeDirectory = "bird";
         };
         environment.systemPackages = with pkgs; [
             wget
