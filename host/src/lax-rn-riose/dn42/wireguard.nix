@@ -5,7 +5,10 @@ in {
     services.dn42.wireguard = {
         enable = true;
         local = {
-
+            addressV4 = "172.21.89.225/27";
+            addressV6 = "fdbf:b830:8a32::1/64";
+            localLinkAddressV6 = "fe80::1056/64";
+            privateKeyFile = config.age.secrets.wireguardPrivateKeyFile.path;
         };
         staticSessions = {
             hkg-dog-darell = {
