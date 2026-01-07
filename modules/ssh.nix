@@ -10,4 +10,6 @@
 		ports = [ 2333 ];
 		openFirewall = true;
 	};
+	
+	programs.ssh.startAgent = true;
 }

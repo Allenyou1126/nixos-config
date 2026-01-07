@@ -1,10 +1,6 @@
-{ config, pkgs, agenix, allenyou-secrets, ... }:
+{ config, pkgs, ... }:
 
 {
-	imports = [
-		agenix.nixosModules.default
-	];
-
 	age.identityPaths = [
 		"/etc/ssh/ssh_host_ed25519_key"
 	];
