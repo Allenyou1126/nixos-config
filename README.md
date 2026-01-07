@@ -53,9 +53,9 @@ desk-[代号]
 
 随后，生成私钥并添加到 GitHub，然后 clone 该仓库到 `~/nixos-config`，将原本的配置文件夹备份后删除，将该目录链接过去。
 
-在另一台服务器上，向 `Allenyou1126/nixos-secrets/secrets.nix` 中添加新的密钥，并使用 `agenix -r` 进行重新加密后，将其 push 到 GitHub。
+在另一台服务器上，向 `Allenyou1126/nixos-secrets/secrets.nix` 中添加新的密钥，并使用 `just rekey` 进行重新加密后，将其 push 到 GitHub。
 
-然后，clone `Allenyou1126/nixos-secrets` 到 `~/nixos-config/secrets`
+**新的密钥应当使用 `/etc/ssh/ssh_host_ed25519_key.pub` 中的内容**
 
 在 `host/src/` 目录下新建名为主机名的目录，将 `hardwware-configuration.nix` 移动到其中，`configuration.nix` 精简后命名为 `common.nix` 移动到其中，使用 `secrets.nix` 标识需要解密的 Secret 文件。
 

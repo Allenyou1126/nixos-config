@@ -3,7 +3,7 @@
     ...
 }:
 let
-    inherit (inputs) haumea nixpkgs agenix;
+    inherit (inputs) haumea nixpkgs agenix allenyou-secrets;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
@@ -24,7 +24,7 @@ let
             specialArgs = { inherit inputs; };
             system = system;
             modules = [
-                inputs.agenix.nixosModules.default
+                ../modules/secrets.nix
                 inputs.home-manager.nixosModules.home-manager
                 {
                     home-manager = {
@@ -40,7 +40,7 @@ let
                     environment.systemPackages = [ agenix.packages.${system}.default ];
                 })
                 ({ ... }: {
-                    age.secrets = secrets;
+                    age.secrets = secrets allenyou-secrets;
                 })
                 hostSettings.common
             ];

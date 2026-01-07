@@ -15,6 +15,10 @@
 			url = "github:ryantm/agenix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		allenyou-secrets = {
+			url = "github:Allenyou1126/nixos-secret";
+			flake = false;
+		};
 	};
 
 	outputs = { self, ... }@inputs: let
