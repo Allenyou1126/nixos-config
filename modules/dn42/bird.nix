@@ -368,7 +368,58 @@ in {
                 staticConfig = (lib.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs mkStaticSession cfg.staticSessions))) + "\n";
             in commonConfig + roaConfig + rpkiConfig + templateConfig + peeringConfig + staticConfig;
         };
+        users = {
+            users.bird = {
+                description = "BIRD Internet Routing Daemon user";
+                group = "bird";
+                isSystemUser = true;
+            };
+            groups.bird = { };
+        };
         systemd.services.bird.serviceConfig = lib.mkForce {
+            LockPersonality = true;
+            MemoryDenyWriteExecute = true;
+            NoNewPrivileges = true;
+            PrivateMounts = true;
+            PrivateTmp = true;
+            ProcSubset = "pid";
+            ProtectHome = true;
+            ProtectHostname = true;
+            ProtectKernelLogs = true;
+            ProtectKernelModules = true;
+            ProtectKernelTunables = true;
+            ProtectProc = "invisible";
+            ProtectSystem = "strict";
+            RemoveIPC = true;
+            RestrictNamespaces = true;
+            RestrictRealtime = true;
+            RestrictSUIDSGID = true;
+            SystemCallArchitectures = "native";
+            SystemCallErrorNumber = "EPERM";
+            SystemCallFilter = [
+                "@system-service"
+                "~@clock @cpu-emulation @debug @module @mount @obsolete @privileged @raw-io @reboot @swap"
+            ];
+            PrivateDevices = false;
+            ProtectClock = false;
+            ProtectControlGroups = false;
+            AmbientCapabilities = [
+                "CAP_NET_ADMIN"
+                "CAP_NET_BIND_SERVICE"
+                "CAP_NET_RAW"
+            ];
+            CapabilityBoundingSet = [
+                "CAP_NET_ADMIN"
+                "CAP_NET_BIND_SERVICE"
+                "CAP_NET_RAW"
+            ];
+            RestrictAddressFamilies = [
+                "AF_UNIX"
+                "AF_INET"
+                "AF_INET6"
+                "AF_NETLINK"
+            ];
+            SystemCallFilter = [ ];
             ExecPostStart = "${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v4.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf && ${pkgs.wget}/bin/wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf";
             ExecStart = "${lib.getExe' pkgs.bird2 "bird"} -f -c /etc/bird/bird.conf";
             ExecReload = "${lib.getExe' pkgs.bird2 "birdc"} configure";
