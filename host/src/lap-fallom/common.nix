@@ -1,12 +1,17 @@
 { config, lib, pkgs, modulesPath, inputs, ... }:
 
-{
-    specialArgs = { inherit inputs; };
+let
+    nixos-wsl = inputs.nixos-wsl;
+in {
     imports = [
-        ../../../modules/boot/wsl.nix
+        nixos-wsl.nixosModules.wsl
         ../../../modules/nix-store-mirror.nix
         ../../../modules/common.nix
     ];
+    wsl = {
+        enable = true;
+        defaultUser = "allenyou";
+    };
     programs.ssh.startAgent = true;
     environment.systemPackages = with pkgs; [
         vim
