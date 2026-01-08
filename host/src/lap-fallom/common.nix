@@ -12,7 +12,7 @@ in {
         enable = true;
         defaultUser = "allenyou";
     };
-    security.sudo.wheelNeedsPassword = lib.mkForce true;
+    security.sudo.wheelNeedsPassword = true;
     programs.ssh.startAgent = true;
     programs.nix-ld.enable = true;
     environment.systemPackages = with pkgs; [
