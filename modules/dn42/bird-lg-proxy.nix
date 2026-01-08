@@ -54,5 +54,6 @@ in {
                 User = "bird";
             };
         };
+	networking.firewall.allowedTCPPorts = [ cfg.port ];
     };
 }
