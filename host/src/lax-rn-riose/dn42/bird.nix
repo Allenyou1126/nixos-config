@@ -80,7 +80,7 @@ in {
             limont = {
                 neighborAS = 4242420088;
                 networkInterface = "dn42-limont";
-                neighborV6 = "fe80::88";
+                neighborV6 = "fe80::88:2";
                 multiProtocolV6 = true;
             };
             prefixlabs = {
