@@ -15,6 +15,10 @@
 			url = "github:ryantm/agenix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		nixos-wsl = {
+			url = "github:nix-community/NixOS-WSL";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		allenyou-secrets = {
 			url = "git+ssh://git@github.com/Allenyou1126/nixos-secret.git?shallow=1";
 			flake = false;
