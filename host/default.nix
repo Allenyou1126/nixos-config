@@ -32,7 +32,7 @@ let
                         useGlobalPkgs = true;
                         useUserPackages = true;
                         extraSpecialArgs = { inherit inputs; };
-                        users = users.userHomes;
+                        users = if hostSettings.is-client or false then users.userHomesClient else users.userHomes;
                     };
                 }
                 ({ ... }: {

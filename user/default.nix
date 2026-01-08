@@ -19,6 +19,13 @@ let
                 home.homeDirectory = "/home/${userName}";
             } // userSettings.home;
         }) loadedUsers);
+        userHomesClient = builtins.listToAttrs (map ({userName, userSettings}@user: {
+            name = userName;
+            value = {
+                home.username = userName;
+                home.homeDirectory = "/home/${userName}";
+            } // userSettings.home // (userSettings.homeClient or {});
+        }) loadedUsers);
         userCommons = {
             mutableUsers = false;
             users = builtins.listToAttrs (map ({userName, userSettings}@user: {
