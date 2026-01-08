@@ -74,6 +74,7 @@ in {
                 localLinkAddressV6 = "fe80::298";
                 endpoint = "node3.ox5.cc:21056";
                 publicKey = "iKpHMLkks7SHpwVwsGVkBL5IDRswqY6zTHBRZiDQpVo=";
+                preSharedKeyFile = config.age.secrets.h503mc-Dn42WireguardPresharedKeyFile.path;
                 listenPort = 20298;
             };
             limont = {

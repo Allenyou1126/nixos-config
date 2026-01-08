@@ -48,6 +48,11 @@ let
                     type = lib.types.str;
                     description = "The base64 encoded public key of your neighbor to create Session to.";
                 };
+                preSharedKeyFile = lib.mkOption {
+                    type = lib.types.nullOr lib.types.path;
+                    default = null;
+                    description = "The path to the pre-shared key file. Leave it as null to disable pre-shared key.";
+                };
                 listenPort = lib.mkOption {
                     type = lib.types.port;
                     description = "The port to listen on.";
@@ -79,6 +84,11 @@ let
                 publicKey = lib.mkOption {
                     type = lib.types.str;
                     description = "The base64 encoded public key of your neighbor to create Session to.";
+                };
+                preSharedKeyFile = lib.mkOption {
+                    type = lib.types.nullOr lib.types.path;
+                    default = null;
+                    description = "The path to the pre-shared key file. Leave it as null to disable pre-shared key.";
                 };
                 listenPort = lib.mkOption {
                     type = lib.types.nullOr lib.types.port;
@@ -121,6 +131,7 @@ let
                         "fd00::/8"
                         "fe80::/64"
                     ];
+                    presharedKeyFile = config.preSharedKeyFile;
                 }
             ];
         };
@@ -162,6 +173,7 @@ let
                         "fd00::/8"
                         "fe80::/64"
                     ];
+                    presharedKeyFile = config.preSharedKeyFile;
                 }
             ];
         };
