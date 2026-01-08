@@ -1,7 +1,7 @@
-{ config, pkgs, lib, input }:
+{ config, pkgs, lib, inputs }:
 
 let
-    nixos-wsl = input.nixos-wsl;
+    nixos-wsl = inputs.nixos-wsl;
 in {
     imports = [
         nixos-wsl.nixosModules.wsl
