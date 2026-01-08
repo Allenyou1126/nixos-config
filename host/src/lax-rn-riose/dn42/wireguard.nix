@@ -49,7 +49,7 @@ in {
                 listenPort = 22547;
             };
             duststars = {
-                addressV6 = "fe80::afaf:bfbf:cdcf:7";
+                localLinkAddressV6 = "fe80::afaf:bfbf:cdcf:7";
                 endpoint = "lax1.exploro.one:32591";
                 publicKey = "+SESp7mO2U1EEXKgBlgWr7DLi6rejUb5ZMZBuBXtsDU=";
                 listenPort = 21771;
@@ -108,7 +108,7 @@ in {
             };
             kemono42 = {
                 addressV4 = "172.21.82.129";
-                addressV6 = "fe80::358/64";
+                localLinkAddressV6 = "fe80::358/64";
                 endpoint = "sjc.us.dn42.kemonos.net:20358";
                 publicKey = "7HzHyeA2M7yo/zVmc+e0zG+I7j2SnIx+7ZpXOca93mg=";
                 listenPort = 20358;
