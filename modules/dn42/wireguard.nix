@@ -201,10 +201,12 @@ in {
     config = lib.mkIf cfg.enable (let
         dn42PeeringSessions = builtins.mapAttrs mkDn42PeeringSession cfg.dn42PeeringSessions;
         staticSessions = builtins.mapAttrs mkStaticSession cfg.staticSessions;
+        openedPorts = lib.unique (builtins.catAttrs "listenPort" (builtins.attrValues dn42PeeringSessions ++ builtins.attrValues staticSessions));
     in ({
         networking.wg-quick.interfaces = builtins.listToAttrs (
             builtins.attrValues dn42PeeringSessions ++
             builtins.attrValues staticSessions
         );
+        networking.firewall.allowedUDPPorts = openedPorts;
     }));
 }

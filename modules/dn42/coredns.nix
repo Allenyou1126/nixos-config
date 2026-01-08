@@ -157,14 +157,15 @@ in {
     config = lib.mkIf cfg.enable (let
         zoneFiles = builtins.foldl' (x: y: x // y) {} (map mkZoneFile cfg.zoneFiles);
         config = mkCoreDnsConfig cfg.serverBlocks;
+        openedPorts = lib.unique (builtins.catAttrs "port" cfg.serverBlocks);
     in {
         services.coredns = {
             enable = true;
             package = pkgs.coredns;
             extraArgs = cfg.extraCommandLineOptions;
         };
-	networking.firewall.allowedUDPPorts = [ 53 ];
-	networking.firewall.allowedTCPPorts = [ 53 ];
+        networking.firewall.allowedUDPPorts = openedPorts;
+        networking.firewall.allowedTCPPorts = openedPorts;
         environment.etc = zoneFiles;
 
         services.coredns.config = config;
