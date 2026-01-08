@@ -1,6 +1,7 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, inputs, ... }:
 
 {
+    specialArgs = { inherit inputs; };
     imports = [
         ../../../modules/boot/wsl.nix
         ../../../modules/nix-store-mirror.nix
