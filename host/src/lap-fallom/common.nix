@@ -14,6 +14,7 @@ in {
     };
     security.sudo.wheelNeedsPassword = lib.mkForce true;
     programs.ssh.startAgent = true;
+    programs.nix-ld.enable = true;
     environment.systemPackages = with pkgs; [
         vim
         wget
