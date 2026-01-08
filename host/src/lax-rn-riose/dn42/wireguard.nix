@@ -109,9 +109,9 @@ in {
             kemono42 = {
                 addressV4 = "172.21.82.129";
                 localLinkAddressV6 = "fe80::358/64";
-                endpoint = "sjc.us.dn42.kemonos.net:20358";
+                endpoint = "sjc.us.dn42.kemonos.net:21056";
                 publicKey = "7HzHyeA2M7yo/zVmc+e0zG+I7j2SnIx+7ZpXOca93mg=";
-                listenPort = 21056;
+                listenPort = 20358;
             };
             wolfyf = {
                 addressV4 = "172.21.104.33";
