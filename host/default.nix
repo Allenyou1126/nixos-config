@@ -17,7 +17,7 @@ let
     users = import ../user { inherit inputs pkgs; };
 
     hosts = builtins.listToAttrs (map ({hostName, hostSettings}@host: let
-        secrets = hostSettings.secrets or {};
+        secrets = hostSettings.secrets or (allenyou-secrets: {});
     in {
         name = hostName;
         value = nixpkgs.lib.nixosSystem {
