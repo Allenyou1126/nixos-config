@@ -163,7 +163,8 @@ in {
             package = pkgs.coredns;
             extraArgs = cfg.extraCommandLineOptions;
         };
-
+	networking.firewall.allowedUDPPorts = [ 53 ];
+	networking.firewall.allowedTCPPorts = [ 53 ];
         environment.etc = zoneFiles;
 
         services.coredns.config = config;
