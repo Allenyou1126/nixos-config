@@ -18,7 +18,7 @@ let
       ""
     else
       ''
-        printf "$BOLD  * %-20s$ENDCOLOR %s\n" "Role: ${cfg.description}"
+        printf "$BOLD  * %-20s$ENDCOLOR %s\n" "Role" "${cfg.description}"
       '';
   motd = pkgs.writeShellScriptBin "motd" ''
     		#! /usr/bin/env bash
