@@ -12,7 +12,8 @@ let
 		''
 			#! /usr/bin/env bash
 			source /etc/os-release
-			service_status=$(systemctl list-units | grep podman-)
+			RED="\e[31m"
+			GREEN="\e[32m"
 			BOLD="\e[1m"
 			ENDCOLOR="\e[0m"
 			LOAD1=`cat /proc/loadavg | awk {'print $1'}`
@@ -24,11 +25,11 @@ let
 			# time of day
 			HOUR=$(date +"%H")
 			if [ $HOUR -lt 12  -a $HOUR -ge 0 ]
-			then    TIME="morning"
+			then TIME="morning"
 			elif [ $HOUR -lt 17 -a $HOUR -ge 12 ]
-			then    TIME="afternoon"
+			then TIME="afternoon"
 			else
-					TIME="evening"
+				TIME="evening"
 			fi
 
 
@@ -45,6 +46,7 @@ let
 			printf "\n"
 			printf "$BOLD  * %-20s$ENDCOLOR %s\n" "Release" "$PRETTY_NAME"
 			printf "$BOLD  * %-20s$ENDCOLOR %s\n" "Kernel" "$(uname -rs)"
+			[ -f /var/run/reboot-required ] && printf "\n$RED  * %-20s$ENDCOLOR %s\n" "A reboot is required"
 			printf "\n"
 			printf "$BOLD  * %-20s$ENDCOLOR %s\n" "CPU usage" "$LOAD1, $LOAD5, $LOAD15 (1, 5, 15 min)"
 			printf "$BOLD  * %-20s$ENDCOLOR %s\n" "Memory" "$MEMORY"
