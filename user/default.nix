@@ -33,10 +33,14 @@ let
         { userName, userSettings }:
         {
           name = userName;
-          value = lib.mkMerge {
-            home.username = userName;
-            home.homeDirectory = "/home/${userName}";
-          } (lib.mkMerge userSettings.home (userSettings.home-client or { }));
+          value = lib.mkMerge [
+            {
+              home.username = userName;
+              home.homeDirectory = "/home/${userName}";
+            }
+            userSettings.home
+            (userSettings.home-client or { })
+          ];
         }
       ) loadedUsers
     );
@@ -59,7 +63,10 @@ let
           { userName, userSettings }:
           {
             name = userName;
-            value = lib.mkMerge userSettings.common (userSettings.common-client or { });
+            value = lib.mkMerge [
+              userSettings.common
+              (userSettings.common-client or { })
+            ];
           }
         ) loadedUsers
       );
