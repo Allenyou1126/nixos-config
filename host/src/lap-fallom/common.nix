@@ -11,6 +11,9 @@ in {
     wsl = {
         enable = true;
         defaultUser = "allenyou";
+        interop = {
+            includePath = false;
+        };
     };
     security.sudo.wheelNeedsPassword = true;
     programs.ssh.startAgent = true;
