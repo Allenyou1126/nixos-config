@@ -36,7 +36,7 @@ let
                     };
                 }
                 ({ ... }: {
-                    users = users.userCommons;
+                    users = if hostSettings.is-client or false then users.userHomesClient else users.userHomes;
                     networking.hostName = hostName;
                     environment.systemPackages = [ agenix.packages.${system}.default ];
                 })
