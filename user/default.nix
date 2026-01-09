@@ -21,10 +21,13 @@ let
         { userName, userSettings }:
         {
           name = userName;
-          value = lib.mkMerge {
-            home.username = userName;
-            home.homeDirectory = "/home/${userName}";
-          } userSettings.home;
+          value = lib.mkMerge [
+            {
+              home.username = userName;
+              home.homeDirectory = "/home/${userName}";
+            }
+            userSettings.home
+          ];
         }
       ) loadedUsers
     );
