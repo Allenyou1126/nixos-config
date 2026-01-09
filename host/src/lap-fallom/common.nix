@@ -17,6 +17,7 @@ in
     enable = true;
     defaultUser = "allenyou";
   };
+  system.allenyou.motd.description = "Client Laptop running in WSL.";
   security.sudo.wheelNeedsPassword = true;
   programs.ssh.startAgent = true;
   programs.nix-ld.enable = true;

@@ -1,18 +1,19 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ pkgs, ... }:
 
 {
-    imports = [
-        ../../../modules/boot/efi-systemd.nix
-        ../../../modules/nix-store-mirror.nix
-        ../../../modules/common.nix
-        ../../../modules/ssh.nix
-        ./hardware-configuration.nix
-    ];
-    environment.systemPackages = with pkgs; [
-        vim
-        wget
-        git
-    ];
-    environment.variables.EDITOR = "vim";
-    system.stateVersion = "25.05";
+  imports = [
+    ../../../modules/boot/efi-systemd.nix
+    ../../../modules/nix-store-mirror.nix
+    ../../../modules/common.nix
+    ../../../modules/ssh.nix
+    ./hardware-configuration.nix
+  ];
+  system.allenyou.motd.description = "Test server";
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    git
+  ];
+  environment.variables.EDITOR = "vim";
+  system.stateVersion = "25.05";
 }
