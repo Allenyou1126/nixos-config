@@ -5,6 +5,7 @@
 }:
 let
     inherit (inputs) nixpkgs haumea;
+    lib = nixpkgs.lib;
     loadToAllUsers = haumea.lib.load {
         src = ./load-to-all;
         inputs = { inherit inputs pkgs; };
@@ -14,17 +15,17 @@ let
     users = {
         userHomes = builtins.listToAttrs (map ({userName, userSettings}@user: {
             name = userName;
-            value = {
+            value = lib.recursiveUpdate {
                 home.username = userName;
                 home.homeDirectory = "/home/${userName}";
-            } // userSettings.home;
+            } userSettings.home;
         }) loadedUsers);
         userHomesClient = builtins.listToAttrs (map ({userName, userSettings}@user: {
             name = userName;
-            value = {
+            value = lib.recursiveUpdate {
                 home.username = userName;
                 home.homeDirectory = "/home/${userName}";
-            } // userSettings.home // (userSettings.home-client or {});
+            } (lib.recursiveUpdate userSettings.home (userSettings.home-client or {}));
         }) loadedUsers);
         userCommons = {
             mutableUsers = false;
@@ -37,7 +38,7 @@ let
             mutableUsers = false;
             users = builtins.listToAttrs (map ({userName, userSettings}@user: {
                 name = userName;
-                value = userSettings.common // (userSettings.common-client or {});
+                value = lib.recursiveUpdate userSettings.common (userSettings.common-client or {});
             }) loadedUsers);
         };
     };
