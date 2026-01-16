@@ -1,53 +1,55 @@
 { pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        zip
-        xz
-        unzip
-        p7zip
+  home.packages = with pkgs; [
+    zip
+    xz
+    unzip
+    p7zip
 
-        mtr
-        iperf3
-        dnsutils
-        socat
-        nmap
+    mtr
+    iperf3
+    dnsutils
+    socat
+    nmap
 
-        file
-        which
-        tree
-        gnused
-        gnutar
-        gawk
-        zstd
-        gnupg
+    file
+    which
+    tree
+    gnused
+    gnutar
+    gawk
+    zstd
+    gnupg
 
-        nix-output-monitor
+    nix-output-monitor
 
-        htop
-        strace
-        ltrace
-        lsof
+    htop
+    strace
+    ltrace
+    lsof
 
-        sysstat
-        ethtool
-        
-        just
-    ];
+    sysstat
+    ethtool
 
-    programs.git = {
-        enable = true;
-        settings.user.name = "Allen You";
-        settings.user.email = "i@allenyou.wang";
+    just
+  ];
+
+  programs.git = {
+    enable = true;
+    settings = {
+      user.name = "Allen You";
+      user.email = "i@allenyou.wang";
     };
+  };
 
-    programs.bash = {
-        enable = true;
-        enableCompletion = true;
-        bashrcExtra = ''
-            export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
-        '';
-    };
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    bashrcExtra = ''
+      export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+    '';
+  };
 
-    home.stateVersion = "25.11";
+  home.stateVersion = "25.11";
 }
