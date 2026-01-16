@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-    nix.settings.substituters = lib.mkForce [
-		"https://mirrors.ustc.edu.cn/nix-channels/store"
-	];
+  nix.settings.substituters = lib.mkForce [
+    "https://mirrors.ustc.edu.cn/nix-channels/store"
+  ];
 }
