@@ -28,8 +28,8 @@ in
   ];
   environment.variables.EDITOR = "vim";
   system.stateVersion = "25.05";
-  home-manager.users.allenyou.environment.shellAliases = {
-    gpg = "/mnt/c/Program\ Files/Git/usr/bin/gpg.exe";
+  home-manager.users.allenyou.home.shellAliases = {
+    gpg = "/mnt/c/Program\\ Files/Git/usr/bin/gpg.exe";
   };
   security.pki.certificates = [
     ''

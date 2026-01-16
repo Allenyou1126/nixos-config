@@ -5,7 +5,7 @@
     nixfmt-rfc-style
     nil
   ];
-  environment.variables = {
+  home.sessionVariables = {
     GPG_TTY = "$(tty)";
   };
 }
