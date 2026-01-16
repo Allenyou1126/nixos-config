@@ -32,7 +32,7 @@ in
     gpg = "/mnt/c/Program\\ Files/Git/usr/bin/gpg.exe";
   };
   home-manager.users.allenyou.programs.git.settings.gpg.program =
-    "/mnt/c/Program\\ Files/Git/usr/bin/gpg.exe";
+    "/mnt/c/Program Files/Git/usr/bin/gpg.exe";
   security.pki.certificates = [
     ''
       -----BEGIN CERTIFICATE-----
