@@ -7,14 +7,13 @@
 
 let
   cfg = config.services.dn42.bird-lg-proxy;
-  bird-lg-proxy-go-pkg = pkgs.callPackage ../../pkgs/bird-lg-proxy-go.nix { };
 in
 {
   options.services.dn42.bird-lg-proxy = {
     enable = lib.mkEnableOption "Bird-lg-proxy for DN42 networking (requires bird to be enabled)";
     package = lib.mkOption {
       type = lib.types.package;
-      default = bird-lg-proxy-go-pkg;
+      default = pkgs.bird-lg;
       description = "Package to use for bird-lg-proxy";
     };
     port = lib.mkOption {
@@ -48,7 +47,7 @@ in
         Type = "simple";
         Restart = "always";
         RestartSec = "3";
-        ExecStart = lib.getExe bird-lg-proxy-go-pkg;
+        ExecStart = "${cfg.package}/bin/proxy";
 
         # Needed by mtr and traceroute
         AmbientCapabilities = [
