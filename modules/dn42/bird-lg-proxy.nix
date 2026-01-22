@@ -35,6 +35,7 @@ in
       wantedBy = [ "multi-user.target" ];
       path = with pkgs; [
         traceroute
+        whois
       ];
       environment = {
         BIRD_SOCKET = "/run/bird/bird.ctl";
