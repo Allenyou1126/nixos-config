@@ -9,6 +9,7 @@
     };
     ports = [ 2333 ];
     openFirewall = true;
+    sftpServerExecutable = "internal-sftp";
   };
 
   programs.ssh.startAgent = true;
