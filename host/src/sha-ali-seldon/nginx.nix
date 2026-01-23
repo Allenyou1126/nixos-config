@@ -61,9 +61,13 @@ in
       ];
     }
   ];
-  system.extraActivationCommands = ''
-    ln -sf ${nginxPackage}/bin/nginx /usr/bin/nginx
-  '';
+  system.activationScripts = {
+    nginx = {
+      text = ''
+        ln -sf ${nginxPackage}/bin/nginx /usr/bin/nginx
+      '';
+    };
+  };
   networking.firewall.allowedTCPPorts = [
     80
     443
