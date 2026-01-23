@@ -7,6 +7,8 @@ allenyou-secrets:
   home-hardin-wireguardPresharedKeyFile.file = "${allenyou-secrets}/wg-psk-home-hardin.sha-ali-seldon.age";
   frp-token = {
     file = "${allenyou-secrets}/frp-token.sha-ali-seldon.age";
+    path = "/etc/frp/token";
     mode = "755";
+    owner = "frp";
   };
 }
