@@ -6,7 +6,6 @@
     ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
-    ../../../overlays/frp.nix
     ./hardware-configuration.nix
     ./wireguard.nix
     ./frps.nix

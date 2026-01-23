@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   listenPort = 20000;
@@ -10,11 +10,13 @@ let
     from = portRange.start;
     to = portRange.end;
   };
+  frps-pkg = pkgs.callPackage ../../../pkgs/frp.nix { };
 in
 {
   services.frp = {
     enable = true;
     role = "server";
+    package = frps-pkg;
     settings = {
       bindAddr = "0.0.0.0";
       bindPort = listenPort;
