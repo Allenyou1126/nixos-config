@@ -62,6 +62,7 @@ let
               }
             )
             hostSettings.common
+            ../modules/cachix.nix
           ];
         };
       }
