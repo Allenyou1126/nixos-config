@@ -8,7 +8,7 @@
     ../../../modules/ssh.nix
     ./hardware-configuration.nix
     ./wireguard.nix
-    ./frps.nix
+    # ./frps.nix
     ./nginx.nix
   ];
   boot.loader.efi.efiSysMountPoint = "/efi";
