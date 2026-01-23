@@ -9,9 +9,10 @@ buildGoModule (finalAttrs: {
   pname = "frp";
   version = "0.66.0";
 
-  env = {
-    GOPROXY = "https://goproxy.cn,direct";
-  };
+  preGoBuild = ''
+    export GOPROXY=https://goproxy.cn
+    export GONOSUMDB=*
+  '';
 
   src = fetchFromGitHub {
     owner = "fatedier";
