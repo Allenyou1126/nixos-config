@@ -53,7 +53,7 @@ in
       ];
       commands = [
         {
-          command = "${pkgs.systemd}/bin/systemctl reload nginx";
+          command = "/run/current-system/sw/bin/systemctl reload nginx";
           options = [
             "NOPASSWD"
           ];
