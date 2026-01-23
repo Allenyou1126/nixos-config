@@ -17,67 +17,36 @@
     "uhci_hcd"
     "virtio_pci"
     "virtio_blk"
+    "ahci"
+    "xen_blkfront"
+    "vmw_pvscsi"
   ];
   boot.initrd.kernelModules = [ ];
+  boot.kernelParams = [
+    "console=ttyS0,115200n8"
+    "console=tty0"
+  ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/ab26a3c6-0e8b-4496-aff9-399e0b202685";
-    fsType = "btrfs";
-    options = [
-      "subvol=root"
-      "compress=zstd"
-    ];
+    device = "/dev/disk/by-uuid/fa94da36-3ce0-4c4c-9826-6a1e536685f2";
+    fsType = "ext4";
   };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/ab26a3c6-0e8b-4496-aff9-399e0b202685";
-    fsType = "btrfs";
-    options = [
-      "subvol=home"
-      "compress=zstd"
-    ];
-  };
-
-  fileSystems."/var" = {
-    device = "/dev/disk/by-uuid/ab26a3c6-0e8b-4496-aff9-399e0b202685";
-    fsType = "btrfs";
-    options = [
-      "subvol=var"
-      "compress=zstd"
-    ];
-  };
-
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/ab26a3c6-0e8b-4496-aff9-399e0b202685";
-    fsType = "btrfs";
-    options = [ "subvol=swap" ];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/ab26a3c6-0e8b-4496-aff9-399e0b202685";
-    fsType = "btrfs";
-    options = [
-      "subvol=nix"
-      "noatime"
-      "compress=zstd"
-    ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/E827-F565";
+  fileSystems."/efi" = {
+    device = "/dev/disk/by-uuid/7854-52C0";
     fsType = "vfat";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "fmask=0077"
+      "dmask=0077"
     ];
   };
 
   swapDevices = [
     {
-      device = "/swap/swapfile";
-      size = 4 * 1024;
+      device = "/swapfile";
+      size = 1143;
     }
   ];
 

@@ -11,6 +11,7 @@
     ./frps.nix
     ./nginx.nix
   ];
+  boot.loader.efi.efiSysMountPoint = "/efi";
   system.allenyou.motd.description = "Network gateway server.";
   environment.systemPackages = with pkgs; [
     vim
