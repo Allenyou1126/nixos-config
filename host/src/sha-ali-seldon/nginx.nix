@@ -53,7 +53,7 @@ in
       ];
       commands = [
         {
-          command = "/usr/bin/nginx -s reload";
+          command = "systemctl reload nginx";
           options = [
             "NOPASSWD"
           ];
@@ -61,13 +61,6 @@ in
       ];
     }
   ];
-  system.activationScripts = {
-    nginx = {
-      text = ''
-        ln -sf ${nginxPackage}/bin/nginx /usr/bin/nginx
-      '';
-    };
-  };
   networking.firewall.allowedTCPPorts = [
     80
     443
