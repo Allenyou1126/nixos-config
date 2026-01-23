@@ -22,7 +22,6 @@ let
       '';
   motd = pkgs.writeShellScriptBin "motd" ''
     		#! /usr/bin/env bash
-        [[ $- != *i* ]] && exit 0
     		source /etc/os-release
     		RED="\e[31m"
     		GREEN="\e[32m"
