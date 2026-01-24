@@ -21,6 +21,7 @@ in
             ];
           }
         ];
+        reuseport = true;
         root = "/var/www/html";
         serverName = "homepage-cdn-origin.allenyou.top";
         locations = {
@@ -33,6 +34,18 @@ in
             return 444;
           }
         '';
+        default = true;
+      };
+      zitadel = {
+        forceSSL = true;
+        serverName = "auth.allenyou.top";
+        locations."/" = {
+          proxyPass = "http://:39999";
+          proxyWebsockets = true;
+          recommendedProxySettings = true;
+        };
+        sslCertificate = "/var/ssl/allenyou.top_ecc.crt";
+        sslCertificateKey = "/var/ssl/allenyou.top_ecc.key";
       };
     };
   };
