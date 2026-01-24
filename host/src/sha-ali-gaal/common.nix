@@ -7,6 +7,8 @@
     ../../../modules/common.nix
     ../../../modules/ssh.nix
     ./hardware-configuration.nix
+    ./postgres.nix
+    ./zitadel.nix
   ];
   system.allenyou.motd.description = "Test server";
   environment.systemPackages = with pkgs; [
