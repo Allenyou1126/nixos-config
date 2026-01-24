@@ -6,7 +6,7 @@
     masterKeyFile = config.age.secrets.zitadel-master-key.path;
     extraSettingsPaths = [ config.age.secrets.zitadel-secret-settings.path ];
     tlsMode = "external";
-    overridePort = true;
+    openFirewall = true;
     settings = {
       Port = 39999;
       Database.postgres = {
