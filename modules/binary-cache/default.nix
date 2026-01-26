@@ -9,5 +9,5 @@ let
 in
 {
   inherit imports;
-  nix.settings.substituters = [ ];
+  nix.settings.substituters = [ "https://nix-cache-official.allenyou.wang?priority=30" ];
 }

@@ -2,7 +2,7 @@
   nix = {
     settings = {
       substituters = [
-        "https://nix-cache.allenyou.wang"
+        "https://nix-cache.allenyou.wang?priority=20"
       ];
       trusted-public-keys = [
         "allenyou-nix-cache.lap-fallom.1:rKfa65SLrDQLTGEmp+c90R4vsnGgD9xFoKHrdrvJGRs="
