@@ -16,7 +16,7 @@ sign path:
 
 # upload package to s3 nix cache. Usage: just upload package
 upload package:
-  AWS_CONFIG_FILE=/etc/s3/nix-cache nix copy --to 's3://allenyou-nix-cache?scheme=https&endpoint=oss-cn-hongkong.aliyuncs.com' {{ package }}
+  AWS_CONFIG_FILE=/etc/s3/nix-cache nix copy --to 's3://allenyou-nix-cache?scheme=https&endpoint=allenyou-nix-cache.oss-cn-hongkong.aliyuncs.com' {{ package }}
 
 # Update all flake inputs. Usage: just update
 update-all: (update "")
