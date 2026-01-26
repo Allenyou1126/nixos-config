@@ -7,7 +7,7 @@
     ../../../modules/common.nix
     ../../../modules/ssh.nix
     ./hardware-configuration.nix
-    # ./postgres.nix
+    ./postgres.nix
     # ./zitadel.nix
   ];
   system.allenyou.motd.description = "Test server";
