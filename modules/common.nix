@@ -20,5 +20,9 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.trusted-users = [
+    "root"
+    "allenyou"
+  ];
   i18n.defaultLocale = "en_US.UTF-8";
 }
