@@ -40,6 +40,7 @@ let
           modules = [
             agenix.nixosModules.default
             ../modules/secrets.nix
+            ../modules/binary-cache
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -64,7 +65,6 @@ let
               }
             )
             hostSettings.common
-            ../modules/binary-cache.nix
           ];
         };
       }
