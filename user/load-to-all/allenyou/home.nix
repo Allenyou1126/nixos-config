@@ -33,6 +33,8 @@
     ethtool
 
     just
+
+    s3cmd
   ];
 
   programs.git = {

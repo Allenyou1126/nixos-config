@@ -24,6 +24,8 @@ let
 
   users = import ../user { inherit inputs pkgs; };
 
+  commonSecrets = import ./secrets.nix allenyou-secrets;
+
   hosts = builtins.listToAttrs (
     map (
       { hostName, hostSettings }:
@@ -58,11 +60,11 @@ let
             (
               { ... }:
               {
-                age.secrets = secrets allenyou-secrets;
+                age.secrets = (secrets allenyou-secrets) // commonSecrets;
               }
             )
             hostSettings.common
-            ../modules/cachix.nix
+            ../modules/binary-cache.nix
           ];
         };
       }
