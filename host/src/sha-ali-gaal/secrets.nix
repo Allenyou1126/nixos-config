@@ -9,7 +9,7 @@ allenyou-secrets:
     owner = "zitadel";
   };
   zitadel-secret-settings = {
-    file = "${allenyou-secrets}/zitadel-secret-settings.sha-ali-gaal.age";
+    file = "${allenyou-secrets}/zitadel-secret-config.sha-ali-gaal.age";
     path = "/etc/zitadel/secret-settings.yml";
     mode = "755";
     owner = "zitadel";
