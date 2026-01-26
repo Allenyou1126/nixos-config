@@ -10,10 +10,11 @@ switch host="":
 switch-cn host="":
   nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --sudo --override-input nixpkgs "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1" --override-input home-manager "git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.11&shallow=1"
 
+# Sign a path. Usage: just sign path
 sign path:
   nix store sign --recursive --key-file ~/.config/nix/secret.key {{ path }}
 
-# upload package to s3 nix cache
+# upload package to s3 nix cache. Usage: just upload package
 upload package:
   AWS_CONFIG_FILE=/etc/s3/nix-cache nix copy --to s3://allenyou-nix-cache {{ package }}
 
