@@ -44,8 +44,8 @@ in
           proxyWebsockets = true;
           recommendedProxySettings = true;
         };
-        sslCertificate = "/var/ssl/allenyou.top_ecc.crt";
-        sslCertificateKey = "/var/ssl/allenyou.top_ecc.key";
+        sslCertificate = "/var/ssl/allenyou.top.crt";
+        sslCertificateKey = "/var/ssl/allenyou.top.key";
       };
     };
   };
