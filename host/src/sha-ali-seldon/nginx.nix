@@ -40,7 +40,7 @@ in
         forceSSL = true;
         serverName = "auth.allenyou.top";
         locations."/" = {
-          proxyPass = "http://:39999";
+          proxyPass = "http://172.18.63.50:39999";
           proxyWebsockets = true;
           recommendedProxySettings = true;
         };
