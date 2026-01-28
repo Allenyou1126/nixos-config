@@ -87,7 +87,8 @@ in
     enable = true;
     listenAddress = "0.0.0.0";
     port = 9090;
-    openFirewall = true;
-    firewallFilter = "-s 172.18.63.50 -p tcp -m tcp --dport 9090";
   };
+  networking.firewall.extraCommands = ''
+    iptables -A INPUT -s 172.18.63.50 -p tcp -m tcp --dport 9090 -j ACCEPT
+  '';
 }
