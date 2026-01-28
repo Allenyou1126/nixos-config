@@ -10,6 +10,7 @@ in
     package = nginxPackage;
     recommendedBrotliSettings = true;
     recommendedGzipSettings = true;
+    statusPage = true;
     virtualHosts = {
       default = {
         listen = [
@@ -82,5 +83,11 @@ in
     80
     443
   ];
-
+  services.prometheus.exporters.nginx = {
+    enable = true;
+    listenAddress = "0.0.0.0";
+    port = 9090;
+    openFirewall = true;
+    firewallFilter = "-p tcp -m tcp --dport 9090 --src 172.18.63.50";
+  };
 }
