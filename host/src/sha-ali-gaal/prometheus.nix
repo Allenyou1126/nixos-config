@@ -8,12 +8,6 @@
     globalConfig = {
       scrape_interval = "5s";
       evaluation_interval = "30s";
-      body_size_limit = "15MB";
-      sample_limit = 1500;
-      target_limit = 30;
-      label_limit = 30;
-      label_name_length_limit = 200;
-      label_value_length_limit = 200;
       external_labels = {
       };
     };
