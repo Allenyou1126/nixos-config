@@ -3,12 +3,11 @@ default:
   @just --list --justfile {{justfile()}} --list-heading $"Allenyou's Justfile Commands\n"
 
 # Build and switch to a new generation. Usage: just switch hostname(leave empty for default)
-switch host="":
-  nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --sudo
+switch host="" extraArg="":
+  nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --sudo {{ extraArg }}
 
 # Build and switch to a new generation using cn mirrors. Usage: just switch-cn hostname(leave empty for default)
-switch-cn host="":
-  nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --sudo --override-input nixpkgs "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1" --override-input home-manager "git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.11&shallow=1"
+switch-cn host="" extraArg="": (switch host=host extraArg="--override-input nixpkgs \"git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1\" --override-input home-manager \"git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.11&shallow=1\" {{ extraArg }}")
 
 # Sign a path. Usage: just sign path
 sign path:
