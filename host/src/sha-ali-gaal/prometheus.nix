@@ -53,7 +53,7 @@
           }
           {
             target_label = "__address__";
-            replacement = "BlackboxExporter:9115";
+            replacement = "127.0.0.1:9115";
           }
         ];
         static_configs = [
