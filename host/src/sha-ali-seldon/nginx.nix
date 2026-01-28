@@ -88,6 +88,6 @@ in
     listenAddress = "0.0.0.0";
     port = 9090;
     openFirewall = true;
-    firewallFilter = "-p tcp -m tcp --dport 9090 --src 172.18.63.50";
+    firewallFilter = "-s 172.18.63.50 -p tcp -m tcp --dport 9090";
   };
 }
