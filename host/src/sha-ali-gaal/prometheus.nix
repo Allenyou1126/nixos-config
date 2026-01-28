@@ -5,7 +5,7 @@
     enable = true;
     listenAddress = "127.0.0.1";
     port = 9090;
-    global = {
+    globalConfig = {
       scrape_interval = "5s";
       evaluation_interval = "30s";
       body_size_limit = "15MB";
