@@ -7,7 +7,7 @@ switch host="" extraArg="":
   nixos-rebuild switch --flake .{{ if host == "" { "" } else  { "#" + host } }} --sudo {{ extraArg }}
 
 # Build and switch to a new generation using cn mirrors. Usage: just switch-cn hostname(leave empty for default)
-switch-cn host="" extraArg="": (switch host=host extraArg="--override-input nixpkgs \"git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1\" --override-input home-manager \"git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.11&shallow=1\" {{ extraArg }}")
+switch-cn host="" extraArg="": (switch host=host extraArg="--override-input nixpkgs \"git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-25.11&shallow=1\" --override-input home-manager \"git+https://gitee.com/Allenyou1126/home-manager?ref=release-25.11&shallow=1\" " + extraArg)
 
 # Sign a path. Usage: just sign path
 sign path:
