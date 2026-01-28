@@ -106,7 +106,11 @@
           };
         };
         tcp = {
-          preferred_ip_protocol = "ip4";
+          prober = "tcp";
+          timeout = "5s";
+          tcp = {
+            preferred_ip_protocol = "ip4";
+          };
         };
         icmp = {
           prober = "icmp";
