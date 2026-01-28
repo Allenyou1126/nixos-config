@@ -104,15 +104,15 @@
             preferred_ip_protocol = "ip4";
             ip_protocol_fallback = false;
           };
-          tcp = {
+        };
+        tcp = {
+          preferred_ip_protocol = "ip4";
+        };
+        icmp = {
+          prober = "icmp";
+          timeout = "5s";
+          icmp = {
             preferred_ip_protocol = "ip4";
-          };
-          icmp_example = {
-            prober = "icmp";
-            timeout = "5s";
-            icmp = {
-              preferred_ip_protocol = "ip4";
-            };
           };
         };
       };
