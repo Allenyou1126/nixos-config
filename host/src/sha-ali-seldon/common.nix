@@ -6,7 +6,6 @@
     ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
-    ../../../modules/prometheus/node-exporter.nix
     ./hardware-configuration.nix
     ./wireguard.nix
     ./frps.nix
