@@ -151,7 +151,7 @@
         job_name = "bird_dn42";
         static_configs = [
           {
-            targets = [ "172.24.24.198:9324" ];
+            targets = [ "74.48.162.139:9324" ];
             labels = {
               instance = "lax-rn-riose";
               location = "lax";
