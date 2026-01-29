@@ -17,6 +17,7 @@
     ./dn42/bird-lg-proxy.nix
     ./dn42/wireguard.nix
     ./hardware-configuration.nix
+    ./exporters.nix
   ];
   system.allenyou.motd.description = "DN42 server";
   environment.systemPackages = with pkgs; [

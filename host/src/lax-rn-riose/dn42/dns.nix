@@ -193,6 +193,10 @@ in
             "file"
             "/etc/coredns/zones/allenyou.dn42.zone"
           ]
+          [
+            "prometheus"
+            "0.0.0.0:9153"
+          ]
         ];
       }
       {
@@ -202,6 +206,10 @@ in
           [
             "file"
             "/etc/coredns/zones/ALLENYOU-DN42-V4.zone"
+          ]
+          [
+            "prometheus"
+            "0.0.0.0:9154"
           ]
         ];
       }
@@ -213,6 +221,10 @@ in
             "file"
             "/etc/coredns/zones/ALLENYOU-DN42-V4.zone"
           ]
+          [
+            "prometheus"
+            "0.0.0.0:9155"
+          ]
         ];
       }
       {
@@ -223,8 +235,15 @@ in
             "file"
             "/etc/coredns/zones/ALLENYOU-DN42-V6.zone"
           ]
+          [
+            "prometheus"
+            "0.0.0.0:9156"
+          ]
         ];
       }
     ];
   };
+  networking.firewall.extraCommands = ''
+    iptables -A INPUT -s 139.196.157.228 -p tcp -m tcp --dport 9153:9156 -j ACCEPT
+  '';
 }

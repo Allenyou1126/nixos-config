@@ -31,6 +31,24 @@
             targets = [
               "172.24.24.198:9100" # Node Exporter
               "172.24.24.198:9090" # Nginx Exporter
+              "172.24.24.198:9500" # Frps
+              "172.24.24.198:9586" # Wireguard Exporter
+            ];
+          }
+        ];
+      }
+      {
+        job_name = "lax-rn-riose";
+        static_configs = [
+          {
+            targets = [
+              "139.196.157.228:9100" # Node Exporter
+              "139.196.157.228:9324" # Bird Exporter
+              "139.196.157.228:9586" # Wireguard Exporter
+              "139.196.157.228:9153" # CoreDNS Exporter for allenyou.dn42
+              "139.196.157.228:9154" # CoreDNS Exporter for 172.21.89.224/27
+              "139.196.157.228:9155" # CoreDNS Exporter for 224/27.89.21.172.in-addr.arpa
+              "139.196.157.228:9156" # CoreDNS Exporter for fdbf:b830:8a32::/48
             ];
           }
         ];

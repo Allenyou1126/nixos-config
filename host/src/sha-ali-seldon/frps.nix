@@ -31,6 +31,10 @@ in
       log.level = "info";
       log.disablePrintColor = false;
 
+      webServer.addr = "0.0.0.0";
+      webServer.port = 9500;
+      enablePrometheus = true;
+
       auth.method = "token";
       auth.tokenSource = {
         type = "file";
@@ -46,6 +50,9 @@ in
       natholeAnalysisDataReserveHours = 168;
     };
   };
+  networking.firewall.extraCommands = ''
+    iptables -A INPUT -s 172.18.63.50 -p tcp -m tcp --dport 9500 -j ACCEPT
+  '';
   networking.firewall.allowedUDPPortRanges = [ (changeToFirewall allowedPortRange) ];
   networking.firewall.allowedTCPPortRanges = [ (changeToFirewall allowedPortRange) ];
   networking.firewall.allowedTCPPorts = [ listenPort ];

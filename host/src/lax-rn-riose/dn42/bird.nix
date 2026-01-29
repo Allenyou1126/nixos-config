@@ -116,4 +116,10 @@
       };
     };
   };
+  services.prometheus.exporters.bird = {
+    enable = true;
+  };
+  networking.firewall.extraCommands = ''
+    iptables -A INPUT -s 139.196.157.228 -p tcp -m tcp --dport 9324 -j ACCEPT
+  '';
 }
