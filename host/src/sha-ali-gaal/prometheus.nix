@@ -79,37 +79,6 @@
             labels = {
               instance = "lax-rn-riose";
               location = "lax";
-              zone = "allenyou.dn42";
-            };
-          }
-          {
-            targets = [
-              "74.48.162.139:9154"
-            ];
-            labels = {
-              instance = "lax-rn-riose";
-              location = "lax";
-              zone = "172.21.89.224/27";
-            };
-          }
-          {
-            targets = [
-              "74.48.162.139:9155"
-            ];
-            labels = {
-              instance = "lax-rn-riose";
-              location = "lax";
-              zone = "224/27.89.21.172.in-addr.arpa";
-            };
-          }
-          {
-            targets = [
-              "74.48.162.139:9156"
-            ];
-            labels = {
-              instance = "lax-rn-riose";
-              location = "lax";
-              zone = "fdbf:b830:8a32::/48";
             };
           }
         ];
