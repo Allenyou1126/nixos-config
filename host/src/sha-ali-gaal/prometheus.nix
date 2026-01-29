@@ -251,11 +251,11 @@
             };
           }
           {
-            targets = [ "https://grafana.allenyou.wang" ];
+            targets = [ "https://grafana.allenyou.top" ];
             labels = {
               description = "Grafana";
-              instance = "hkg-dog-darell";
-              location = "hkg";
+              instance = "sha-ali-gaal";
+              location = "sha";
             };
           }
           {
