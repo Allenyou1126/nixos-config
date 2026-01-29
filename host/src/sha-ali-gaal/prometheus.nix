@@ -13,49 +13,147 @@
     };
     scrapeConfigs = [
       {
-        job_name = "sha-ali-gaal";
+        job_name = "basic";
         static_configs = [
           {
-            targets = [
-              "127.0.0.1:9100" # Node Exporter
-              "127.0.0.1:9115" # Blackbox Exporter
-              "127.0.0.1:9090" # Prometheus
-            ];
+            targets = [ "127.0.0.1:9100" ];
+            labels = {
+              instance = "sha-ali-gaal";
+              location = "sha";
+            };
+          }
+          {
+            targets = [ "172.24.24.198:9100" ];
+            labels = {
+              instance = "sha-ali-seldon";
+              location = "sha";
+            };
+          }
+          {
+            targets = [ "74.48.162.139:9100" ];
+            labels = {
+              instance = "lax-rn-riose";
+              location = "lax";
+            };
           }
         ];
       }
       {
-        job_name = "sha-ali-seldon";
+        job_name = "prometheus";
+        static_configs = [
+          {
+            targets = [ "127.0.0.1:9090" ];
+            labels = {
+              instance = "sha-ali-gaal";
+              location = "sha";
+            };
+          }
+        ];
+      }
+      {
+        job_name = "coredns_dn42";
         static_configs = [
           {
             targets = [
-              "172.24.24.198:9100" # Node Exporter
-              "172.24.24.198:9090" # Nginx Exporter
+              "172.24.24.198:9153"
+            ];
+            labels = {
+              instance = "lax-rn-riose";
+              location = "lax";
+              zone = "allenyou.dn42";
+            };
+          }
+          {
+            targets = [
+              "172.24.24.198:9154"
+            ];
+            labels = {
+              instance = "lax-rn-riose";
+              location = "lax";
+              zone = "172.21.89.224/27";
+            };
+          }
+          {
+            targets = [
+              "172.24.24.198:9155"
+            ];
+            labels = {
+              instance = "lax-rn-riose";
+              location = "lax";
+              zone = "224/27.89.21.172.in-addr.arpa";
+            };
+          }
+          {
+            targets = [
+              "172.24.24.198:9156"
+            ];
+            labels = {
+              instance = "lax-rn-riose";
+              location = "lax";
+              zone = "fdbf:b830:8a32::/48";
+            };
+          }
+        ];
+      }
+      {
+        job_name = "frps";
+        static_configs = [
+          {
+            targets = [
               "172.24.24.198:9500" # Frps
-              "172.24.24.198:9586" # Wireguard Exporter
             ];
+            labels = {
+              instance = "sha-ali-seldon";
+              location = "sha";
+            };
           }
         ];
       }
       {
-        job_name = "lax-rn-riose";
+        job_name = "nginx";
         static_configs = [
           {
-            targets = [
-              "74.48.162.139:9100" # Node Exporter
-              "74.48.162.139:9324" # Bird Exporter
-              "74.48.162.139:9586" # Wireguard Exporter
-              "74.48.162.139:9153" # CoreDNS Exporter for allenyou.dn42
-              "74.48.162.139:9154" # CoreDNS Exporter for 172.21.89.224/27
-              "74.48.162.139:9155" # CoreDNS Exporter for 224/27.89.21.172.in-addr.arpa
-              "74.48.162.139:9156" # CoreDNS Exporter for fdbf:b830:8a32::/48
-            ];
+            targets = [ "172.24.24.198:9090" ];
+            labels = {
+              instance = "sha-ali-seldon";
+              location = "sha";
+            };
           }
         ];
       }
       {
-        job_name = "blackbox";
-        scrape_interval = "5s";
+        job_name = "bird_dn42";
+        static_configs = [
+          {
+            targets = [ "172.24.24.198:9324" ];
+            labels = {
+              instance = "lax-rn-riose";
+              location = "lax";
+            };
+          }
+        ];
+      }
+      {
+        job_name = "wireguard";
+        static_configs = [
+          {
+            targets = [ "172.24.24.198:9586" ];
+            labels = {
+              instance = "sha-ali-seldon";
+              location = "sha";
+            };
+          }
+          {
+            targets = [ "74.48.162.139:9586" ];
+            labels = {
+              instance = "lax-rn-riose";
+              location = "lax";
+            };
+          }
+        ];
+      }
+      {
+        job_name = "website";
         params = {
           module = [ "http_2xx" ];
         };
@@ -67,7 +165,7 @@
           }
           {
             source_labels = [ "__param_target" ];
-            target_label = "instance";
+            target_label = "url";
           }
           {
             target_label = "__address__";
@@ -76,21 +174,114 @@
         ];
         static_configs = [
           {
-            targets = [
-              "https://www.allenyou.wang"
-              "https://image.allenyou.wang"
-              "https://wakapi.allenyou.wang"
-              "https://rss.allenyou.wang"
-              "https://auth.allenyou.top"
-              "https://lg.allenyou.wang"
-              "https://grafana.allenyou.wang"
-              "https://portainer.allenyou.wang"
-              "https://stat.allenyou.wang"
-              "https://vw.allenyou.wang"
-              "https://waline.allenyou.wang"
-              "https://allenyou.top"
-              "https://blog-oss.allenyou.top/placeholder.txt"
-            ];
+            targets = [ "https://www.allenyou.wang" ];
+            labels = {
+              public = "true";
+              description = "Blog";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://image.allenyou.wang" ];
+            labels = {
+              public = "true";
+              description = "Lsky Pro 图床";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://wakapi.allenyou.wang" ];
+            labels = {
+              description = "Wakapi";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://rss.allenyou.wang" ];
+            labels = {
+              description = "Miniflux RSS";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://auth.allenyou.top" ];
+            labels = {
+              description = "ZITADEL Auth";
+              instance = "sha-ali-gaal";
+              location = "sha";
+            };
+          }
+          {
+            targets = [ "https://lg.allenyou.wang" ];
+            labels = {
+              public = "true";
+              description = "DN42 Looking Glass";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://grafana.allenyou.wang" ];
+            labels = {
+              description = "Grafana";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://portainer.allenyou.wang" ];
+            labels = {
+              description = "Portainer";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://stat.allenyou.wang" ];
+            labels = {
+              description = "Matomo 统计";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://vw.allenyou.wang" ];
+            labels = {
+              description = "Vaultwarden";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://waline.allenyou.wang" ];
+            labels = {
+              public = "true";
+              description = "Waline 评论系统";
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
+          {
+            targets = [ "https://allenyou.top" ];
+            labels = {
+              public = "true";
+              description = "个人主页";
+              instance = "zzz-ali-cdn";
+              location = "global";
+            };
+          }
+          {
+            targets = [ "https://blog-oss.allenyou.top/placeholder.txt" ];
+            labels = {
+              public = "true";
+              description = "静态资源 CDN";
+              instance = "zzz-ali-cdn";
+              location = "global";
+            };
           }
         ];
       }
