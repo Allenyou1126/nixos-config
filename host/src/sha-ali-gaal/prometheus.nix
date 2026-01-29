@@ -74,7 +74,7 @@
         static_configs = [
           {
             targets = [
-              "172.24.24.198:9153"
+              "74.48.162.139:9153"
             ];
             labels = {
               instance = "lax-rn-riose";
@@ -84,7 +84,7 @@
           }
           {
             targets = [
-              "172.24.24.198:9154"
+              "74.48.162.139:9154"
             ];
             labels = {
               instance = "lax-rn-riose";
@@ -94,7 +94,7 @@
           }
           {
             targets = [
-              "172.24.24.198:9155"
+              "74.48.162.139:9155"
             ];
             labels = {
               instance = "lax-rn-riose";
@@ -104,7 +104,7 @@
           }
           {
             targets = [
-              "172.24.24.198:9156"
+              "74.48.162.139:9156"
             ];
             labels = {
               instance = "lax-rn-riose";
