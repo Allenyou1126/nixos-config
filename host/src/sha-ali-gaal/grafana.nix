@@ -6,6 +6,7 @@
     settings = {
       server = {
         http_port = 39998;
+        http_addr = "0.0.0.0";
         root_url = "https://grafana.allenyou.top";
       };
       database = {
