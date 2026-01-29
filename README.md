@@ -39,13 +39,13 @@ desk-[代号]
 | -------------- | ------------- | -------- | --------------------- | ------------ | ----------------------------------- |
 | hkg-dog-darell | 云服务器      | 狗云     | 香港                  | Ubuntu 22.04 | 主力服务器，大部分应用              |
 | sha-ali-gaal   | 云服务器      | 阿里云   | 上海                  | NixOS        | 99 计划机子，测试用                 |
-| sha-ali-seldon | 云服务器      | 阿里云   | 上海                  | Debian 12    | 内网穿透 + 个人主页                 |
-| lax-rn-riose   | 云服务器      | RackNerd | 洛杉矶                | Ubuntu 22.04 | DN42 BGP                            |
+| sha-ali-seldon | 云服务器      | 阿里云   | 上海                  | NixOS    | 内网穿透 + 个人主页                 |
+| lax-rn-riose   | 云服务器      | RackNerd | 洛杉矶                | NixOS | DN42 BGP                            |
 | home-demerzel  | 家里云-实体机 | -        | 家里                  | Proxmox VE   | 虚拟化                              |
 | home-arkady    | 家里云-虚拟机 | -        | 家里 on home-demerzel | Windows 11   | 远程桌面                            |
 | home-ebeling   | 家里云-虚拟机 | -        | 家里 on home-demerzel | Debian 12    | 内网服务器                          |
 | home-hardin    | 家里云-实体机 | -        | 家里                  | OpenWRT      | 软路由                              |
-| lap-fallom     | 个人设备      | -        | -                     | Windows 11   | 拯救者 R9000P 2023 锐龙版，主力设备 |
+| lap-fallom     | 个人设备      | -        | -                     | Windows 11 + NixOS WSL   | 拯救者 R9000P 2023 锐龙版，主力设备 |
 
 ## 部署方式
 
