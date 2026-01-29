@@ -14,4 +14,8 @@ allenyou-secrets:
     mode = "755";
     owner = "zitadel";
   };
+  grafana-db-password = {
+    file = "${allenyou-secrets}/grafana-db-password.sha-ali-gaal.age";
+    mode = "111";
+  };
 }
