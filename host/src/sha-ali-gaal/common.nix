@@ -11,6 +11,7 @@
     ./postgres.nix
     ./zitadel.nix
     ./prometheus.nix
+    ./grafana.nix
   ];
   system.allenyou.motd.description = "Test server";
   environment.systemPackages = with pkgs; [

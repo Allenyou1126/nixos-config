@@ -6,7 +6,7 @@
     masterKeyFile = config.age.secrets.zitadel-master-key.path;
     extraSettingsPaths = [ config.age.secrets.zitadel-secret-settings.path ];
     tlsMode = "external";
-    openFirewall = true;
+    openFirewall = false;
     settings = {
       Port = 39999;
       Database.postgres = {
@@ -22,4 +22,7 @@
       TLS.Enabled = false;
     };
   };
+  networking.firewall.extraCommands = ''
+    iptables -A INPUT -s 172.24.24.198 -p tcp -m tcp --dport 39999 -j ACCEPT
+  '';
 }
