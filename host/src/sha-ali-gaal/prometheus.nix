@@ -36,6 +36,13 @@
               location = "lax";
             };
           }
+          {
+            targets = [ "38.55.97.96:9100" ];
+            labels = {
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
         ];
       }
       {
@@ -46,6 +53,18 @@
             labels = {
               instance = "sha-ali-gaal";
               location = "sha";
+            };
+          }
+        ];
+      }
+      {
+        job_name = "docker";
+        static_configs = [
+          {
+            targets = [ "38.55.97.96:9323" ];
+            labels = {
+              instance = "hkg-dog-darell";
+              location = "hkg";
             };
           }
         ];
@@ -117,6 +136,13 @@
             labels = {
               instance = "sha-ali-seldon";
               location = "sha";
+            };
+          }
+          {
+            targets = [ "38.55.97.96:9090" ];
+            labels = {
+              instance = "hkg-dog-darell";
+              location = "hkg";
             };
           }
         ];
