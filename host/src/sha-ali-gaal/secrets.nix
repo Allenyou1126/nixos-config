@@ -16,6 +16,8 @@ allenyou-secrets:
   };
   grafana-db-password = {
     file = "${allenyou-secrets}/grafana-db-password.sha-ali-gaal.age";
-    mode = "111";
+    mode = "500";
+    owner = "grafana";
+    group = "grafana";
   };
 }
