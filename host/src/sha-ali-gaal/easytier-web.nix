@@ -6,7 +6,7 @@
     apiPort = 22021;
     configPort = 22020;
     openFirewall = false;
-    configProtocol = "http";
+    configProtocol = "udp";
   };
   networking.firewall.allowedTCPPorts = [ 22020 ];
   networking.firewall.extraCommands = ''
