@@ -51,7 +51,8 @@ in
         Type = "simple";
         Restart = "always";
         RestartSec = "3";
-        ExecStart = "${cfg.package}/bin/easytier-web --api-server-port ${toString cfg.apiPort} --config-server-port ${toString cfg.configPort} --config-server-protocol ${cfg.configProtocol}";
+        ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p /var/easytier";
+        ExecStart = "${cfg.package}/bin/easytier-web --db /var/easytier/easytier-web.db --api-server-port ${toString cfg.apiPort} --config-server-port ${toString cfg.configPort} --config-server-protocol ${cfg.configProtocol}";
       };
     };
     networking.firewall.allowedTCPPorts = lib.mkIf cfg.openFirewall [
