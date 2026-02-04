@@ -9,7 +9,7 @@
     configProtocol = "http";
   };
   networking.firewall.allowedTCPPorts = [ 22020 ];
-  networking.firewall.extraConfig = ''
+  networking.firewall.extraCommands = ''
     iptables -A INPUT -s 172.24.24.198 -p tcp -m tcp --dport 22021 -j ACCEPT
   '';
 }
