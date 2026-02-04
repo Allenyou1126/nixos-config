@@ -59,17 +59,6 @@ in
         sslCertificate = "/var/ssl/allenyou.top.crt";
         sslCertificateKey = "/var/ssl/allenyou.top.key";
       };
-      easytier-web = {
-        forceSSL = true;
-        serverName = "easytier-api.allenyou.top";
-        locations."/" = {
-          proxyPass = "http://172.18.63.50:22021";
-          proxyWebsockets = true;
-          recommendedProxySettings = true;
-        };
-        sslCertificate = "/var/ssl/allenyou.top.crt";
-        sslCertificateKey = "/var/ssl/allenyou.top.key";
-      };
     };
   };
   users.users = {
