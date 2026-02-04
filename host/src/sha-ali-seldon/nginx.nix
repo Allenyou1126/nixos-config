@@ -61,7 +61,7 @@ in
       };
       easytier-web = {
         forceSSL = true;
-        serverName = "api.easytier.allenyou.top";
+        serverName = "easytier-api.allenyou.top";
         locations."/" = {
           proxyPass = "http://172.18.63.50:22021";
           proxyWebsockets = true;
