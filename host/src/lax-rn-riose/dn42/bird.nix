@@ -114,6 +114,12 @@
         neighborV6 = "fe80::2034";
         multiProtocolV6 = true;
       };
+      yuyuko = {
+        neighborAS = 4242421117;
+        networkInterface = "dn42-yuyuko";
+        neighborV6 = "fe80::1117";
+        multiProtocolV6 = true;
+      };
     };
   };
   services.prometheus.exporters.bird = {

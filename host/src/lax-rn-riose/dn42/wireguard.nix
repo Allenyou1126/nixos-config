@@ -123,6 +123,14 @@
         publicKey = "Zl72hWVO9Ib3ylYqKpDCEq8VyiJjY0WDhXP+vX+CzFs=";
         listenPort = 22034;
       };
+      yuyuko = {
+        addressV4 = "172.21.86.48";
+        addressV6 = "fd42:4242:1117::172.21.86.48";
+        localLinkAddressV6 = "fe80::1117";
+        endpoint = "us01.dn42.yuyuko.com:21056";
+        publicKey = "PW/+rv0B8e4tUJ9j1TWscx1sl36WwhPh9adEqoM7Jic=";
+        listenPort = 21117;
+      };
     };
   };
   services.prometheus.exporters.wireguard = {
