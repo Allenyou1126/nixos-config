@@ -3,7 +3,7 @@
 {
   services.easytier-web = {
     enable = true;
-    port = 22021;
+    apiPort = 22021;
     configPort = 22020;
     openFirewall = false;
     configProtocol = "http";
