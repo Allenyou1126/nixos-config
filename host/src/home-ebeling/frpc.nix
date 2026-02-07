@@ -29,7 +29,6 @@
         };
       };
       udpPacketSize = 1500;
-      natholeAnalysisDataReserveHours = 168;
 
       proxies = [
         {
