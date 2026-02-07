@@ -6,7 +6,6 @@
     role = "client";
     package = pkgs.frp;
     settings = {
-      clientID = "home-ebeling";
       user = "home-ebeling";
       serverAddr = "frps.allenyou.top";
       serverPort = 20000;
