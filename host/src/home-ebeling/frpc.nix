@@ -12,7 +12,6 @@
 
       transport.tcpMux = true;
       transport.tcpMuxKeepaliveInterval = 60;
-      transport.tcpKeepalive = 7200;
       transport.tls.disableCustomTLSFirstByte = false;
 
       log.to = "/dev/stdout";
