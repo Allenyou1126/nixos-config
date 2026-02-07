@@ -10,11 +10,9 @@
       serverAddr = "frps.allenyou.top";
       serverPort = 20000;
 
-      transport.maxPoolCount = 2000;
       transport.tcpMux = true;
       transport.tcpMuxKeepaliveInterval = 60;
       transport.tcpKeepalive = 7200;
-      transport.tls.force = false;
       transport.tls.disableCustomTLSFirstByte = false;
 
       log.to = "/dev/stdout";
