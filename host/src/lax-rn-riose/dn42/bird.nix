@@ -120,6 +120,12 @@
         neighborV6 = "fe80::1117";
         multiProtocolV6 = true;
       };
+      achs = {
+        neighborAS = 4242423310;
+        networkInterface = "dn42-achs";
+        neighborV6 = "fe80::1056:3310";
+        multiProtocolV6 = true;
+      };
     };
   };
   services.prometheus.exporters.bird = {

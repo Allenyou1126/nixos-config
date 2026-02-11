@@ -131,6 +131,12 @@
         publicKey = "PW/+rv0B8e4tUJ9j1TWscx1sl36WwhPh9adEqoM7Jic=";
         listenPort = 21117;
       };
+      achs = {
+        localLinkAddressV6 = "fe80::1056:3310";
+        endpoint = "lax01.edge.r1.tmpfs.dev:21056";
+        publicKey = "qEffOA35Oe2IFUFXv7KTGGZ5SV3XmrM+IxTdzHEDmCg=";
+        listenPort = 23310;
+      };
     };
   };
   services.prometheus.exporters.wireguard = {
