@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     nixfmt-rfc-style
     nil
+    just-lsp
   ];
   home.sessionVariables = {
     GPG_TTY = "$(tty)";
