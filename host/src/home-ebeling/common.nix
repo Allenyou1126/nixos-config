@@ -7,7 +7,6 @@
     ../../../modules/common.nix
     ../../../modules/ssh.nix
     ./hardware-configuration.nix
-    ./frpc.nix
   ];
   system.allenyou.motd.description = "Homelab server";
   environment.systemPackages = with pkgs; [
