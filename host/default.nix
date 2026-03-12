@@ -38,6 +38,13 @@ let
           specialArgs = { inherit inputs; };
           system = system;
           modules = [
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  allenyou-nur = inputs.allenyou-nur.packages."${prev.system}";
+                })
+              ];
+            }
             agenix.nixosModules.default
             ../modules/secrets.nix
             ../modules/binary-cache
