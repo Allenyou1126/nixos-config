@@ -7,7 +7,7 @@
       Restart = lib.mkForce "always";
     };
     environment = {
-      PATH = lib.mkForce "${pkgs.coreutils}/bin:${pkgs.bash}/bin:${pkgs.openssl}/bin";
+      PATH = lib.mkForce "${pkgs.coreutils}/bin:${pkgs.bash}/bin:${pkgs.openssl}/bin:${pkgs.sudo}/bin";
     };
   };
 }
