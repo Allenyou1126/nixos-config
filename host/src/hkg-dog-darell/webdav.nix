@@ -28,7 +28,7 @@
         {
           username = "allenyou";
           password = "{env}ENV_PASSWORD";
-          directory = "/webdav/allenyou";
+          directory = "/var/webdav/allenyou";
           permissions = "CURD";
         }
       ];
