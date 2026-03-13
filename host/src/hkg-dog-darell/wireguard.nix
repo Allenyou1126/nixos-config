@@ -6,6 +6,8 @@
 {
   networking.wg-quick.interfaces = {
     lax-rn-riose = {
+      autostart = true;
+      table = "off";
       privateKeyFile = config.age.secrets.wireguard-private-key-file.path;
       address = [
         "192.168.103.1/24"
