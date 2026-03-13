@@ -3,7 +3,7 @@
 {
   services.vaultwarden = {
     enable = true;
-    domain = "https://vw.allenyou.wang";
+    domain = "vw.allenyou.wang";
     dbBackend = "postgresql";
     config = {
       PUSH_ENABLED = true;
@@ -13,7 +13,6 @@
       SHOW_PASSWORD_HINT = true;
       SIGNUPS_ALLOWED = true;
       INVITATIONS_ALLOWED = false;
-      DOMAIN = "https://vw.allenyou.wang";
 
       # SSO Configuration
       SSO_ENABLED = true;
