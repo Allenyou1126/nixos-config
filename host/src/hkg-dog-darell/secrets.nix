@@ -3,7 +3,10 @@ allenyou-secrets:
 
 {
   wireguard-private-key-file.file = "${allenyou-secrets}/wg-private-key.hkg-dog-darell.age";
-  miniflux-database-url.file = "${allenyou-secrets}/miniflux-database-url.hkg-dog-darell.age";
+  miniflux-database-url = {
+    file = "${allenyou-secrets}/miniflux-database-url.hkg-dog-darell.age";
+    mode = "0444";
+  };
   # vaultwarden-secrets.file = "${allenyou-secrets}/vaultwarden-secrets.hkg-dog-darell.age";
   # wakapi-password-salt.file = "${allenyou-secrets}/wakapi-password-salt.hkg-dog-darell.age";
   # wakapi-smtp-password.file = "${allenyou-secrets}/wakapi-smtp-password.hkg-dog-darell.age";
