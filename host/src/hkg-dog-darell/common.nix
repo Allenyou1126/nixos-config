@@ -12,6 +12,8 @@
     ../../../modules/wakapi.nix
     ./hardware-configuration.nix
     ./nginx.nix
+    ./postgres.nix
+    ./wireguard.nix
     # # Waline
     # ./waline.nix
     # # Waline for zlight106

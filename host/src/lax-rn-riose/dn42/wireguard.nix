@@ -16,7 +16,7 @@
       hkg-dog-darell = {
         addressV4 = "172.21.89.226/32";
         addressV6 = "fdbf:b830:8a32::2/128";
-        publicKey = "QNl4r/O/NDty0SIEc3yItWskSQS7/tHcIveCM6rrCwI=";
+        publicKey = "ioHavV7Rvc+t6EarVxjaVX4l+EP59CDUYTSEewVxyG0=";
         listenPort = 50226;
         endpoint = "hkg-dog-darell.server.allenyou.wang:50225";
       };
