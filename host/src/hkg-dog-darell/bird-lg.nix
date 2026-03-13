@@ -3,7 +3,7 @@
 {
   services.bird-lg.frontend = {
     enable = true;
-    title = "ALLENYOU-DN42 Looking Glass";
+    titleBrand = "ALLENYOU-DN42 Looking Glass";
     servers = [
       "lax-rn-riose"
     ];
