@@ -18,8 +18,8 @@
     # ./waline.nix
     # # Waline for zlight106
     # ./waline-zlight106.nix
-    # # Certimate
-    # ./certimate.nix
+    # Certimate
+    ./certimate.nix
     # # WebDAV
     # ./webdav.nix
     # # Bird-lg
