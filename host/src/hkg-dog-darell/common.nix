@@ -5,7 +5,7 @@
 
 {
   imports = [
-    ../../../modules/boot/efi-systemd.nix
+    ../../../modules/boot/bios-grub.nix
     ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
