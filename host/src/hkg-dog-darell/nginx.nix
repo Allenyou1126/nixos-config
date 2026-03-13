@@ -12,14 +12,29 @@ in
     recommendedGzipSettings = true;
     statusPage = true;
     virtualHosts = {
-      default = {
+      defaultHttp = {
+        listen = [
+          {
+            addr = "0.0.0.0";
+            port = 80;
+          }
+        ];
         reuseport = true;
         extraConfig = ''
           return 444;
         '';
         default = true;
-        sslCertificate = "/var/ssl/allenyou.wang.crt";
-        sslCertificateKey = "/var/ssl/allenyou.wang.key";
+      };
+      defaultHttps = {
+        listen = [
+          {
+            addr = "0.0.0.0";
+            port = 443;
+          }
+        ];
+        reuseport = true;
+        rejectSSL = true;
+        default = true;
       };
     };
   };
