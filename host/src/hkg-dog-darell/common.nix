@@ -6,7 +6,6 @@
 {
   imports = [
     ../../../modules/boot/bios-grub.nix
-    ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
     ../../../modules/wakapi.nix
