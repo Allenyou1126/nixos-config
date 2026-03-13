@@ -30,7 +30,7 @@
       SMTP_PORT = 465;
       SMTP_SECURITY = "force_tls";
       SMTP_FROM = "vaultwarden@allenyou.wang";
-      SMTP_USER = "i@allenyou.wang";
+      SMTP_USERNAME = "i@allenyou.wang";
     };
     environmentFile = config.age.secrets.vaultwarden-secrets.path;
   };
