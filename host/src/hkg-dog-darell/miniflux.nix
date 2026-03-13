@@ -10,8 +10,8 @@
       OAUTH2_CLIENT_ID = "357363864414797618";
       OAUTH2_REDIRECT_URL = "https://rss.allenyou.wang/oauth2/oidc/callback";
       OAUTH2_OIDC_DISCOVERY_ENDPOINT = "https://auth.allenyou.top";
-      OAUTH2_USER_CREATION = true;
-      CREATE_ADMIN = false;
+      OAUTH2_USER_CREATION = 1;
+      CREATE_ADMIN = 0;
       LISTEN_ADDR = "127.0.0.1:45612";
       BASE_URL = "https://rss.allenyou.wang";
     };
