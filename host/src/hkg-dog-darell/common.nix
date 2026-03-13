@@ -21,8 +21,7 @@
     ./webdav.nix
     ./bird-lg.nix
     ./miniflux.nix
-    # # Vaultwarden
-    # ./vaultwarden.nix
+    ./vaultwarden.nix
     # # Wakapi
     # ./wakapi.nix
     # # Lotusland
