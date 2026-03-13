@@ -30,11 +30,9 @@ in
           }
         ];
         reuseport = true;
-        locations = {
-          "/" = {
-            return = 444;
-          };
-        };
+        extraConfig = ''
+          return 444;
+        '';
         default = true;
       };
     };
