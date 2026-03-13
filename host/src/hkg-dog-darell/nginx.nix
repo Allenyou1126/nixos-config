@@ -17,16 +17,10 @@ in
           {
             addr = "0.0.0.0";
             port = 80;
-            extraParameters = [
-              "default_server"
-            ];
           }
           {
             addr = "0.0.0.0";
             port = 443;
-            extraParameters = [
-              "default_server"
-            ];
           }
         ];
         reuseport = true;
@@ -34,6 +28,8 @@ in
           return 444;
         '';
         default = true;
+        sslCertificate = "/var/ssl/allenyou.wang.crt";
+        sslCertificateKey = "/var/ssl/allenyou.wang.key";
       };
     };
   };
