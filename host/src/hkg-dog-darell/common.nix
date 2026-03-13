@@ -17,10 +17,8 @@
     # ./waline.nix
     # # Waline for zlight106
     # ./waline-zlight106.nix
-    # Certimate
     ./certimate.nix
-    # # WebDAV
-    # ./webdav.nix
+    ./webdav.nix
     ./bird-lg.nix
     ./miniflux.nix
     # # Vaultwarden
