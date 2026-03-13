@@ -32,7 +32,7 @@
       SMTP_FROM = "vaultwarden@allenyou.wang";
       SMTP_USER = "i@allenyou.wang";
     };
-    environmentFile = config.age.secrets.vaultwarden-secrets;
+    environmentFile = config.age.secrets.vaultwarden-secrets.path;
   };
   services.nginx.virtualHosts.vaultwarden = {
     forceSSL = true;
