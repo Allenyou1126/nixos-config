@@ -23,6 +23,26 @@
         "type": "github"
       }
     },
+    "allenyou-nur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773417242,
+        "narHash": "sha256-zNo1o9U8AOKnrdaADHPGY7ma8sk+v9eWuz+VwmquzBM=",
+        "owner": "Allenyou1126",
+        "repo": "nur-packages",
+        "rev": "3f4858f989c195aff605566c862d740904b90440",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Allenyou1126",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "allenyou-secrets": {
       "flake": false,
       "locked": {
@@ -181,6 +201,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "allenyou-nur": "allenyou-nur",
         "allenyou-secrets": "allenyou-secrets",
         "haumea": "haumea",
         "home-manager": "home-manager_2",
