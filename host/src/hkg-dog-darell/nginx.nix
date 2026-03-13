@@ -13,16 +13,6 @@ in
     statusPage = true;
     virtualHosts = {
       default = {
-        listen = [
-          {
-            addr = "0.0.0.0";
-            port = 80;
-          }
-          {
-            addr = "0.0.0.0";
-            port = 443;
-          }
-        ];
         reuseport = true;
         extraConfig = ''
           return 444;
