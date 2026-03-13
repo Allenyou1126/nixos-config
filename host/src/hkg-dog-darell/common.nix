@@ -21,8 +21,8 @@
     ./certimate.nix
     # # WebDAV
     # ./webdav.nix
-    # # Bird-lg
-    # ./bird-lg.nix
+    # Bird-lg
+    ./bird-lg.nix
     # # Miniflux
     # ./miniflux.nix
     # # Vaultwarden
