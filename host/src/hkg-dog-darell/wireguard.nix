@@ -12,8 +12,8 @@
       listenPort = 50225;
       postUp = ''
         sysctl -w net.ipv6.conf.lax-rn-riose.autoconf=0
-        ip addr add 172.21.89.226/27 dev lax-rn-riose
-        ip addr add fdbf:b830:8a32::2/128 dev lax-rn-riose
+        ip addr add 172.21.89.226/27 peer 172.21.89.225 dev lax-rn-riose
+        ip addr add fdbf:b830:8a32::2/128 peer fdbf:b830:8a32::1 dev lax-rn-riose
         ip route add 172.20.0.0/14 via 172.21.89.225 dev lax-rn-riose
         ip route add 172.31.0.0/16 via 172.21.89.225 dev lax-rn-riose
         ip route add fd00::/8 via fdbf:b830:8a32::1 dev lax-rn-riose
