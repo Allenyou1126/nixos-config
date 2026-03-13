@@ -21,7 +21,7 @@
       SSO_PKCE = true;
       SSO_AUTHORITY = "https://auth.allenyou.top";
       SSO_CLIENT_ID = "362406448245849906";
-      SSO_AUDIENCE_TRUSTED = "^\d{18}$";
+      SSO_AUDIENCE_TRUSTED = "^\\d{18}$";
       SSO_CLIENT_SECRET = "362406448245849906";
       SSO_SCOPES = "openid profile email offline_access";
 
