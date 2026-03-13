@@ -9,9 +9,6 @@
       autostart = true;
       table = "off";
       privateKeyFile = config.age.secrets.wireguard-private-key-file.path;
-      address = [
-        "192.168.103.1/24"
-      ];
       listenPort = 50225;
       postUp = ''
         sysctl -w net.ipv6.conf.lax-rn-riose.autoconf=0
