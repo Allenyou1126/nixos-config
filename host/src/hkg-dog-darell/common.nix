@@ -22,8 +22,7 @@
     ./bird-lg.nix
     ./miniflux.nix
     ./vaultwarden.nix
-    # # Wakapi
-    # ./wakapi.nix
+    ./wakapi.nix
     # # Lotusland
     # ./lotusland.nix
     # # Blog
