@@ -3,7 +3,7 @@
 {
   services.allenyou.wakapi = {
     enable = true;
-    config = {
+    settings = {
       env = "production";
       quick_start = false;
       skip_migrations = false;
