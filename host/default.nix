@@ -10,7 +10,12 @@ let
     allenyou-secrets
     ;
   system = "x86_64-linux";
-  pkgs = nixpkgs.legacyPackages.${system};
+  pkgs = import nixpkgs {
+    inherit system;
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   rawHosts = haumea.lib.load {
     src = ./src;
