@@ -12,8 +12,14 @@ allenyou-secrets:
     mode = "0444";
   };
   wakapi-secrets.file = "${allenyou-secrets}/wakapi-secrets.hkg-dog-darell.age";
-  waline-secrets.file = "${allenyou-secrets}/waline-secrets.hkg-dog-darell.age";
-  waline-zlight106-secrets.file = "${allenyou-secrets}/waline-zlight106-secrets.hkg-dog-darell.age";
+  waline-secrets = {
+    file = "${allenyou-secrets}/waline-secrets.hkg-dog-darell.age";
+    mode = "0444";
+  };
+  waline-zlight106-secrets = {
+    file = "${allenyou-secrets}/waline-zlight106-secrets.hkg-dog-darell.age";
+    mode = "0444";
+  };
   umami-app-secret = {
     file = "${allenyou-secrets}/umami-app-secret.hkg-dog-darell.age";
     mode = "0444";
