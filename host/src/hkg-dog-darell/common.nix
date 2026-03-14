@@ -13,10 +13,8 @@
     ./nginx.nix
     ./postgres.nix
     ./wireguard.nix
-    # # Waline
-    # ./waline.nix
-    # # Waline for zlight106
-    # ./waline-zlight106.nix
+    ./waline.nix
+    ./waline-zlight106.nix
     ./certimate.nix
     ./webdav.nix
     ./bird-lg.nix
