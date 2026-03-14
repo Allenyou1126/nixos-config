@@ -3,7 +3,7 @@
 {
   virtualisation.oci-containers.containers.waline-zlight106 = {
     image = "lizheming/waline:latest";
-    entrypoint = "node node_modules/@waline/vercel/vanilla.js 15631";
+    cmd = "15631";
     networks = [ "host" ];
     environment = {
       DISABLE_REGION = "true";
