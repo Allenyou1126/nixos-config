@@ -23,12 +23,9 @@
     ./miniflux.nix
     ./vaultwarden.nix
     ./wakapi.nix
-    # # Lotusland
-    # ./lotusland.nix
-    # # Blog
-    # ./blog.nix
-    # # Blog for zlight106
-    # ./zlight106-blog.nix
+    ./lotusland.nix
+    ./blog.nix
+    ./zlight106-blog.nix
     ./umami.nix
     ./exporters.nix
   ];
