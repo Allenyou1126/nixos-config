@@ -10,10 +10,7 @@ let
     allenyou-secrets
     ;
   system = "x86_64-linux";
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
+  pkgs = nixpkgs.legacyPackages.${system};
 
   rawHosts = haumea.lib.load {
     src = ./src;
@@ -40,7 +37,6 @@ let
         value = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            inherit pkgs;
           };
           system = system;
           modules = [
@@ -50,6 +46,7 @@ let
                   allenyou-nur = inputs.allenyou-nur.packages."${prev.system}";
                 })
               ];
+              nixpkgs.config.allowUnfree = true;
             }
             agenix.nixosModules.default
             ../modules/secrets.nix
