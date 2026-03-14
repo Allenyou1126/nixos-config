@@ -71,6 +71,9 @@
         db = {
           host = "127.0.0.1";
           port = 5432;
+          dialect = "postgres";
+          user = "Wakapi";
+          name = "Wakapi";
         };
 
         security = {
@@ -110,11 +113,6 @@
           };
         };
       };
-    };
-    database = {
-      dialect = "postgres";
-      user = "Wakapi";
-      name = "Wakapi";
     };
     passwordSaltFile = config.age.secrets.wakapi-password-salt.path;
     smtpPasswordFile = config.age.secrets.wakapi-smtp-password.path;
