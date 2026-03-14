@@ -3,6 +3,9 @@
 {
   services.allenyou.wakapi = {
     enable = true;
+    database = {
+      dialect = "postgres";
+    };
     settings = {
       env = "production";
       quick_start = false;
@@ -94,7 +97,6 @@
               name = "zitadel";
               display_name = "Allenyou Auth";
               client_id = "357364480843267890";
-              client_secret = "jTxebiBE5dNQ1EDcLwaXIIlFLghRK7gsH0wi0UwflRUQsPuK5Kid3l6rA4kxopKd";
               endpoint = "https://auth.allenyou.top";
             }
           ];
@@ -114,9 +116,7 @@
         };
       };
     };
-    passwordSaltFile = config.age.secrets.wakapi-password-salt.path;
-    smtpPasswordFile = config.age.secrets.wakapi-smtp-password.path;
-    databasePasswordFile = config.age.secrets.wakapi-database-password.path;
+    environmentFiles = [ config.age.secrets.wakapi-secrets.path ];
   };
   services.nginx.virtualHosts.wakapi = {
     forceSSL = true;
