@@ -116,9 +116,9 @@
       user = "Wakapi";
       name = "Wakapi";
     };
-    passwordSaltFile = config.secrets.wakapi-password-salt.file;
-    smtpPasswordFile = config.secrets.wakapi-smtp-password.file;
-    databasePasswordFile = config.secrets.wakapi-database-password.file;
+    passwordSaltFile = config.age.secrets.wakapi-password-salt.path;
+    smtpPasswordFile = config.age.secrets.wakapi-smtp-password.path;
+    databasePasswordFile = config.age.secrets.wakapi-database-password.path;
   };
   services.nginx.virtualHosts.wakapi = {
     forceSSL = true;
