@@ -21,4 +21,11 @@
     sslCertificate = "/var/ssl/zlight106.top.crt";
     sslCertificateKey = "/var/ssl/zlight106.top.key";
   };
+  users.extraUsers.zlight106 = {
+    isNormalUser = true;
+    createHome = true;
+    openssh.authorizedKeys = [
+
+    ];
+  };
 }

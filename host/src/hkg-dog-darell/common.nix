@@ -10,22 +10,23 @@
     ../../../modules/ssh.nix
     ../../../modules/wakapi.nix
     ./hardware-configuration.nix
+    ./exporters.nix
     ./nginx.nix
     ./postgres.nix
     ./wireguard.nix
-    ./waline.nix
-    ./waline-zlight106.nix
-    ./certimate.nix
-    ./webdav.nix
-    ./bird-lg.nix
-    ./miniflux.nix
-    ./vaultwarden.nix
-    ./wakapi.nix
-    ./lotusland.nix
-    ./blog.nix
-    ./zlight106-blog.nix
-    ./umami.nix
-    ./exporters.nix
+    ./apps/waline.nix
+    ./apps/waline-zlight106.nix
+    ./apps/certimate.nix
+    ./apps/webdav.nix
+    ./apps/bird-lg.nix
+    ./apps/miniflux.nix
+    ./apps/vaultwarden.nix
+    ./apps/wakapi.nix
+    ./apps/lotusland.nix
+    ./apps/blog.nix
+    ./apps/zlight106-blog.nix
+    ./apps/umami.nix
+    ./apps/openwebui.nix
   ];
   system.allenyou.motd.description = "Application server.";
   environment.systemPackages = with pkgs; [

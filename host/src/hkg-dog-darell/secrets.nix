@@ -29,4 +29,8 @@ allenyou-secrets:
     mode = "0444";
   };
   webdav-password.file = "${allenyou-secrets}/webdav-password.hkg-dog-darell.age";
+  openwebui-secrets = {
+    file = "${allenyou-secrets}/open-webui-secrets.hkg-dog-darell.age";
+    mode = "0444";
+  };
 }
