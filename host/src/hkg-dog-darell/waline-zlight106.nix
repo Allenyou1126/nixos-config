@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  virtualisation.oci-containers.containers.waline = {
+  virtualisation.oci-containers.containers.waline-zlight106 = {
     image = "lizheming/waline:latest";
     entrypoint = "node node_modules/@waline/vercel/vanilla.js 15631";
     networks = [ "host" ];
