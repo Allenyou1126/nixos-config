@@ -3,7 +3,7 @@
 {
   virtualisation.oci-containers.containers.waline = {
     image = "lizheming/waline:latest";
-    cmd = "15656";
+    cmd = [ "15656" ];
     networks = [ "host" ];
     environment = {
       DISABLE_REGION = "true";
