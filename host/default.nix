@@ -12,9 +12,7 @@ let
   system = "x86_64-linux";
   pkgs = import nixpkgs {
     inherit system;
-    config = {
-      allowUnfree = true;
-    };
+    config.allowUnfree = true;
   };
 
   rawHosts = haumea.lib.load {
@@ -40,7 +38,10 @@ let
       {
         name = hostName;
         value = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            inherit pkgs;
+          };
           system = system;
           modules = [
             {
