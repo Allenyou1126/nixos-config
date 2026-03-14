@@ -30,8 +30,7 @@
     # ./blog.nix
     # # Blog for zlight106
     # ./zlight106-blog.nix
-    # # Umami
-    # ./umami.nix
+    ./umami.nix
     ./exporters.nix
   ];
   system.allenyou.motd.description = "Application server.";
