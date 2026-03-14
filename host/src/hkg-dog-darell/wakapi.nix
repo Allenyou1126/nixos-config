@@ -71,14 +71,6 @@
         date_format = "2006-01-02";
         datetime_format = "2006-01-02 15:04";
 
-        db = {
-          host = "127.0.0.1";
-          port = 5432;
-          dialect = "postgres";
-          user = "wakapi";
-          name = "wakapi";
-        };
-
         security = {
           allow_signup = true;
           signup_captcha = false;
@@ -92,28 +84,9 @@
           signup_max_rate = "5/1h";
           login_max_rate = "10/1m";
           password_reset_max_rate = "5/1h";
-          oidc = [
-            {
-              name = "zitadel";
-              display_name = "Allenyou Auth";
-              client_id = "357364480843267890";
-              endpoint = "https://auth.allenyou.top";
-            }
-          ];
           insecure_cookies = true;
         };
 
-        mail = {
-          enabled = true;
-          provider = "smtp";
-          sender = "Allenyou-Wakapi <wakapi@allenyou.wang>";
-          smtp = {
-            host = "smtp.fastmail.com";
-            port = 465;
-            username = "i@allenyou.wang";
-            tls = true;
-          };
-        };
       };
     };
     environmentFiles = [ config.age.secrets.wakapi-secrets.path ];
