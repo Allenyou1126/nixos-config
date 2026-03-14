@@ -3,7 +3,11 @@
 {
   virtualisation.oci-containers.containers.waline = {
     image = "lizheming/waline:latest";
-    cmd = [ "15656" ];
+    cmd = [
+      "node"
+      "node_modules/@waline/vercel/vanilla.js"
+      "15656"
+    ];
     networks = [ "host" ];
     environment = {
       DISABLE_REGION = "true";
