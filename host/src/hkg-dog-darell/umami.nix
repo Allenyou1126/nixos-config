@@ -11,6 +11,9 @@
       DISABLE_TELEMETRY = true;
     };
   };
+  systemd.services.umami = {
+    environment.HOME = "/var/lib/umami";
+  };
   services.nginx.virtualHosts.umami = {
     forceSSL = true;
     serverName = "umami.allenyou.wang";
