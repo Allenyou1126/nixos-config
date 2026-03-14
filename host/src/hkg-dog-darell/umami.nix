@@ -3,6 +3,7 @@
 {
   services.umami = {
     enable = true;
+    createPostgresqlDatabase = false;
     settings = {
       APP_SECRET_FILE = config.age.secrets.umami-app-secret.path;
       DATABASE_URL_FILE = config.age.secrets.umami-database-url.path;
