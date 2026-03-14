@@ -83,9 +83,9 @@
           trusted_header_auth_key = "Remote-User";
           trusted_header_auth_allow_signup = false;
           trust_reverse_proxy_ips = [ "127.0.0.1" ];
-          signup_max_rate = 5/1h;
-          login_max_rate = 10/1m;
-          password_reset_max_rate = 5/1h;
+          signup_max_rate = "5/1h";
+          login_max_rate = "10/1m";
+          password_reset_max_rate = "5/1h";
           oidc = [
             {
               name = "zitadel";
