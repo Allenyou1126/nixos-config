@@ -22,7 +22,7 @@
       PG_HOST = "127.0.0.1";
       PG_PORT = "5432";
     };
-    environmentFiles = [ config.age.secrets.waline-zlight106-secrets ];
+    environmentFiles = [ config.age.secrets.waline-zlight106-secrets.path ];
   };
   services.nginx.virtualHosts.waline-zlight106 = {
     forceSSL = true;

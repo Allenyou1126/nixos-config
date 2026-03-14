@@ -26,7 +26,7 @@
       PG_HOST = "127.0.0.1";
       PG_PORT = "5432";
     };
-    environmentFiles = [ config.age.secrets.waline-secrets ];
+    environmentFiles = [ config.age.secrets.waline-secrets.path ];
   };
   services.nginx.virtualHosts.waline = {
     forceSSL = true;
