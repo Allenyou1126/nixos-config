@@ -24,7 +24,7 @@
     };
     environmentFiles = [ config.age.secrets.waline-zlight106-secrets ];
   };
-  services.nginx.virtualHosts.waline = {
+  services.nginx.virtualHosts.waline-zlight106 = {
     forceSSL = true;
     serverName = "waline.zlight106.top";
     locations."/" = {
