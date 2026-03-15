@@ -31,7 +31,7 @@
       "127.0.0.1:45562" = { };
     };
     extraConfig = ''
-      keepkeepalive 128;
+      keepalive 128;
       keepalive_timeout 1800s;
       keepalive_requests 10000;
     '';
