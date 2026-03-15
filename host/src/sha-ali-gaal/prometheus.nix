@@ -58,18 +58,6 @@
         ];
       }
       {
-        job_name = "docker";
-        static_configs = [
-          {
-            targets = [ "38.55.97.96:9323" ];
-            labels = {
-              instance = "hkg-dog-darell";
-              location = "hkg";
-            };
-          }
-        ];
-      }
-      {
         job_name = "coredns_dn42";
         static_configs = [
           {
@@ -145,6 +133,13 @@
               location = "lax";
             };
           }
+          {
+            targets = [ "38.55.97.96:9586" ];
+            labels = {
+              instance = "hkg-dog-darell";
+              location = "hkg";
+            };
+          }
         ];
       }
       {
@@ -173,15 +168,6 @@
             labels = {
               public = "true";
               description = "Blog";
-              instance = "hkg-dog-darell";
-              location = "hkg";
-            };
-          }
-          {
-            targets = [ "https://image.allenyou.wang" ];
-            labels = {
-              public = "true";
-              description = "Lsky Pro 图床";
               instance = "hkg-dog-darell";
               location = "hkg";
             };
@@ -228,17 +214,17 @@
             };
           }
           {
-            targets = [ "https://portainer.allenyou.wang" ];
+            targets = [ "https://umami.allenyou.wang" ];
             labels = {
-              description = "Portainer";
+              description = "Umami 统计";
               instance = "hkg-dog-darell";
               location = "hkg";
             };
           }
           {
-            targets = [ "https://stat.allenyou.wang" ];
+            targets = [ "https://ai.allenyou.wang" ];
             labels = {
-              description = "Matomo 统计";
+              description = "Open WebUI";
               instance = "hkg-dog-darell";
               location = "hkg";
             };
