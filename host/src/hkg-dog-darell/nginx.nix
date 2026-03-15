@@ -11,6 +11,7 @@ in
     recommendedBrotliSettings = true;
     recommendedGzipSettings = true;
     statusPage = true;
+    clientMaxBodySize = "100M";
     virtualHosts = {
       defaultHttp = {
         listen = [
