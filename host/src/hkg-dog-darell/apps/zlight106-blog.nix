@@ -25,7 +25,7 @@
     isNormalUser = true;
     createHome = true;
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILFhiR8t5soqwfpcemRLTe9StCSGsD36TyJgE9PGcjJk allenyou@lap-fallom"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPQlfxhX2yeNTFLbgAe59dsUMLdnapa7fRRkiJvwToLx termux"
     ];
   };
 }
