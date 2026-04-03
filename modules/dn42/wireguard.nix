@@ -227,7 +227,9 @@ in
       staticSessions = builtins.mapAttrs mkStaticSession cfg.staticSessions;
       openedPorts = lib.unique (
         builtins.catAttrs "listenPort" (
-          builtins.attrValues dn42PeeringSessions ++ builtins.attrValues staticSessions
+          builtins.catAttrs "value" (
+            builtins.attrValues dn42PeeringSessions ++ builtins.attrValues staticSessions
+          )
         )
       );
     in
