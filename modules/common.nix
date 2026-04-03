@@ -24,5 +24,13 @@
     "root"
     "allenyou"
   ];
+  networking.nameservers = [
+    "8.8.8.8"
+    "4.4.4.4"
+    "1.1.1.1"
+    "172.21.89.225"
+    "172.20.0.53"
+    "172.23.0.53"
+  ];
   i18n.defaultLocale = "en_US.UTF-8";
 }
