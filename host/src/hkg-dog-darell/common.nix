@@ -35,12 +35,12 @@
     git
   ];
   networking.nameservers = [
-    "8.8.8.8"
-    "4.4.4.4"
-    "1.1.1.1"
     "172.21.89.225"
     "172.20.0.53"
     "172.23.0.53"
+    "8.8.8.8"
+    "4.4.4.4"
+    "1.1.1.1"
   ];
   environment.variables.EDITOR = "vim";
   system.stateVersion = "25.11";
