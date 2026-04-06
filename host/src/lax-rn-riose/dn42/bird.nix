@@ -42,12 +42,12 @@
       #     neighborV6 = "fe80::1118";
       #     multiProtocolV6 = true;
       # };
-      darkpoint = {
-        neighborAS = 4242420150;
-        networkInterface = "dn42-darkpoint";
-        neighborV6 = "fe80::150";
-        multiProtocolV6 = true;
-      };
+      # darkpoint = {
+      #   neighborAS = 4242420150;
+      #   networkInterface = "dn42-darkpoint";
+      #   neighborV6 = "fe80::150";
+      #   multiProtocolV6 = true;
+      # };
       lantian = {
         neighborAS = 4242422547;
         networkInterface = "dn42-lantian";

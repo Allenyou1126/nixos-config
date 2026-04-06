@@ -44,12 +44,12 @@
         publicKey = "PrDF2xpowp0VYV0lolWJgMqFxAU7aHd02bDRobBLmk8=";
         listenPort = 23989;
       };
-      darkpoint = {
-        localLinkAddressV6 = "fe80::150";
-        endpoint = "iad.darkpoint.xyz:21056";
-        publicKey = "1o0XfQvBM1gqknqzfuOnVmf2RjRTHuyMZYNipSSb2TQ=";
-        listenPort = 20150;
-      };
+      # darkpoint = {
+      #   localLinkAddressV6 = "fe80::150";
+      #   endpoint = "iad.darkpoint.xyz:21056";
+      #   publicKey = "1o0XfQvBM1gqknqzfuOnVmf2RjRTHuyMZYNipSSb2TQ=";
+      #   listenPort = 20150;
+      # };
       lantian = {
         addressV4 = "172.22.76.185";
         addressV6 = "fdbc:f9dc:67ad:3::1";
