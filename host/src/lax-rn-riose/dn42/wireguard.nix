@@ -105,7 +105,7 @@
         addressV4 = "172.22.144.66";
         addressV6 = "fd36:62be:ef51:2::1";
         localLinkAddressV6 = "fe80::2:3999";
-        endpoint = "lax.node.cowgl.xyz:31056";
+        endpoint = "lax.node.cowgl.tech:31056";
         publicKey = "jhOukGNAKHI8Ivn8uI1TS25n5ho/rVlKFfenGmwCVlg=";
         listenPort = 23999;
       };
