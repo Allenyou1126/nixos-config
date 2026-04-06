@@ -36,6 +36,14 @@
       #     publicKey = "2UHctxbyqTaY/cTiXDfSz8h+uJEluqYeeHQzzY9+aU4=";
       #     listenPort = 21118;
       # };
+      huangbo = {
+        addressV4 = "172.20.50.146";
+        addressV6 = "fd72:d7c7:fe7b:eaa7:3a7c:5d1f:9b2e:4f8a";
+        localLinkAddressV6 = "fe80::3989";
+        endpoint = "151.241.130.18:23898";
+        publicKey = "PrDF2xpowp0VYV0lolWJgMqFxAU7aHd02bDRobBLmk8=";
+        listenPort = 23989;
+      };
       darkpoint = {
         localLinkAddressV6 = "fe80::150";
         endpoint = "iad.darkpoint.xyz:21056";

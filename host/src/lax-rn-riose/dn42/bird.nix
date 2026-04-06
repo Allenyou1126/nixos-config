@@ -126,6 +126,13 @@
         neighborV6 = "fe80::1056:3310";
         multiProtocolV6 = true;
       };
+      xiaohuangbo = {
+        neighborAS = 4242423989;
+        networkInterface = "dn42-huangbo";
+        neighborV4 = "172.20.50.146";
+        neighborV6 = "fe80::3989";
+        multiProtocolV6 = true;
+      };
     };
   };
   services.prometheus.exporters.bird = {
