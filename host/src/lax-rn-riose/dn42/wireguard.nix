@@ -41,7 +41,7 @@
         addressV6 = "fd72:d7c7:fe7b:eaa7:3a7c:5d1f:9b2e:4f8a";
         localLinkAddressV6 = "fe80::3989";
         endpoint = "151.241.130.18:23898";
-        publicKey = "PrDF2xpowp0VYV0lolWJgMqFxAU7aHd02bDRobBLmk8=";
+        publicKey = "5K+us/ATpXrmGXKk1XE9RDtucqc9li7xy4LkzRMDHiQ=";
         listenPort = 23989;
       };
       # darkpoint = {
