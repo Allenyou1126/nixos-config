@@ -26,14 +26,13 @@
     git
   ];
   networking.nameservers = [
-    "172.20.0.53"
+    "172.23.0.53"
     "8.8.8.8"
   ];
   services.resolved = {
     enable = true;
     fallbackDns = [
       "1.1.1.1"
-      "172.23.0.53"
     ];
   };
   environment.variables.EDITOR = "vim";
