@@ -197,6 +197,11 @@ in
             "prometheus"
             "0.0.0.0:9153"
           ]
+          [
+            "bind"
+            "172.21.89.225"
+            "fdbf:b830:8a32::1"
+          ]
         ];
       }
       {
@@ -206,6 +211,11 @@ in
           [
             "file"
             "/etc/coredns/zones/ALLENYOU-DN42-V4.zone"
+          ]
+          [
+            "bind"
+            "172.21.89.225"
+            "fdbf:b830:8a32::1"
           ]
         ];
       }
@@ -217,6 +227,11 @@ in
             "file"
             "/etc/coredns/zones/ALLENYOU-DN42-V4.zone"
           ]
+          [
+            "bind"
+            "172.21.89.225"
+            "fdbf:b830:8a32::1"
+          ]
         ];
       }
       {
@@ -226,6 +241,11 @@ in
           [
             "file"
             "/etc/coredns/zones/ALLENYOU-DN42-V6.zone"
+          ]
+          [
+            "bind"
+            "172.21.89.225"
+            "fdbf:b830:8a32::1"
           ]
         ];
       }
