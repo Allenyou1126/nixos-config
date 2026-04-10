@@ -28,8 +28,13 @@
   networking.nameservers = [
     "172.20.0.53"
     "8.8.8.8"
-    "1.1.1.1"
   ];
+  services.resolved = {
+    enable = true;
+    fallbackDns = [
+      "1.1.1.1"
+    ];
+  };
   environment.variables.EDITOR = "vim";
   system.stateVersion = "25.11";
 }
