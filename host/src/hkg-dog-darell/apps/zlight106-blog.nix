@@ -3,7 +3,7 @@
 {
   services.nginx.virtualHosts.zlight106-blog = {
     forceSSL = true;
-    serverName = "docs.zlight106.top";
+    serverName = "zlight106.top";
     root = "/var/www/zlight106-blog/";
     extraConfig = ''
       error_page 404 /404.html;
