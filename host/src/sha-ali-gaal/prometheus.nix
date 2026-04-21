@@ -281,7 +281,7 @@
       modules = {
         http_2xx = {
           prober = "http";
-          timeout = "5s";
+          timeout = "10s";
           http = {
             valid_http_versions = [
               "HTTP/1.1"
