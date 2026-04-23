@@ -7,6 +7,7 @@
       Restart = lib.mkForce "always";
     };
     environment = {
+      CERTIMATE_WORKFLOW_MULTIPROC = "0";
       PATH = lib.mkForce "${pkgs.coreutils}/bin:${pkgs.bash}/bin:${pkgs.openssl}/bin:${pkgs.sudo}/bin";
     };
   };
