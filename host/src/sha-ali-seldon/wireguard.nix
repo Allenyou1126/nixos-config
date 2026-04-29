@@ -13,7 +13,7 @@ in
         "192.168.103.1/24"
       ];
       listenPort = port;
-      mtu = 1420;
+      mtu = 1280;
       postUp = ''
         iptables -t nat -A POSTROUTING -s 192.168.103.0/24 -o eth0 -j MASQUERADE
         iptables -A FORWARD -i wg0 -j ACCEPT
@@ -40,6 +40,14 @@ in
           publicKey = "pGv6qXxK5Rtb4XEy6eSe1VCiR4SLX1MoIOo5yKteMkE=";
           allowedIPs = [
             "192.168.103.2/32"
+          ];
+        }
+        # lap-yenner
+        {
+          presharedKeyFile = config.age.secrets.lap-yenner-wireguardPresharedKeyFile.path;
+          publicKey = "o8OVSPXZcoptTO6JIKzYadMqNLFeWV8UhlJVCWnUxFk=";
+          allowedIPs = [
+            "192.168.103.4/32"
           ];
         }
       ];
