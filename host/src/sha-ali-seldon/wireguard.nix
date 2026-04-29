@@ -28,7 +28,7 @@ in
         # home-hardin
         {
           presharedKeyFile = config.age.secrets.home-hardin-wireguardPresharedKeyFile.path;
-          publicKey = "yWHF50j4No2X4BHMlmoF/sJ5OI+hyD5IZQ1aEMQTBFk=";
+          publicKey = "ONtA5KF53ekWNDrb1owlsvvvVgaQGd4wPmtRZargrzY=";
           allowedIPs = [
             "192.168.103.3/32"
             "192.168.100.0/24"
