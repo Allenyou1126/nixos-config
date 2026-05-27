@@ -46,10 +46,10 @@
     "allenyou-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1778070377,
-        "narHash": "sha256-WLVgTXqICzxLYtRM0u4jfEwaFORX0fc3B4hQ1Ttm7fI=",
+        "lastModified": 1778839735,
+        "narHash": "sha256-EWK53XfZ+mPzR9UPLi8f7+Sp6w86qq/vMktIuD5TrsQ=",
         "ref": "refs/heads/master",
-        "rev": "121c27026645f7bdbeecfb57339efd633658bd65",
+        "rev": "04b797897a0d4fa5786364465710393cb04911e4",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Allenyou1126/nixos-secret.git"
@@ -147,11 +147,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778606796,
-        "narHash": "sha256-P2krpSkFVYJ89bgsnAZ9RtQiGwiTW77sfSJp9SEDscM=",
+        "lastModified": 1779506708,
+        "narHash": "sha256-QOD/CNm196nCJRheux/URi4/HE66fthdOMqCJoPP1Y0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e1fd7350f4410972bcb8c42a697d8c924ffe642a",
+        "rev": "3ee51fbdac8c8bdfe1e7e1fcaba6520a563f394f",
         "type": "github"
       },
       "original": {
@@ -184,11 +184,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1778430510,
-        "narHash": "sha256-Ti+ZBvW6yrWWAg2szExVTwCd4qOJ3KlVr1tFHfyfi8Q=",
+        "lastModified": 1779467186,
+        "narHash": "sha256-nOesoDCiXcUftqbRBMz9tt4blI5PvljMWbm3kuCA+0s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8fd9daa3db09ced9700431c5b7ad0e8ba199b575",
+        "rev": "b77b3de8775677f84492abe84635f87b0e153f0f",
         "type": "github"
       },
       "original": {
