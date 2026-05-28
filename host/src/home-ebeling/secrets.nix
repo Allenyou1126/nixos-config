@@ -7,4 +7,5 @@ allenyou-secrets:
     path = "/etc/frp/token";
     mode = "444";
   };
+  shipyard-neo-password.file = "${allenyou-secrets}/shipyard-neo-password.home-ebeling.age";
 }
