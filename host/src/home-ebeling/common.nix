@@ -15,6 +15,7 @@
     wget
     git
   ];
+  users.users.allenyou.extraGroups = [ "docker" ];
   environment.variables.EDITOR = "vim";
   system.stateVersion = "25.11";
 }
