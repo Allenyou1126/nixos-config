@@ -30,7 +30,7 @@
   };
   environment.etc."shipyard-neo-bay.config.yaml" = {
     source = ./shipyard-neo-config.yaml;
-    mode = 0644;
+    mode = "0644";
   };
   networking.firewall.allowedTCPPorts = [ 6185 ];
 }
