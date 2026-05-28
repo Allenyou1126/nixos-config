@@ -28,4 +28,5 @@
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
+  networking.firewall.allowedTCPPorts = [ 6185 ];
 }
