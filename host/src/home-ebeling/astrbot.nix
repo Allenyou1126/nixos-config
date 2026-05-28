@@ -22,11 +22,15 @@
     environmentFiles = [ config.age.secrets.shipyard-neo-password.path ];
     volumes = [
       "/var/run/docker.sock:/var/run/docker.sock"
-      "./config.yaml:/app/config.yaml:ro"
+      "/etc/shipyard-neo-bay.config.yaml:/app/config.yaml:ro"
       "bay-data:/app/data"
       "bay-cargos:/var/lib/bay/cargos"
       "/etc/localtime:/etc/localtime:ro"
     ];
+  };
+  environment.etc."shipyard-neo-bay.config.yaml" = {
+    source = ./shipyard-neo-config.yaml;
+    mode = 0644;
   };
   networking.firewall.allowedTCPPorts = [ 6185 ];
 }
