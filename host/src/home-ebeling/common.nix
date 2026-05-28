@@ -6,6 +6,7 @@
     ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
+    ./astrbot.nix
     ./hardware-configuration.nix
   ];
   system.allenyou.motd.description = "Homelab server";
