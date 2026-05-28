@@ -5,7 +5,7 @@
     enable = true;
     titleBrand = "ALLENYOU-DN42 Looking Glass";
     servers = [
-      "lax-rn-riose"
+      "lax-rn-riose<172.21.89.225>"
     ];
     navbar.brand = "ALLENYOU-DN42";
     domain = "server.allenyou.dn42";
