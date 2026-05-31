@@ -19,6 +19,10 @@
       OPENID_PROVIDER_URL = "https://auth.allenyou.top/.well-known/openid-configuration";
 
       ENABLE_OAUTH_ROLE_MANAGEMENT = "True";
+      OAUTH_SCOPES = "openid email profiles";
+      OAUTH_ROLES_CLAIM = "flatRolesClaim";
+      OAUTH_ALLOWED_ROLES = "openwebui.user";
+      OAUTH_ADMIN_ROLES = "openwebui.admin";
 
       OPENAI_API_BASE_URL = "https://api.deepseek.com";
 
