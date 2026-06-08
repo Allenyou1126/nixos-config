@@ -9,8 +9,6 @@ database:
 driver:
   type: docker
 
-  image_pull_policy: always
-
   docker:
     socket: "unix:///var/run/docker.sock"
     connect_mode: container_network
