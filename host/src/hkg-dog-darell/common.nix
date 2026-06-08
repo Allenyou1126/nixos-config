@@ -27,6 +27,7 @@
     ./apps/zlight106-blog.nix
     ./apps/umami.nix
     ./apps/openwebui.nix
+    ./apps/gotify.nix
   ];
   system.allenyou.motd.description = "Application server.";
   environment.systemPackages = with pkgs; [
