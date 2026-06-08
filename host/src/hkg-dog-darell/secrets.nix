@@ -33,4 +33,5 @@ allenyou-secrets:
     file = "${allenyou-secrets}/open-webui-secrets.hkg-dog-darell.age";
     mode = "0444";
   };
+  gotify-secrets.file = "${allenyou-secrets}/gotify-secrets.hkg-dog-darell.age";
 }
