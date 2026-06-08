@@ -30,7 +30,7 @@
             };
           }
           {
-            targets = [ "74.48.162.139:9100" ];
+            targets = [ "192.161.173.107:9100" ];
             labels = {
               instance = "lax-rn-riose";
               location = "lax";
@@ -62,7 +62,7 @@
         static_configs = [
           {
             targets = [
-              "74.48.162.139:9153"
+              "192.161.173.107:9153"
             ];
             labels = {
               instance = "lax-rn-riose";
@@ -108,7 +108,7 @@
         job_name = "bird_dn42";
         static_configs = [
           {
-            targets = [ "74.48.162.139:9324" ];
+            targets = [ "192.161.173.107:9324" ];
             labels = {
               instance = "lax-rn-riose";
               location = "lax";
@@ -127,7 +127,7 @@
             };
           }
           {
-            targets = [ "74.48.162.139:9586" ];
+            targets = [ "192.161.173.107:9586" ];
             labels = {
               instance = "lax-rn-riose";
               location = "lax";
