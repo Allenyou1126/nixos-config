@@ -132,6 +132,12 @@
         neighborV4 = "172.20.50.146";
         multiProtocolV4 = true;
       };
+      shinebay = {
+        neighborAS = 4242423747;
+        networkInterface = "dn42-shinebay";
+        neighborV6 = "fe80::3747";
+        multiProtocolV6 = true;
+      };
     };
   };
   services.prometheus.exporters.bird = {

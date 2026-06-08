@@ -145,6 +145,12 @@
         publicKey = "qEffOA35Oe2IFUFXv7KTGGZ5SV3XmrM+IxTdzHEDmCg=";
         listenPort = 23310;
       };
+      shinebay = {
+        localLinkAddressV6 = "fe80::3747";
+        endpoint = "2.58.196.38:45843";
+        publicKey = "x7eIcf6v/9Sbg459f6x+EId/Uk7a6GJbJHj+VdWqcEM=";
+        listenPort = 23747;
+      };
     };
   };
   services.prometheus.exporters.wireguard = {
