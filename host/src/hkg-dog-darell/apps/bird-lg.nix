@@ -8,7 +8,6 @@
       "lax-rn-riose<172.21.89.225>"
     ];
     navbar.brand = "ALLENYOU-DN42";
-    domain = "server.allenyou.dn42";
   };
   services.nginx.virtualHosts.bird-lg = {
     forceSSL = true;
