@@ -34,4 +34,5 @@ allenyou-secrets:
     mode = "0444";
   };
   gotify-secrets.file = "${allenyou-secrets}/gotify-secrets.hkg-dog-darell.age";
+  sub-store-secrets.file = "${allenyou-secrets}/sub-store-secrets.hkg-dog-darell.age";
 }
