@@ -28,6 +28,7 @@
     ./apps/umami.nix
     ./apps/openwebui.nix
     ./apps/gotify.nix
+    ./apps/sub-store.nix
   ];
   system.allenyou.motd.description = "Application server.";
   environment.systemPackages = with pkgs; [
