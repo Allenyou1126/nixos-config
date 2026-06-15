@@ -6,9 +6,9 @@
     networks = [ "host" ];
     environment = {
       SUB_STORE_BACKEND_API_HOST = "127.0.0.1";
-      SUB_STORE_BACKEND_API_PORT = 61756;
-      SUB_STORE_BACKEND_MERGE = true;
-      PORT = 13476;
+      SUB_STORE_BACKEND_API_PORT = "61756";
+      SUB_STORE_BACKEND_MERGE = "true";
+      PORT = "13476";
       HOST = "127.0.0.1";
     };
     volumes = [
