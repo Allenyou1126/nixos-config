@@ -90,7 +90,7 @@
       limont = {
         addressV4 = "172.20.5.65";
         addressV6 = "fd9f:3222:a7b7::1";
-        localLinkAddressV6 = "fe80::88:2";
+        localLinkAddressV6 = "fe80::88";
         endpoint = "150.241.207.40:21056";
         publicKey = "YjnCVWBsTBoslPqJ88ao+bzHsDFj2BezVW5qrvcLtiE=";
         listenPort = 20088;
