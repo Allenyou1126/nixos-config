@@ -45,7 +45,7 @@ in
         # lap-yenner
         {
           presharedKeyFile = config.age.secrets.lap-yenner-wireguardPresharedKeyFile.path;
-          publicKey = "o8OVSPXZcoptTO6JIKzYadMqNLFeWV8UhlJVCWnUxFk=";
+          publicKey = "NxzICbCOLhuhE+ukXgU15e7UTqcQvJn1pH+ja4KuQgs=";
           allowedIPs = [
             "192.168.103.4/32"
           ];
