@@ -16,6 +16,9 @@
         name = "grafana";
         password = "$__file{${config.age.secrets.grafana-db-password.path}}";
       };
+      security = {
+        secret_key = "SW2YcwTIb9zpOOhoPsMm";
+      };
     };
   };
   networking.firewall.extraCommands = ''
