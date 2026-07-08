@@ -17,7 +17,7 @@
       core.editor = "vim";
     };
   };
-  programs.ssh.matchBlocks = {
+  programs.ssh.settings = {
     home-ebeling = {
       hostname = "192.168.100.60";
       port = 2333;

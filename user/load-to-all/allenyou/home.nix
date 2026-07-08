@@ -57,7 +57,7 @@
   programs.ssh.enable = true;
   programs.ssh.enableDefaultConfig = false;
 
-  programs.ssh.matchBlocks = {
+  programs.ssh.settings = {
     "*" = {
       serverAliveInterval = 120;
       serverAliveCountMax = 30;
