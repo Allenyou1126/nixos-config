@@ -12,42 +12,44 @@ let
   };
 in
 {
-  services.frp.instances."default" = {
-    enable = true;
-    role = "server";
+  services.frp = {
     package = pkgs.frp;
-    settings = {
-      bindAddr = "0.0.0.0";
-      bindPort = listenPort;
-      quicBindPort = listenPort;
+    instances."default" = {
+      enable = true;
+      role = "server";
+      settings = {
+        bindAddr = "0.0.0.0";
+        bindPort = listenPort;
+        quicBindPort = listenPort;
 
-      transport.maxPoolCount = 2000;
-      transport.tcpMux = true;
-      transport.tcpMuxKeepaliveInterval = 60;
-      transport.tcpKeepalive = 7200;
-      transport.tls.force = false;
+        transport.maxPoolCount = 2000;
+        transport.tcpMux = true;
+        transport.tcpMuxKeepaliveInterval = 60;
+        transport.tcpKeepalive = 7200;
+        transport.tls.force = false;
 
-      log.to = "/dev/stdout";
-      log.level = "info";
-      log.disablePrintColor = false;
+        log.to = "/dev/stdout";
+        log.level = "info";
+        log.disablePrintColor = false;
 
-      webServer.addr = "0.0.0.0";
-      webServer.port = 9500;
-      enablePrometheus = true;
+        webServer.addr = "0.0.0.0";
+        webServer.port = 9500;
+        enablePrometheus = true;
 
-      auth.method = "token";
-      auth.tokenSource = {
-        type = "file";
-        file = {
-          path = config.age.secrets.frp-token.path;
+        auth.method = "token";
+        auth.tokenSource = {
+          type = "file";
+          file = {
+            path = config.age.secrets.frp-token.path;
+          };
         };
+        allowPorts = [
+          allowedPortRange
+        ];
+        maxPortsPerClient = 8;
+        udpPacketSize = 1500;
+        natholeAnalysisDataReserveHours = 168;
       };
-      allowPorts = [
-        allowedPortRange
-      ];
-      maxPortsPerClient = 8;
-      udpPacketSize = 1500;
-      natholeAnalysisDataReserveHours = 168;
     };
   };
   networking.firewall.extraCommands = ''
