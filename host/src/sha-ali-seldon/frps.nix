@@ -12,7 +12,7 @@ let
   };
 in
 {
-  services.frp = {
+  services.frp.instances."default" = {
     enable = true;
     role = "server";
     package = pkgs.frp;
