@@ -35,5 +35,8 @@ allenyou-secrets:
   };
   gotify-secrets.file = "${allenyou-secrets}/gotify-secrets.hkg-dog-darell.age";
   sub-store-secrets.file = "${allenyou-secrets}/sub-store-secrets.hkg-dog-darell.age";
-  hermes-env.file = "${allenyou-secrets}/hermes-env.hkg-dog-darell.age";
+  hermes-env = {
+    file = "${allenyou-secrets}/hermes-env.hkg-dog-darell.age";
+    mode = "0444";
+  };
 }
