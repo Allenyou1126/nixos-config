@@ -30,6 +30,7 @@
     ./apps/openwebui.nix
     ./apps/gotify.nix
     ./apps/sub-store.nix
+    ./apps/hermes
   ];
   system.allenyou.motd.description = "Application server.";
   environment.systemPackages = with pkgs; [
