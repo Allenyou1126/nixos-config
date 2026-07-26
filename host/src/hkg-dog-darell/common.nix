@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 ## Application server
 # App:
 
 {
   imports = [
+    inputs.hermes-agent.nixosModules.default
     ../../../modules/boot/bios-grub.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
