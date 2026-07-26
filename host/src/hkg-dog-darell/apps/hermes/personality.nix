@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  services.hermes-agent = {
+  services.hermes-agent.documents = {
     "SOUL.md" = ./SOUL.md;
   };
 }
