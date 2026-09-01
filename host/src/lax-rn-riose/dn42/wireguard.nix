@@ -151,6 +151,14 @@
         publicKey = "x7eIcf6v/9Sbg459f6x+EId/Uk7a6GJbJHj+VdWqcEM=";
         listenPort = 23747;
       };
+      luocynet = {
+        addressV4 = "172.23.126.2";
+        addressV6 = "fd00:1145:1419::239";
+        endpoint = "jp1.dn42.luocynet.com:21056";
+        publicKey = "4mrkVld0RCE5Tkn0v0xkiyMiT+cDQSRfL6AoMb3rzQg=";
+        listenPort = 21857;
+        localLinkAddressV6 = "fe80::1857:239";
+      };
     };
   };
   services.prometheus.exporters.wireguard = {

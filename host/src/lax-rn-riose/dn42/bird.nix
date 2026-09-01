@@ -138,6 +138,12 @@
         neighborV6 = "fe80::3747";
         multiProtocolV6 = true;
       };
+      luocynet = {
+        neighborAS = 4242421857;
+        neighborInterface = "dn42-luocynet";
+        neighborV6 = "fe80::1857:239";
+        multiProtocolV6 = true;
+      };
     };
   };
   services.prometheus.exporters.bird = {
