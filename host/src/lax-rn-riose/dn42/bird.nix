@@ -140,7 +140,7 @@
       };
       luocynet = {
         neighborAS = 4242421857;
-        neighborInterface = "dn42-luocynet";
+        networkInterface = "dn42-luocynet";
         neighborV6 = "fe80::1857:239";
         multiProtocolV6 = true;
       };
