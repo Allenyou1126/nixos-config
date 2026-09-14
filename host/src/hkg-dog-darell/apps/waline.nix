@@ -5,7 +5,7 @@
     image = "lizheming/waline:latest";
     cmd = [
       "node"
-      "node_modules/@waline/vercel/vanilla.js"
+      "vanilla.js"
       "15656"
     ];
     networks = [ "host" ];
