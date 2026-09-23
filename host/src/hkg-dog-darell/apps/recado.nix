@@ -7,7 +7,7 @@
     port = 28993;
     settings = {
       NODE_ENV = "production";
-      LOG_LEVEL = "info";
+      LOG_LEVEL = "debug";
       OIDC_ISSUER_URL = "https://auth.allenyou.top";
       OIDC_CLIENT_ID = "392035304413937458";
       OIDC_CLIENT_SECRET = "nosecret_use_pkce";
