@@ -43,7 +43,7 @@ let
             {
               nixpkgs.overlays = [
                 (final: prev: {
-                  allenyou-nur = inputs.allenyou-nur.packages."${prev.system}";
+                  allenyou-nur = inputs.allenyou-nur.packages.${prev.stdenv.hostPlatform.system};
                 })
               ];
               nixpkgs.config.allowUnfree = true;
