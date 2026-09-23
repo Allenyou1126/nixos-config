@@ -4,9 +4,9 @@
   imports = [ inputs.allenyou-nur.nixosModules.recado ];
   services.recado = {
     enable = true;
+    port = 28993;
     settings = {
       NODE_ENV = "production";
-      PORT = "28993";
       LOG_LEVEL = "info";
       OIDC_ISSUER_URL = "https://auth.allenyou.top";
       OIDC_CLIENT_ID = "392035304413937458";
