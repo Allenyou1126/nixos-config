@@ -39,4 +39,5 @@ allenyou-secrets:
     file = "${allenyou-secrets}/hermes-env.hkg-dog-darell.age";
     mode = "0444";
   };
+  recado-env.file = "${allenyou-secrets}/recado-env.hkg-dog-darell.age";
 }
