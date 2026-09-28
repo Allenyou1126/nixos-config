@@ -13,7 +13,9 @@
       OIDC_CLIENT_SECRET = "nosecret_use_pkce";
       OIDC_REDIRECT_URI = "https://recado.allenyou.wang/auth/callback";
       OIDC_ROLE_PREFIX = "recado";
-      OIDC_ROLE_CLAIM = "roles";
+      # ZITADEL 断言角色时用的 claim（默认值 roles 在它这里永远是空的），
+      # 且需要项目里开启 "Assert Roles on Authentication"。
+      OIDC_ROLE_CLAIM = "urn:zitadel:iam:org:project:roles";
       PUBLIC_BASE_URL = "https://recado.allenyou.wang";
       SESSION_TTL_HOURS = "168";
     };
