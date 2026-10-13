@@ -9,7 +9,6 @@
     ../../../modules/boot/bios-grub.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
-    ../../../modules/wakapi.nix
     ./hardware-configuration.nix
     ./exporters.nix
     ./nginx.nix
