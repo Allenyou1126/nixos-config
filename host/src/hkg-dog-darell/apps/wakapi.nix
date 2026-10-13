@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  services.allenyou.wakapi = {
+  services.wakapi = {
     enable = true;
     database = {
       dialect = "postgres";
