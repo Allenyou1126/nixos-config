@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  inputs,
+  stdenv,
+  ...
+}:
 
 {
   imports = [
@@ -12,6 +17,7 @@
     addToSystemPackages = true;
     stateDir = "/var/lib/hermes";
     workingDirectory = "/var/lib/hermes/workspace";
+    package = inputs.hermes-agent.packages.${stdenv.hostPlatform.system}.minimal;
     settings = {
       human_delay.mode = "natural";
       security.redact_secrets = true;
