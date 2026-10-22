@@ -17,7 +17,12 @@
     addToSystemPackages = true;
     stateDir = "/var/lib/hermes";
     workingDirectory = "/var/lib/hermes/workspace";
-    package = inputs.hermes-agent.packages.${stdenv.hostPlatform.system}.minimal;
+    package = inputs.hermes-agent.packages.${stdenv.hostPlatform.system}.minimal.override {
+      extraDependencyGroups = [
+        "messaging"
+        "mcp"
+      ];
+    };
     settings = {
       human_delay.mode = "natural";
       security.redact_secrets = true;
