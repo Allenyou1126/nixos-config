@@ -10,6 +10,8 @@
     enable = true;
     environmentFiles = [ config.age.secrets.hermes-env.path ];
     addToSystemPackages = true;
+    stateDir = "/var/lib/hermes";
+    workingDirectory = "/var/lib/hermes/workspace";
     settings = {
       human_delay.mode = "natural";
       security.redact_secrets = true;
