@@ -11,7 +11,7 @@
         owner = "Visol-456";
         repo = "hermes-deepseek-search-provider";
         rev = "5c7756be43d539a6bade2f22e137e8b3f32bfe42";
-        hash = "sha256-8tKjSQajD3mUND1GaAuaWTcuyUpgcGsh5V+l4ibzC7U=";
+        hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
       })
     ];
   };
