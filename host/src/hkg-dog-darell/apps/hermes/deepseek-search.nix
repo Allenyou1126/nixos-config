@@ -3,6 +3,7 @@
 {
   services.hermes-agent = {
     settings = {
+      plugins.enabled = [ "web-deepseek-native" ];
       web.search_backend = "deepseek_native";
       web.extract_backend = "search_backend";
     };

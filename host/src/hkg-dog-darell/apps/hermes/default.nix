@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./disable-default-plugins.nix
     ./model.nix
     ./personality.nix
     ./deepseek-search.nix
