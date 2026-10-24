@@ -5,7 +5,7 @@
     settings = {
       plugins.enabled = [ "web-deepseek-native" ];
       web.search_backend = "deepseek_native";
-      web.extract_backend = "search_backend";
+      web.extract_backend = "deepseek_native";
     };
     extraPlugins = [
       (pkgs.fetchFromGitHub {
