@@ -54,8 +54,8 @@
         addressV4 = "172.22.76.185";
         addressV6 = "fdbc:f9dc:67ad:3::1";
         localLinkAddressV6 = "fe80::2547";
-        endpoint = "v4.v-ps-sjc.lantian.pub:21056";
-        publicKey = "zyATu8FW392WFFNAz7ZH6+4TUutEYEooPPirwcoIiXo=";
+        endpoint = "bwg-lax.lantian.pub:21056";
+        publicKey = "DipkJyCAKPpGTEs66PuBfWYb6JcnHDaurDJW0ofTSWo=";
         listenPort = 22547;
       };
       duststars = {
