@@ -24,14 +24,15 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "recado": "recado"
       },
       "locked": {
-        "lastModified": 1790612614,
-        "narHash": "sha256-0/qX4rEiTc4sGzrzoyYrbtl35VIUc2GY4cDieDkL/9k=",
+        "lastModified": 1793339812,
+        "narHash": "sha256-G6YdqFWLaHqPKE+OkCSOOx2u46GkSfCyMhLNLoOoD3w=",
         "owner": "Allenyou1126",
         "repo": "nur-packages",
-        "rev": "0926d88bccef4a1cf53e08a6b9684c2374077b3b",
+        "rev": "480e881259a16b54d88aa29a86e11f799c07e2ae",
         "type": "github"
       },
       "original": {
@@ -206,6 +207,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1790046670,
+        "narHash": "sha256-MYiI+CzL0tuWgRPjGsKCDHqYs2T3OzMlMQWOYWG0qso=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6774f7bc253789b113a4f39285dc0fa100abeacc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1793183032,
         "narHash": "sha256-56mFMf8heLNfYhcgbrh4GpN5x+G9JOfTFXZC3n6w0qM=",
         "owner": "nixos",
@@ -220,7 +237,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1792773339,
         "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
@@ -238,7 +255,7 @@
     },
     "nokoribi-agent": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1793343463,
@@ -325,6 +342,24 @@
         "type": "github"
       }
     },
+    "recado": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1790612051,
+        "narHash": "sha256-6xaMgeMpJ5CVHlz6Hzi9dHG62z3v765ej+oXKVmr/I8=",
+        "owner": "Allenyou1126",
+        "repo": "recado",
+        "rev": "bc595277ce35fb5f9e8e8cc1f61074c0eda28a37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Allenyou1126",
+        "repo": "recado",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -334,7 +369,7 @@
         "hermes-agent": "hermes-agent",
         "home-manager": "home-manager_2",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nokoribi-agent": "nokoribi-agent"
       }
     },

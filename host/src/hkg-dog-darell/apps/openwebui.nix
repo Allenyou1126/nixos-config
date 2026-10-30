@@ -3,6 +3,7 @@
 {
   virtualisation.oci-containers.containers.open-webui = {
     image = "ghcr.io/open-webui/open-webui:main";
+    pull = "newer";
     networks = [ "host" ];
     volumes = [ "openwebui:/app/backend/data" ];
     environment = {
