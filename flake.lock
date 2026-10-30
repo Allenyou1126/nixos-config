@@ -241,11 +241,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1793341022,
-        "narHash": "sha256-gyna/EE9BItpX4s116KAFg3CUt1imsCiI6SOBo0oF88=",
+        "lastModified": 1793343463,
+        "narHash": "sha256-/Y68l33SqtjmdBNrAsnoA9ZWhIum9Jp/q6ZDUpfxcNI=",
         "owner": "Allenyou1126",
         "repo": "nokoribi-agent",
-        "rev": "0602738dcc250cca54b358daa05b00c1ccf75e81",
+        "rev": "2b70c5f0ea42cf11d307d80b1c89d4476d4603ff",
         "type": "github"
       },
       "original": {
