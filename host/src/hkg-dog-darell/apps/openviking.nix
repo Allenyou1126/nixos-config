@@ -12,6 +12,7 @@
         api_base = "https://api.siliconflow.cn/v1";
         model = "BAAI/bge-m3";
         input = "text";
+        dimension = 1024;
         api_key = "\${OPENVIKING_EMBEDDING_API_KEY}"; # 由 environmentFile 展开
       };
       vlm = {
