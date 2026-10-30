@@ -29,7 +29,8 @@
     ./apps/openwebui.nix
     ./apps/gotify.nix
     ./apps/sub-store.nix
-    ./apps/hermes
+    # ./apps/hermes
+    ./apps/nokoribi.nix
     ./apps/recado.nix
   ];
   system.allenyou.motd.description = "Application server.";

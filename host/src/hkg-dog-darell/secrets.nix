@@ -40,4 +40,5 @@ allenyou-secrets:
     mode = "0444";
   };
   recado-env.file = "${allenyou-secrets}/recado-env.hkg-dog-darell.age";
+  nokoribi-env.file = "${allenyou-secrets}/nokoribi-env.hkg-dog-darell.age";
 }
