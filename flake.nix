@@ -21,7 +21,6 @@
     };
     nokoribi-agent = {
       url = "github:Allenyou1126/nokoribi-agent";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
