@@ -45,6 +45,11 @@
       questionTimeoutSeconds = 300;
     };
 
+    memory.openviking = {
+      enable = true;
+      endpoint = "http://127.0.0.1:1933";
+    };
+
     hosts = {
       default = "sandbox:default";
       local = {

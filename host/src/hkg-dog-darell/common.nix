@@ -30,6 +30,7 @@
     ./apps/sub-store.nix
     # ./apps/hermes
     ./apps/nokoribi.nix
+    ./apps/openviking.nix
     ./apps/recado.nix
   ];
   system.allenyou.motd.description = "Application server.";
