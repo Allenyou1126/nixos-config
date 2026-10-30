@@ -41,4 +41,5 @@ allenyou-secrets:
   };
   recado-env.file = "${allenyou-secrets}/recado-env.hkg-dog-darell.age";
   nokoribi-env.file = "${allenyou-secrets}/nokoribi-env.hkg-dog-darell.age";
+  openviking-env.file = "${allenyou-secrets}/openviking-env.hkg-dog-darell.age";
 }
