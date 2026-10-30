@@ -7,6 +7,7 @@
 
 {
   imports = [
+    inputs.hermes-agent.nixosModules.default
     ./disable-default-plugins.nix
     ./model.nix
     ./personality.nix
