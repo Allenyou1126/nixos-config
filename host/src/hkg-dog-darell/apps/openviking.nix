@@ -1,7 +1,7 @@
 { inputs, config, ... }:
 
 {
-  imports = [ inputs.nur-allenyou.nixosModules.openviking ];
+  imports = [ inputs.allenyou-nur.nixosModules.openviking ];
   services.openviking = {
     enable = true;
     environmentFile = config.age.secrets.openviking-env.path;
