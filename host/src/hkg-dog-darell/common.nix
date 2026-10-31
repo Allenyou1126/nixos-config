@@ -24,6 +24,7 @@
     ./apps/lotusland.nix
     ./apps/blog.nix
     ./apps/zlight106-blog.nix
+    ./apps/zlight106-chooser.nix
     ./apps/umami.nix
     ./apps/openwebui.nix
     ./apps/gotify.nix
