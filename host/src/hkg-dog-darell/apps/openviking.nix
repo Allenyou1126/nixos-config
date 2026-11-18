@@ -2,6 +2,15 @@
 
 {
   imports = [ inputs.allenyou-nur.nixosModules.openviking ];
+
+  # TODO(2026-11-19): python-jose 3.5.0 被 nixpkgs 标记为 insecure（CVE-2026-120459，
+  # 空 HMAC key 可导致 JWT 伪造；上游 3.5.0 为最新版，暂无修复版本）。
+  # 当前运行中的 openviking 已包含同一版本，且服务仅监听 127.0.0.1、auth_mode = "dev"。
+  # 待 nixpkgs 撤销 insecure 标记或上游发布修复版本后，删除此例外。
+  nixpkgs.config.permittedInsecurePackages = [
+    "python3.13-python-jose-3.5.0"
+  ];
+
   services.openviking = {
     enable = true;
     environmentFile = config.age.secrets.openviking-env.path;
