@@ -15,10 +15,6 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hermes-agent = {
-      url = "github:NousResearch/hermes-agent";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nokoribi-agent = {
       url = "github:Allenyou1126/nokoribi-agent";
     };
