@@ -68,6 +68,6 @@ in
     port = 9090;
   };
   networking.firewall.extraCommands = ''
-    iptables -A INPUT -s 139.196.157.228 -p tcp -m tcp --dport 9090 -j ACCEPT
+    iptables -A INPUT -s 106.14.99.198 -p tcp -m tcp --dport 9090 -j ACCEPT
   '';
 }
