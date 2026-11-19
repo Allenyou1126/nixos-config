@@ -23,10 +23,10 @@ allenyou-secrets:
     mode = "755";
     owner = "zitadel";
   };
-  # grafana-db-password = {
-  #   file = "${allenyou-secrets}/grafana-db-password.sha-ali-gaal.age";
-  #   mode = "500";
-  #   owner = "grafana";
-  #   group = "grafana";
-  # };
+  grafana-db-password = {
+    file = "${allenyou-secrets}/grafana-db-password.sha-ali-gaal.age";
+    mode = "500";
+    owner = "grafana";
+    group = "grafana";
+  };
 }
