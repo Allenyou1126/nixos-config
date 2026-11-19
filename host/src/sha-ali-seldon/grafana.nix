@@ -23,7 +23,7 @@
   };
   services.nginx.virtualHosts.grafana = {
     forceSSL = true;
-    serverName = "auth.allenyou.top";
+    serverName = "grafana.allenyou.top";
     locations."/" = {
       proxyPass = "http://127.0.0.1:39998";
       proxyWebsockets = true;
