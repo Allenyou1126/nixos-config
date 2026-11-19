@@ -64,11 +64,7 @@ in
   };
   services.prometheus.exporters.wireguard = {
     enable = true;
-    withRemoteIp = true;
     latestHandshakeDelay = true;
   };
-  networking.firewall.extraCommands = ''
-    iptables -A INPUT -s 172.18.63.50 -p tcp -m tcp --dport 9586 -j ACCEPT
-  '';
   networking.firewall.allowedUDPPorts = [ port ];
 }

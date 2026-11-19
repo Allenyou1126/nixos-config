@@ -37,17 +37,6 @@ in
         '';
         default = true;
       };
-      grafana = {
-        forceSSL = true;
-        serverName = "grafana.allenyou.top";
-        locations."/" = {
-          proxyPass = "http://172.18.63.50:39998";
-          proxyWebsockets = true;
-          recommendedProxySettings = true;
-        };
-        sslCertificate = "/var/ssl/allenyou.top.crt";
-        sslCertificateKey = "/var/ssl/allenyou.top.key";
-      };
     };
   };
   users.users = {

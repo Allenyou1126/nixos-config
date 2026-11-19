@@ -9,9 +9,7 @@
     ../../../modules/prometheus/blackbox-exporter.nix
     ./hardware-configuration.nix
     ./postgres.nix
-    ./zitadel.nix
-    ./prometheus.nix
-    ./grafana.nix
+    ./exports.nix
   ];
   system.allenyou.motd.description = "Test server";
   environment.systemPackages = with pkgs; [

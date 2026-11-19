@@ -10,7 +10,6 @@
     ./wireguard.nix
     ./frps.nix
     ./nginx.nix
-    ./exporters.nix
     ./postgres.nix
     ./zitadel.nix
   ];
