@@ -12,6 +12,8 @@
     ./nginx.nix
     ./postgres.nix
     ./zitadel.nix
+    ./prometheus.nix
+    ./grafana.nix
   ];
   boot.loader.efi.efiSysMountPoint = "/efi";
   system.allenyou.motd.description = "Network gateway server.";
