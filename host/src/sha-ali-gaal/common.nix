@@ -7,7 +7,7 @@
     ../../../modules/common.nix
     ../../../modules/ssh.nix
     ./hardware-configuration.nix
-    ./exports.nix
+    ./exporters.nix
   ];
   system.allenyou.motd.description = "Test server";
   environment.systemPackages = with pkgs; [
