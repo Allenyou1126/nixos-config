@@ -6,7 +6,6 @@
     ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
-    ../../../modules/prometheus/blackbox-exporter.nix
     ./hardware-configuration.nix
     ./postgres.nix
     ./exports.nix

@@ -5,6 +5,7 @@
     ../../../modules/boot/efi-systemd.nix
     ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
+    ../../../modules/prometheus/blackbox-exporter.nix
     ../../../modules/ssh.nix
     ./hardware-configuration.nix
     ./wireguard.nix
