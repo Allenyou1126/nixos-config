@@ -4,7 +4,7 @@
   services.prometheus = {
     enable = true;
     listenAddress = "127.0.0.1";
-    port = 9090;
+    port = 9333;
     globalConfig = {
       scrape_interval = "5s";
       evaluation_interval = "30s";
@@ -49,7 +49,7 @@
         job_name = "prometheus";
         static_configs = [
           {
-            targets = [ "127.0.0.1:9090" ];
+            targets = [ "127.0.0.1:9333" ];
             labels = {
               instance = "sha-ali-gaal";
               location = "sha";
