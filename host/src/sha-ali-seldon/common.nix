@@ -12,7 +12,7 @@
     ./nginx.nix
     ./exporters.nix
     ./postgres.nix
-    # ./zitadel.nix
+    ./zitadel.nix
   ];
   boot.loader.efi.efiSysMountPoint = "/efi";
   system.allenyou.motd.description = "Network gateway server.";
