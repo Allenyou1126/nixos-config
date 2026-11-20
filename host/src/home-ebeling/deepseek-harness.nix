@@ -26,7 +26,7 @@ in
   ];
 
   environment.shellAliases = {
-    dsh = "sudo -u deepseek-harness -E ${dsh-sudo}";
+    dsh = "sudo -u deepseek-harness ${dsh-sudo}";
   };
   security.sudo.extraRules = [
     {
