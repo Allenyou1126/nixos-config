@@ -43,6 +43,13 @@
               location = "hkg";
             };
           }
+          {
+            targets = [ "192.168.100.60:9100" ];
+            labels = {
+              instance = "home-ebeling";
+              location = "zzz";
+            };
+          }
         ];
       }
       {
