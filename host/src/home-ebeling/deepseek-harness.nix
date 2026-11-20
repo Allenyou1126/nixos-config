@@ -37,7 +37,7 @@ in
       ];
       commands = [
         {
-          command = "/run/current-system/sw/bin/systemctl ^(start|stop|restart)$ ^deepseek-harness(\.service)$";
+          command = "/run/current-system/sw/bin/systemctl ^(start|stop|restart)$ ^deepseek-harness(\\.service)?$";
           options = [
             "NOPASSWD"
           ];
