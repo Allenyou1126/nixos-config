@@ -107,14 +107,58 @@ in
     environment = {
       DSH_HOME = "${dsh-home}";
       HOME = "${home}";
+      SHELL = "${pkgs.bash}/bin/bash";
+      LANG = "C.UTF-8";
     };
 
     path = with pkgs; [
+      bash
+      tmux
       pnpm
       git
+      gawk
+
+      diffutils
+      patch
+
+      gnutar
+      gzip
+      xz
+      bzip2
+      zstd
+      unzip
+      zip
+
+      procps
+      psmisc
+      util-linux
+
+      file
+      which
+
       wget
       curl
       gh
+
+      ripgrep
+      fd
+      jq
+      yq-go
+
+      openssh
+      rsync
+      python3
+
+      gnupg
+      git-lfs
+
+      tree
+
+      nix
+
+      openssl
+
+      iproute2
     ];
   };
   networking.firewall.allowedTCPPorts = [ port ];
