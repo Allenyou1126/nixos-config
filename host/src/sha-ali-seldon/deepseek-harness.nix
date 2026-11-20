@@ -55,6 +55,7 @@
     provider = "oidc";
     oidcIssuerUrl = "https://auth.allenyou.top";
     clientID = "400434181529737414";
+
     clientSecretFile = config.age.secrets.dsh-oauth2-client-secret.path;
     cookie.secretFile = config.age.secrets.dsh-oauth2-cookie-secret.path;
     cookie.secure = true;
@@ -64,7 +65,9 @@
     trustedProxyIP = [ "127.0.0.1" ];
     scope = "openid profile email";
     extraConfig.skip-provider-button = true;
-    extraConfig.code-challenge-method = "S256";
+    extraConfig.user-id-claim = "sub";
     email.domains = [ "*" ];
+    provider-display-name = "Allenyou Auth";
+    passAccessToken = true;
   };
 }
