@@ -41,12 +41,7 @@ let
           system = system;
           modules = [
             {
-              nixpkgs.overlays = [
-                # TODO(2026-11-19): 临时 overlay，将 nginxMainline 提升到 1.31.9。
-                # 在下次修改 flake.lock / 升级 nixpkgs 前检查 nixos-26.05 是否已提供 1.31.9，
-                # 若已提供则移除此 import 并删除 modules/overlays/nginx-1.31.9.nix。
-                (import ../modules/overlays/nginx-1.31.9.nix)
-              ];
+              nixpkgs.overlays = [ ];
               nixpkgs.config.allowUnfree = true;
             }
             agenix.nixosModules.default
