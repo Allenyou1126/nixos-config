@@ -106,7 +106,16 @@ in
     };
     environment = {
       DSH_HOME = "${dsh-home}";
+      HOME = "${home}";
     };
+
+    path = with pkgs; [
+      pnpm
+      git
+      wget
+      curl
+      gh
+    ];
   };
   networking.firewall.allowedTCPPorts = [ port ];
 }
