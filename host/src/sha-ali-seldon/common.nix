@@ -15,6 +15,7 @@
     ./zitadel.nix
     ./prometheus.nix
     ./grafana.nix
+    ./deepseek-harness.nix
   ];
   boot.loader.efi.efiSysMountPoint = "/efi";
   system.allenyou.motd.description = "Network gateway server.";
