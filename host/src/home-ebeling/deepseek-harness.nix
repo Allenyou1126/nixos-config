@@ -11,6 +11,13 @@ let
   home = "/var/lib/deepseek-harness";
 
   dsh-bin = "${dsh}/bin/dsh";
+
+  dsh-sudo = pkgs.writeShellScript "dsh-sudo" ''
+    export HOME=${home}
+    export DSH_HOME=${home}
+    export PATH=/run/current-system/sw/bin:$PATH
+    exec ${dsh}/bin/dsh "$@"
+  '';
 in
 {
   environment.systemPackages = with pkgs; [
@@ -19,17 +26,17 @@ in
   ];
 
   environment.shellAliases = {
-    dsh = "sudo -u deepseek-harness -E DSH_HOME=${home} ${dsh-bin}";
+    dsh = "sudo -u deepseek-harness -E ${dsh-sudo}";
   };
   security.sudo.extraRules = [
     {
       groups = [
-        "wheels"
+        "wheel"
       ];
       runAs = "deepseek-harness";
       commands = [
         {
-          command = dsh-bin;
+          command = dsh-sudo;
           options = [
             "NOPASSWD"
           ];
@@ -38,7 +45,7 @@ in
     }
     {
       groups = [
-        "wheels"
+        "wheel"
       ];
       commands = [
         {
