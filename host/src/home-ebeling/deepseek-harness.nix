@@ -56,7 +56,6 @@ in
 
   systemd.services.deepseek-harness = {
     description = "DeepSeek Harness Web UI (profile: web-server)";
-    documentation = "man:systemd.special(7)";
 
     startLimitBurst = 5;
     startLimitIntervalSec = 300;
