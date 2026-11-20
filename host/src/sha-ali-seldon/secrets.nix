@@ -29,7 +29,12 @@ allenyou-secrets:
     owner = "grafana";
     group = "grafana";
   };
-  deepseek-harness-secret.file = "${allenyou-secrets}/deepseek-harness-secret-nginx-conf.sha-ali-seldon.age";
+  deepseek-harness-secret = {
+    file = "${allenyou-secrets}/deepseek-harness-secret-nginx-conf.sha-ali-seldon.age";
+    mode = "600";
+    owner = "nginx";
+    group = "nginx";
+  };
   dsh-oauth2-cookie-secret.file = "${allenyou-secrets}/deepseek-oauth2-cookie-secret.sha-ali-seldon.age";
   dsh-oauth2-client-secret.file = "${allenyou-secrets}/deepseek-oauth2-client-secret.sha-ali-seldon.age";
 }
