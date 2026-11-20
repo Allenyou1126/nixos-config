@@ -9,12 +9,13 @@ let
   domain = "dsh.allenyou.top";
 
   home = "/var/lib/deepseek-harness";
+  dsh-home = "${home}/.dsh";
 
   dsh-bin = "${dsh}/bin/dsh";
 
   dsh-sudo = pkgs.writeShellScript "dsh-sudo" ''
     export HOME=${home}
-    export DSH_HOME=${home}
+    export DSH_HOME=${dsh-home}
     export PATH=/run/current-system/sw/bin:$PATH
     exec ${dsh}/bin/dsh "$@"
   '';
@@ -80,7 +81,7 @@ in
     ];
 
     preStart = "
-      test -d ${home}/profiles/web-server || ${dsh-bin} --profile web-server --from-default-profile web --no-open --dump-config
+      test -d ${dsh-home}/profiles/web-server || ${dsh-bin} --profile web-server --from-default-profile web --no-open --dump-config
     ";
 
     serviceConfig = {
@@ -104,7 +105,7 @@ in
       EnvironmentFile = config.age.secrets.deepseek-harness-secret.path;
     };
     environment = {
-      DSH_HOME = "${home}";
+      DSH_HOME = "${dsh-home}";
     };
   };
   networking.firewall.allowedTCPPorts = [ port ];
