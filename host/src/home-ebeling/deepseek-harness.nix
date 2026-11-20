@@ -13,8 +13,13 @@ let
   dsh-bin = "${dsh}/bin/dsh";
 in
 {
+  environment.systemPackages = with pkgs; [
+    pnpm
+    gh
+  ];
+
   environment.shellAliases = {
-    dsh = "sudo -u deepseek-harness ${dsh-bin}";
+    dsh = "sudo -u deepseek-harness -E DSH_HOME=${home} ${dsh-bin}";
   };
   security.sudo.extraRules = [
     {
