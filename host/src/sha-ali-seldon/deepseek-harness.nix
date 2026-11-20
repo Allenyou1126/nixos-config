@@ -10,7 +10,7 @@
       recommendedProxySettings = false;
       extraConfig = "
         auth_request /oauth2/auth;
-        error_page 401 = @oauth2_sign;
+        error_page 401 = @oauth2_signin;
 
         proxy_set_header        Host $host;
         proxy_set_header        X-Real-IP $remote_addr;
@@ -63,5 +63,7 @@
     trustedProxyIP = [ "127.0.0.1" ];
     scope = "openid profile email";
     extraConfig.skip-provider-button = true;
+    extraConfig.code-challenge-method = "S256";
+    email.domains = [ "*" ];
   };
 }
