@@ -67,7 +67,7 @@
     extraConfig.skip-provider-button = true;
     extraConfig.user-id-claim = "sub";
     email.domains = [ "*" ];
-    provider-display-name = "Allenyou Auth";
+    extraConfig.provider-display-name = "Allenyou Auth";
     passAccessToken = true;
   };
 }
