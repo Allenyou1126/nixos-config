@@ -30,6 +30,10 @@
       proxyWebsockets = true;
       recommendedProxySettings = true;
     };
+    # Android App Links 校验文件，直接原样返回
+    locations."= /.well-known/assetlinks.json" = {
+      alias = "${./assetlinks.json}";
+    };
     sslCertificate = "/var/ssl/allenyou.top.crt";
     sslCertificateKey = "/var/ssl/allenyou.top.key";
   };

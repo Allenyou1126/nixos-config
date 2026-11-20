@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "top.allenyou.dsh",
+      "sha256_cert_fingerprints": [
+        "f063a0d26dc9fd85b50760b61e955bc6e26ee25fd0dba4b39f98474001a6a1b0"
+      ]
+    }
+  }
+]
