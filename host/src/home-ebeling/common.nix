@@ -6,6 +6,7 @@
     ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
+    ./deepseek-harness.nix
     ./hardware-configuration.nix
     ./exporters.nix
   ];

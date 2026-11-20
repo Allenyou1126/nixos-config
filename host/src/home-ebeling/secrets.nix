@@ -7,4 +7,5 @@ allenyou-secrets:
     path = "/etc/frp/token";
     mode = "444";
   };
+  deepseek-harness-secret.file = "${allenyou-secrets}/deepseek-harness-secret.home-ebeling.age";
 }
