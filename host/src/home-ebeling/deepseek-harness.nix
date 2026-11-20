@@ -36,7 +36,7 @@ in
       runAs = "deepseek-harness";
       commands = [
         {
-          command = dsh-sudo;
+          command = toString dsh-sudo;
           options = [
             "NOPASSWD"
           ];
