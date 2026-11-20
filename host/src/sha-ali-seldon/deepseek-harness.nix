@@ -55,9 +55,7 @@
     provider = "oidc";
     oidcIssuerUrl = "https://auth.allenyou.top";
     clientID = "400434181529737414";
-
-    clientSecretFile = config.age.secrets.dsh-oauth2-client-secret.path;
-    cookie.secretFile = config.age.secrets.dsh-oauth2-cookie-secret.path;
+    keyFile = config.age.secrets.dsh-oauth2-secret.path;
     cookie.secure = true;
     cookie.expire = "168h";
     redirectURL = "https://dsh.allenyou.top/oauth2/callback";

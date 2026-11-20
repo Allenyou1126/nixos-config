@@ -35,6 +35,5 @@ allenyou-secrets:
     owner = "nginx";
     group = "nginx";
   };
-  dsh-oauth2-cookie-secret.file = "${allenyou-secrets}/deepseek-oauth2-cookie-secret.sha-ali-seldon.age";
-  dsh-oauth2-client-secret.file = "${allenyou-secrets}/deepseek-oauth2-client-secret.sha-ali-seldon.age";
+  dsh-oauth2-secret.file = "${allenyou-secrets}/deepseek-oauth2-secret.sha-ali-seldon.age";
 }

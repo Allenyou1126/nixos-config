@@ -23,10 +23,10 @@
     "allenyou-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1795174588,
-        "narHash": "sha256-z+HXuh5JJ8kpBydtTRnyR1DRugfiv3bzSlPGdwaWiRo=",
+        "lastModified": 1795176539,
+        "narHash": "sha256-2b9RcJHZVOSFVLxxbLKbUWROHqJpr0f26qB0xzP7wlc=",
         "ref": "refs/heads/master",
-        "rev": "4d18f34aabdd3e92450e2049aded493230581e6f",
+        "rev": "8081c90aa5a326be0de07376d7c09a0cb2f314d9",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Allenyou1126/nixos-secret.git"
