@@ -29,7 +29,6 @@
     ./apps/openwebui.nix
     ./apps/gotify.nix
     ./apps/sub-store.nix
-    # ./apps/hermes
     ./apps/nokoribi.nix
     ./apps/openviking.nix
     ./apps/recado.nix

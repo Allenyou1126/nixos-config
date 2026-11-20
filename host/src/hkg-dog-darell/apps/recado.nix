@@ -1,7 +1,7 @@
 { config, inputs, ... }:
 
 {
-  imports = [ inputs.allenyou-nur.nixosModules.recado ];
+  imports = [ inputs.recado.nixosModules.default ];
   services.recado = {
     enable = true;
     port = 28993;

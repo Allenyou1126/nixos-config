@@ -1,7 +1,7 @@
-{ inputs, config, ... }:
+{ config, ... }:
 
 {
-  imports = [ inputs.allenyou-nur.nixosModules.openviking ];
+  imports = [ ../../../../modules/openviking.nix ];
 
   # TODO(2026-11-19): python-jose 3.5.0 被 nixpkgs 标记为 insecure（CVE-2026-120459，
   # 空 HMAC key 可导致 JWT 伪造；上游 3.5.0 为最新版，暂无修复版本）。
