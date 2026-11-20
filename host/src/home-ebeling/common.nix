@@ -6,7 +6,6 @@
     ../../../modules/nix-store-mirror.nix
     ../../../modules/common.nix
     ../../../modules/ssh.nix
-    ./astrbot.nix
     ./hardware-configuration.nix
   ];
   system.allenyou.motd.description = "Homelab server";
@@ -15,7 +14,6 @@
     wget
     git
   ];
-  users.users.allenyou.extraGroups = [ "docker" ];
   environment.variables.EDITOR = "vim";
   system.stateVersion = "25.11";
 }
