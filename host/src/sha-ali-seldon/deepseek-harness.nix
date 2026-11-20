@@ -23,7 +23,6 @@
         proxy_connect_timeout   3600;
         proxy_send_timeout      3600;
         proxy_read_timeout      3600;
-        proxy_http_version      1.1;
         proxy_buffering         off;
 
         include ${config.age.secrets.deepseek-harness-secret.path};
