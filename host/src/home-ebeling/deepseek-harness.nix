@@ -68,7 +68,7 @@ in
     ];
 
     preStart = "
-      test -d ${home}/profiles/web-server || ${dsh-bin} --profile web-server --from-default-profile web
+      test -d ${home}/profiles/web-server || ${dsh-bin} --profile web-server --from-default-profile web --no-open --dump-config
     ";
 
     serviceConfig = {
