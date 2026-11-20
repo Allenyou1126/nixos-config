@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 let
-  certimate = pkgs.callPackage ../../../../packages/certimage { };
+  certimate = pkgs.callPackage ../../../../packages/certimate { };
 in
 {
   systemd.services.certimate = {
