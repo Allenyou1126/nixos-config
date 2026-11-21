@@ -5,12 +5,12 @@ allenyou-secrets:
     file = "${allenyou-secrets}/oss-nix-cache-config.age";
     path = "/home/allenyou/.aws/config";
     owner = "allenyou";
-    mode = "0600";
+    mode = "0400";
   };
   aliyun-cli-config = {
     file = "${allenyou-secrets}/aliyun-cli-config.age";
     path = "/home/allenyou/.aliyun/config.json";
     owner = "allenyou";
-    mode = "0600";
+    mode = "0400";
   };
 }
