@@ -4,8 +4,8 @@
   services.miniflux = {
     enable = true;
     createDatabaseLocally = false;
+    adminCredentialsFile = config.age.secrets.miniflux-database-url.path;
     config = {
-      DATABASE_URL_FILE = config.age.secrets.miniflux-database-url.path;
       OAUTH2_PROVIDER = "oidc";
       OAUTH2_CLIENT_ID = "357363864414797618";
       OAUTH2_REDIRECT_URL = "https://rss.allenyou.wang/oauth2/oidc/callback";

@@ -3,42 +3,17 @@ allenyou-secrets:
 
 {
   wireguard-private-key-file.file = "${allenyou-secrets}/wg-private-key.hkg-dog-darell.age";
-  miniflux-database-url = {
-    file = "${allenyou-secrets}/miniflux-database-url.hkg-dog-darell.age";
-    mode = "0444";
-  };
-  vaultwarden-secrets = {
-    file = "${allenyou-secrets}/vaultwarden-secret.hkg-dog-darell.age";
-    mode = "0444";
-  };
+  miniflux-database-url.file = "${allenyou-secrets}/miniflux-database-url.hkg-dog-darell.age";
+  vaultwarden-secrets.file = "${allenyou-secrets}/vaultwarden-secret.hkg-dog-darell.age";
   wakapi-secrets.file = "${allenyou-secrets}/wakapi-secrets.hkg-dog-darell.age";
-  waline-secrets = {
-    file = "${allenyou-secrets}/waline-secrets.hkg-dog-darell.age";
-    mode = "0444";
-  };
-  waline-zlight106-secrets = {
-    file = "${allenyou-secrets}/waline-zlight106-secrets.hkg-dog-darell.age";
-    mode = "0444";
-  };
-  umami-app-secret = {
-    file = "${allenyou-secrets}/umami-app-secret.hkg-dog-darell.age";
-    mode = "0444";
-  };
-  umami-database-url = {
-    file = "${allenyou-secrets}/umami-database-url.hkg-dog-darell.age";
-    mode = "0444";
-  };
+  waline-secrets.file = "${allenyou-secrets}/waline-secrets.hkg-dog-darell.age";
+  waline-zlight106-secrets.file = "${allenyou-secrets}/waline-zlight106-secrets.hkg-dog-darell.age";
+  umami-app-secret.file = "${allenyou-secrets}/umami-app-secret.hkg-dog-darell.age";
+  umami-database-url.file = "${allenyou-secrets}/umami-database-url.hkg-dog-darell.age";
   webdav-password.file = "${allenyou-secrets}/webdav-password.hkg-dog-darell.age";
-  openwebui-secrets = {
-    file = "${allenyou-secrets}/open-webui-secrets.hkg-dog-darell.age";
-    mode = "0444";
-  };
+  openwebui-secrets.file = "${allenyou-secrets}/open-webui-secrets.hkg-dog-darell.age";
   gotify-secrets.file = "${allenyou-secrets}/gotify-secrets.hkg-dog-darell.age";
   sub-store-secrets.file = "${allenyou-secrets}/sub-store-secrets.hkg-dog-darell.age";
-  hermes-env = {
-    file = "${allenyou-secrets}/hermes-env.hkg-dog-darell.age";
-    mode = "0444";
-  };
   recado-env.file = "${allenyou-secrets}/recado-env.hkg-dog-darell.age";
   nokoribi-env.file = "${allenyou-secrets}/nokoribi-env.hkg-dog-darell.age";
   openviking-env.file = "${allenyou-secrets}/openviking-env.hkg-dog-darell.age";
