@@ -8,30 +8,26 @@ allenyou-secrets:
   lap-yenner-wireguardPresharedKeyFile.file = "${allenyou-secrets}/wg-psk-lap-yenner.sha-ali-seldon.age";
   frp-token = {
     file = "${allenyou-secrets}/frp-token.sha-ali-seldon.age";
-    path = "/etc/frp/token";
-    mode = "444";
   };
   zitadel-master-key = {
     file = "${allenyou-secrets}/zitadel-master-key.sha-ali-gaal.age";
-    path = "/etc/zitadel/master-key";
-    mode = "755";
+    mode = "400";
     owner = "zitadel";
   };
   zitadel-secret-settings = {
     file = "${allenyou-secrets}/zitadel-secret-config.sha-ali-gaal.age";
-    path = "/etc/zitadel/secret-settings.yml";
-    mode = "755";
+    mode = "400";
     owner = "zitadel";
   };
   grafana-db-password = {
     file = "${allenyou-secrets}/grafana-db-password.sha-ali-gaal.age";
-    mode = "500";
+    mode = "400";
     owner = "grafana";
     group = "grafana";
   };
   deepseek-harness-secret = {
     file = "${allenyou-secrets}/deepseek-harness-secret-nginx-conf.sha-ali-seldon.age";
-    mode = "600";
+    mode = "400";
     owner = "nginx";
     group = "nginx";
   };
