@@ -17,6 +17,9 @@ in
     instances."default" = {
       enable = true;
       role = "server";
+      environmentFiles = [
+        config.age.secrets.frp-token.path
+      ];
       settings = {
         bindAddr = "0.0.0.0";
         bindPort = listenPort;
@@ -37,12 +40,7 @@ in
         enablePrometheus = true;
 
         auth.method = "token";
-        auth.tokenSource = {
-          type = "file";
-          file = {
-            path = config.age.secrets.frp-token.path;
-          };
-        };
+        auth.token = "{{ .Envs.FRP_TOKEN }}";
         allowPorts = [
           allowedPortRange
         ];
