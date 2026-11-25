@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 
 {
   services.nginx.virtualHosts.deepseek-harness = {
@@ -9,9 +9,6 @@
       proxyWebsockets = true;
       recommendedProxySettings = false;
       extraConfig = "
-        auth_request /oauth2/auth;
-        error_page 401 = @oauth2_signin;
-
         proxy_set_header        Host $host;
         proxy_set_header        X-Real-IP $remote_addr;
         proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -24,48 +21,9 @@
         proxy_send_timeout      3600;
         proxy_read_timeout      3600;
         proxy_buffering         off;
-
-        include ${config.age.secrets.deepseek-harness-secret.path};
       ";
-    };
-    locations."/oauth2/" = {
-      proxyPass = "http://127.0.0.1:4180";
-      recommendedProxySettings = true;
-      extraConfig = ''
-        proxy_set_header X-Auth-Request-Redirect $request_uri;
-      '';
-    };
-    locations."/oauth2/auth" = {
-      proxyPass = "http://127.0.0.1:4180";
-      recommendedProxySettings = true;
-      extraConfig = ''
-        proxy_set_header Content-Length   "";
-        proxy_pass_request_body           off;
-      '';
-    };
-    locations."@oauth2_signin" = {
-      return = "302 /oauth2/sign_in?rd=$scheme://$host$request_uri";
     };
     sslCertificate = "/var/ssl/allenyou.top.crt";
     sslCertificateKey = "/var/ssl/allenyou.top.key";
-  };
-
-  services.oauth2-proxy = {
-    enable = true;
-    provider = "oidc";
-    oidcIssuerUrl = "https://auth.allenyou.top";
-    clientID = "400434181529737414";
-    keyFile = config.age.secrets.dsh-oauth2-secret.path;
-    cookie.secure = true;
-    cookie.expire = "168h";
-    redirectURL = "https://dsh.allenyou.top/oauth2/callback";
-    reverseProxy = true;
-    trustedProxyIP = [ "127.0.0.1" ];
-    scope = "openid profile email";
-    extraConfig.skip-provider-button = true;
-    extraConfig.user-id-claim = "sub";
-    email.domains = [ "*" ];
-    extraConfig.provider-display-name = "Allenyou Auth";
-    passAccessToken = true;
   };
 }

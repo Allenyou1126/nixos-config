@@ -25,11 +25,4 @@ allenyou-secrets:
     owner = "grafana";
     group = "grafana";
   };
-  deepseek-harness-secret = {
-    file = "${allenyou-secrets}/deepseek-harness-secret-nginx-conf.sha-ali-seldon.age";
-    mode = "400";
-    owner = "nginx";
-    group = "nginx";
-  };
-  dsh-oauth2-secret.file = "${allenyou-secrets}/deepseek-oauth2-secret.sha-ali-seldon.age";
 }

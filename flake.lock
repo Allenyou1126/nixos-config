@@ -187,11 +187,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1790612051,
-        "narHash": "sha256-6xaMgeMpJ5CVHlz6Hzi9dHG62z3v765ej+oXKVmr/I8=",
+        "lastModified": 1792315461,
+        "narHash": "sha256-tBc+cf+X1hLL0Q/iPlhDPBj4oeEnRbunGrIwpyRwleI=",
         "owner": "Allenyou1126",
         "repo": "recado",
-        "rev": "bc595277ce35fb5f9e8e8cc1f61074c0eda28a37",
+        "rev": "c9432eafb7819f810c05688ff7c9813d41d0a74b",
         "type": "github"
       },
       "original": {
