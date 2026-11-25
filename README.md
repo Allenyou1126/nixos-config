@@ -2,6 +2,8 @@
 
 这里是 Allenyou 的 NixOS Configuration 仓库，未来会有更多运维相关的内容被存放在这里。
 
+**本仓库内容已经迁移到 [Allenyou1126/terminus](https://github.com/Allenyou1126/terminus)**
+
 ## 主机名
 
 ### 规则
